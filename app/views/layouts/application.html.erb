@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lubelskie Dni Informatyki - Panel Uczestnika</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body id="home">
+    <% if notice %>
+        <div class="ui success message">
+            <i class="close icon"></i>
+            <div class="header">
+                <%= notice %>
+            </div>
+        </div>
+    <% end %>
+
+    <% if alert %>
+        <div class="ui error message">
+            <i class="close icon"></i>
+                <div class="header">Ups...</div>
+            <ul class="list">
+                <li><%= alert %></li>
+            </ul>
+        </div>
+    <% end %>
+
+
+    <div class="ui inverted page grid masthead segment">
+        <div class="column">
+            <div class="inverted secondary pointing ui menu">
+                <div class="header item"><%= link_to 'Home', root_path %></div>
+                <div class="right menu">
+                    <div class="ui top right pointing mobile dropdown link item">
+                        Menu
+                        <i class="dropdown icon"></i>
+                        <div class="menu"></div>
+                    </div>
+                    
+                    <div class="ui dropdown link item">Courses<i class="dropdown icon"></i>
+                        <div class="menu">
+                            <a class="item">Petting</a>
+                            <a class="item">Feeding</a>
+                            <a class="item">Mind Reading</a>
+                        </div>
+                    </div>
+                    
+
+                    <% if user_signed_in? %>
+                        <strong><%= current_user.email %></strong>.
+                        <%= link_to 'Edit profile', edit_user_registration_path, :class => 'item' %>
+                        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'item'  %>
+                    <% else %>
+                        <%= link_to "Sign up", new_user_registration_path, :class => 'item'  %> |
+                        <%= link_to "Login", new_user_session_path, :class => 'item'  %>
+                    <% end %>
+                </div>
+            </div>
+            <%= yield :mainbar %>
+        </div>
+    </div>
+
+    <%=yield%>
+
+    <div class="ui inverted teal page grid segment">
+        <div class="ten wide column">
+            <div class="ui three column stackable grid">
+                <div class="column">
+                    <div class="ui header">Courses</div>
+                    <div class="ui inverted link list">
+                        <a class="item">Registration</a>
+                        <a class="item">Course Calendar</a>
+                        <a class="item">Professors</a>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui header">Library</div>
+                    <div class="ui inverted link list">
+                        <a class="item">A-Z</a>
+                        <a class="item">Most Popular</a>
+                        <a class="item">Recently Changed</a>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui header">Community</div>
+                    <div class="ui inverted link list">
+                        <a class="item">BBS</a>
+                        <a class="item">Careers</a>
+                        <a class="item">Privacy Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="six wide right floated aligned column">
+            <h3 class="ui header">Contact Us</h3>
+            <addr>
+                237 Catberry Road <br>
+                Milton Keynes, London <br>
+            </addr>
+            <p>(404) 867-5309</p>
+        </div>
+    </div>
+</body>
+</html>
+
