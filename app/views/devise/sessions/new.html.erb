@@ -1,6 +1,8 @@
-<div class="ui form segment">
+<div id="login-container">
+  <div id="login-form">
+    <div class="ui form segment">
 
-  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+     <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 
   <div class="field">
     <%= f.label :email %>
@@ -36,5 +38,14 @@
   <% end %>
 
   <%= render 'devise/shared/links' %>
-
+      <div class="ui blue submit button" onClick="jacascript:submit()">Sign in</div>
+      <% end %>
+      
+        <div class="links">
+          <%= render "devise/shared/links" %>
+        </div>
+      
+      </div>
+    </div>
+  </div>
 </div>
