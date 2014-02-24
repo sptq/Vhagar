@@ -28,17 +28,16 @@
     </div>
   </div>
 
-  <% if devise_mapping.rememberable? -%>
-  <div class="inline field">
-    <div class="ui checkbox"><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  </div>
-  <% end -%>
+      <br />
 
-  <%= f.submit 'Sign in', class: 'ui blue submit button' %>
-  <% end %>
+      <% if devise_mapping.rememberable? -%>
+        <div class="ui toggle checkbox"><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+      <% end -%>
+      <br />
+      <br />
 
-  <%= render 'devise/shared/links' %>
-      <div class="ui blue submit button" onClick="jacascript:submit()">Sign in</div>
+      <div class="ui green submit button" onClick="jacascript:submit()">Sign in</div>
+
       <% end %>
       
         <div class="links">

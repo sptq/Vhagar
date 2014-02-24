@@ -28,7 +28,7 @@
       <file leaf-file-name="new.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/devise/sessions/new.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="5" selection-start="91" selection-end="91" vertical-scroll-proportion="-1.3846154" vertical-offset="0" max-vertical-offset="1008">
+            <state line="29" column="0" selection-start="794" selection-end="794" vertical-scroll-proportion="-10.038462" vertical-offset="0" max-vertical-offset="990">
               <folding />
             </state>
           </provider>
@@ -37,7 +37,7 @@
       <file leaf-file-name="application.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="4" selection-start="428" selection-end="428" vertical-scroll-proportion="0.27601314" vertical-offset="0" max-vertical-offset="913">
+            <state line="10" column="16" selection-start="344" selection-end="344" vertical-scroll-proportion="0.19715224" vertical-offset="0" max-vertical-offset="913">
               <folding />
             </state>
           </provider>
@@ -46,7 +46,7 @@
       <file leaf-file-name="_toolbar.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/_toolbar.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="702">
+            <state line="13" column="32" selection-start="694" selection-end="751" vertical-scroll-proportion="-4.5" vertical-offset="0" max-vertical-offset="702">
               <folding />
             </state>
           </provider>
@@ -773,21 +773,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/devise/sessions/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="5" selection-start="91" selection-end="91" vertical-scroll-proportion="-1.3846154" vertical-offset="0" max-vertical-offset="1008">
+        <state line="29" column="0" selection-start="794" selection-end="794" vertical-scroll-proportion="-10.038462" vertical-offset="0" max-vertical-offset="990">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/_toolbar.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="965">
+        <state line="13" column="32" selection-start="694" selection-end="751" vertical-scroll-proportion="-4.5" vertical-offset="0" max-vertical-offset="702">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="4" selection-start="428" selection-end="428" vertical-scroll-proportion="0.27601314" vertical-offset="0" max-vertical-offset="913">
+        <state line="10" column="16" selection-start="344" selection-end="344" vertical-scroll-proportion="0.19715224" vertical-offset="0" max-vertical-offset="913">
           <folding />
         </state>
       </provider>
