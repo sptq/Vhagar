@@ -49,6 +49,7 @@
                     
 
                     <% if user_signed_in? %>
+                        <%= link_to 'List users', '/users', :class => 'item' unless current_user.user_role.to_sym == :user %>
                         <strong><%= current_user.email %></strong>.
                         <%= link_to 'Edit profile', edit_user_registration_path, :class => 'item' %>
                         <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'item'  %>

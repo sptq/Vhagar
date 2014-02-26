@@ -1,0 +1,9 @@
+<% if @users != nil %>
+	<% @users.each do |user| %>
+		<% if user != current_user %>
+			Email: <%= user.email %> <br/>
+			User role: <%= user.user_role %> <br/>
+			<hr/>
+		<% end %>
+	<% end %>
+<% end %>
