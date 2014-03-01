@@ -1,5 +1,4 @@
 Crm::Application.routes.draw do
-  get 'home/index'
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -12,7 +11,7 @@ Crm::Application.routes.draw do
   #   get 'products/:id' => 'catalog#view'
 
 namespace :admin do
-    root  'admin#index'
+    root  'admin#dashboard'
     resources :users
   end
   # Example of named route that can be invoked with purchase_url(id: product.id)
