@@ -1,0 +1,38 @@
+<div class="ui relaxed grid">
+<div class="three wide column"></div>
+	<div class="twelve wide column">
+			<div class="ui buttons">
+				<div class="ui button"> <%= link_to 'Users', admin_users_path %></div>
+				<% if @users != nil %>
+					<div class="ui icon button">
+						<i class="green add icon"></i>						
+					</div>
+				<% end %>
+			</div>
+			<div class="ui buttons">
+				<div class="ui button"> <%= link_to 'Lectures', '#' %></div>
+				<% if @lectures != nil %>
+					<%= link_to '+', '#', class: "ui green button" %>
+				<% end %>
+			</div>
+			<div class="ui buttons">
+				<div class="ui button"> <%= link_to 'Speakers', '#' %></div>
+				<% if @speakers != nil %>
+					<%= link_to '+', '#', class: "ui green button" %>
+				<% end %>
+			</div>
+			<div class="ui buttons">
+				<div class="ui button"> <%= link_to 'Sponsors', '#' %></div>
+				<% if @sponsors != nil %>
+					<%= link_to '+', '#', class: "ui green button" %>
+				<% end %>
+			</div>
+			<div class="ui buttons">
+				<div class="ui button"> <%= link_to 'Organizers', '#' %></div>
+				<% if @organizers != nil %>
+					<%= link_to '+', '#', class: "ui green button" %>
+				<% end %>
+			</div>			
+	</div>
+<div class="three wide column"></div>
+</div>
