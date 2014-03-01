@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
-	def show
+	def list_users
 		if user_signed_in?
-			if current_user.user_role.to_sym == :user
-				# TODO : wyświetlić komunikat
-				redirect_to root_path
-			else
+			if current_user.is_admin
 				@users = User.all
+			else
+				flash[:alert] = "Page does not exist"
+				redirect_to root_path
 			end
 		end 	
 	end
