@@ -7,7 +7,7 @@ class Admin::UsersController < ApplicationController
 	end
 	
 	def edit
-		@user = User.where(uuid: params[:id])
+		@user = User.where(uuid: params[:id]).first
 	end
 
 	private 
