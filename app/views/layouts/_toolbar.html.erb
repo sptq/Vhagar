@@ -19,6 +19,7 @@
                     
                     <% if user_signed_in? %>
                         <strong><%= current_user.email %></strong>.
+                        <%= link_to 'List users', admin_users_path, class: 'item' unless not current_user.is_admin %>
                         <%= link_to 'Edit profile', edit_user_registration_path, :class => 'item' %>
                         <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'item'  %>
                     <% else %>
