@@ -4,7 +4,7 @@
 			<% if user != current_user %>
 				<div class="item">
 					<% if !user.is_admin %>
-						<div class="right floated tiny teal ui button"><i class="edit icon"></i> Edit</div>					
+						<div class="right floated tiny black ui button"><i class="edit icon"></i> <%= link_to 'Edit', edit_admin_user_path(id: user.uuid) %></div>					
 					<% end %>
 
 					<div class="header"> Email: <%= user.email %> </div>
