@@ -1,11 +1,14 @@
 <% if @users != nil %>
-	<div class="ui divided selection list">
+	<div class="ui relax divided selection list">
 		<% @users.each do |user| %>
 			<% if user != current_user %>
 				<div class="item">
-					<div class="ui label"> Email: <%= user.email %>
-						<div class="detail"><%= user.user_role %></div>
-					</div>
+					<% if !user.is_admin %>
+						<div class="right floated tiny teal ui button"><i class="edit icon"></i> Edit</div>					
+					<% end %>
+
+					<div class="header"> Email: <%= user.email %> </div>
+					Type: <%= user.user_role %>
 				</div>
 			<% end %>
 		<% end %>

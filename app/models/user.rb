@@ -12,6 +12,10 @@ class User < ActiveRecord::Base
   before_validation :ensure_uuid, :ensure_admin_presence
   def ensure_uuid; self.uuid ||= SecureRandom.uuid end
 
+  def is_admin
+    user_role.to_sym == :admin
+  end
+
 private
 
 def ensure_admin_presence
