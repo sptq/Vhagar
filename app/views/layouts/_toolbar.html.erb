@@ -2,6 +2,7 @@
         <div class="column">
             <div class="inverted secondary pointing ui menu">
                 <div class="header item"><%= link_to 'Home', root_path %></div>
+                <div class="header item"><%= link_to 'Admin', admin_root_path unless not current_user.is_admin %></div>
                 <div class="right menu">
                     <div class="ui top right pointing mobile dropdown link item">
                         Menu
