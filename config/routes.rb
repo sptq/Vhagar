@@ -1,5 +1,13 @@
 Crm::Application.routes.draw do
-  devise_for :users
+
+  devise_for :user, :path => '', path_names: { 
+    sign_in: "login",
+    sign_out: "logout",
+    sign_up: "register",
+    password: 'secret',
+    confirmation: 'verification',
+    edit: 'edit/profile'
+  }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
