@@ -5,18 +5,21 @@
 	<div class="fourteen wide column">
 		<div class="ui relax divided selection list">
 			<% @users.each do |user| %>
-				<% if user != current_user %>
-				<div class="item">
-					<% if !user.is_admin %>
-					<div class="right floated tiny black ui button"><i class="edit icon"></i> <%= link_to 'Edit', edit_admin_user_path(id: user.uuid) %></div>					
-					<% end %>
+			<div class="item">
+				<div class="ui left floated label"><%= user.user_role %></div>
 
-					<div class="header"> Email: <%= user.email %> </div>
-					Type: <%= user.user_role %>
+				<%= user.email %>
+
+				<% if user_signed_in? && current_user.is_admin %>
+
+				<div class="ui right floated buttons">
+					<%= link_to "Edit", edit_user_path(id: user.uuid), class: "ui small green button" %>
 				</div>
+
 				<% end %>
+			</div>
 			<% end %>
-		</div>	
+		</div>
 	</div>
 	<div class="one wide column"></div>
 </div>

@@ -3,14 +3,14 @@ class Admin::UsersController < ApplicationController
 	before_filter :authenticate_user!, :is_allowed
 
 	def index
-		@users = User.where.not(uuid: current_user.uuid)
+		@users = User.all
 	end
-	
+
 	def edit
 		@user = User.where(uuid: params[:id]).first
 	end
 
-	private 
+	private
 
 	def is_allowed
 		unless current_user.is_admin

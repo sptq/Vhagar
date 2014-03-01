@@ -2,37 +2,45 @@
 <div class="three wide column"></div>
 	<div class="twelve wide column">
 			<div class="ui buttons">
-				<div class="ui button"> <%= link_to 'Users', admin_users_path %></div>
+				<%= link_to 'Users', users_path, class: "ui button" %>
 				<% if @users != nil %>
-					<div class="ui icon button">
-						<i class="green add icon"></i>						
-					</div>
+					<%= link_to '#', class: "ui green icon button" do %>
+						<i class="add icon"></i>
+					<% end %>
 				<% end %>
 			</div>
 			<div class="ui buttons">
-				<div class="ui button"> <%= link_to 'Lectures', '#' %></div>
+				<%= link_to 'Lectures', lectures_path, class: "ui button" %>
 				<% if @lectures != nil %>
-					<%= link_to '+', '#', class: "ui green button" %>
+					<%= link_to new_lecture_path, class: "ui green icon  button" do %>
+						<i class="add icon"></i>
+					<% end %>
 				<% end %>
 			</div>
 			<div class="ui buttons">
-				<div class="ui button"> <%= link_to 'Speakers', '#' %></div>
+				<%= link_to 'Speakers', '#', class: "ui button" %>
 				<% if @speakers != nil %>
-					<%= link_to '+', '#', class: "ui green button" %>
+					<%= link_to '#', class: "ui green icon button" do %>
+						<i class="add icon"></i>
+					<% end %>
 				<% end %>
 			</div>
 			<div class="ui buttons">
-				<div class="ui button"> <%= link_to 'Sponsors', '#' %></div>
+				<%= link_to 'Sponsors', '#', class: "ui button" %>
 				<% if @sponsors != nil %>
-					<%= link_to '+', '#', class: "ui green button" %>
+					<%= link_to '#', class: "ui green icon button" do %>
+						<i class="add icon"></i>
+					<% end %>
 				<% end %>
 			</div>
 			<div class="ui buttons">
-				<div class="ui button"> <%= link_to 'Organizers', '#' %></div>
+				<%= link_to 'Organizers', '#', class: "ui button" %>
 				<% if @organizers != nil %>
-					<%= link_to '+', '#', class: "ui green button" %>
+					<%= link_to '#', class: "ui green icon button" do %>
+						<i class="add icon"></i>
+					<% end %>
 				<% end %>
-			</div>			
+			</div>
 	</div>
 <div class="three wide column"></div>
 </div>

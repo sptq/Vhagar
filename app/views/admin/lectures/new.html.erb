@@ -1,5 +1,10 @@
-<h1>New lecture</h1>
+<div class="ui segment">
+	<h1 class="ui header">New lecture</h1>
 
-<%= render 'form' %>
+	<%= render 'form' %>
 
-<%= link_to 'Back', admin_lectures_path %>
+	<%= link_to lectures_path, class: "ui teal button" do %>
+		<i class="left icon"></i>
+	<% end %>
+
+</div>
