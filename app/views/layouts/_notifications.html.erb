@@ -1,0 +1,18 @@
+<% if notice %>
+    <div class="ui success message">
+        <i class="close icon"></i>
+        <div class="header">
+            <%= notice %>
+        </div>
+    </div>
+<% end %>
+
+<% if alert %>
+    <div class="ui error message">
+        <i class="close icon"></i>
+            <div class="header">Ups...</div>
+        <ul class="list">
+            <li><%= alert %></li>
+        </ul>
+    </div>
+<% end %>
