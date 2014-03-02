@@ -2,33 +2,27 @@
 
 <% if @lectures != nil %>
 
-<div class="ui grid">
-  <div class="one wide column"></div>
-  <div class="fourteen wide column">
-    <div class="ui relax divided selection list">
+<div class="ui relax divided selection list">
 
-      <% @lectures.each do |lecture| %>
+  <% @lectures.each do |lecture| %>
 
-        <div class="item">
-          <div class="ui horizontal label"><%= lecture.start_date %></div>
+  <div class="item">
+    <div class="ui horizontal label"><%= lecture.start_date %></div>
 
-          <%= lecture.title %>
+    <%= lecture.title %>
 
-          <% if user_signed_in? && current_user.is_admin %>
+    <% if user_signed_in? && current_user.is_admin %>
 
-            <div class="ui right floated buttons">
-              <%= link_to 'Edit', edit_lecture_path(lecture), class: "ui small green button" %>
-              <%= link_to 'Delete', lecture, class: "ui small red button", method: :delete, data: { confirm: 'Are you sure?' } %>
-            </div>
-
-          <% end %>
-        </div>
-
-      <% end %>
-
+    <div class="ui right floated buttons">
+      <%= link_to 'Edit', edit_lecture_path(lecture), class: "ui small green button" %>
+      <%= link_to 'Delete', lecture, class: "ui small red button", method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>
+
+    <% end %>
   </div>
-  <div class="one wide column"></div>
+
+  <% end %>
+
 </div>
 
 <% end %>

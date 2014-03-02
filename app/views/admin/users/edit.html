@@ -1,22 +1,16 @@
-<div class="ui grid">
-	<div class="one wide column"></div>
-	<div class="fourteen wide column">
-		<div class="ui form segment">
-			<div class="ui huge header">Edit user</div>
-			<%= form_for :user do |f| %>
+<div class="ui form segment">
+	<div class="ui huge header">Edit user</div>
+	<%= form_for :user do |f| %>
 
-			<div class="field">
-				<div class="ui horizontal label"> Email </div> 
-				<%= @user.email %>
-			</div>
-
-			<div class="field">
-				<div class="ui horizontal label"> User role </div> 
-				<%= @user.user_role %>
-			</div>
-
-			<% end %>
-		</div>
+	<div class="field">
+		<div class="ui horizontal label"> Email </div>
+		<%= @user.email %>
 	</div>
-	<div class="one wide column"></div>
+
+	<div class="field">
+		<div class="ui horizontal label"> User role </div>
+		<%= @user.user_role %>
+	</div>
+
+	<% end %>
 </div>

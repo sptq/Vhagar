@@ -1,27 +1,21 @@
 <%= render 'admin/admin_toolbar' %>
 <% if @users != nil %>
-<div class="ui grid">
-	<div class="one wide column"></div>
-	<div class="fourteen wide column">
-		<div class="ui relax divided selection list">
-			<% @users.each do |user| %>
-			<div class="item">
-				<div class="ui left floated label"><%= user.user_role %></div>
+<div class="ui relax divided selection list">
+	<% @users.each do |user| %>
+	<div class="item">
+		<div class="ui left floated label"><%= user.user_role %></div>
 
-				<%= user.email %>
+		<%= user.email %>
 
-				<% if user_signed_in? && current_user.is_admin %>
+		<% if user_signed_in? && current_user.is_admin %>
 
-				<div class="ui right floated buttons">
-					<%= link_to "Edit", edit_user_path(id: user.uuid), class: "ui small green button" %>
-				</div>
-
-				<% end %>
-			</div>
-			<% end %>
+		<div class="ui right floated buttons">
+			<%= link_to "Edit", edit_user_path(id: user.uuid), class: "ui small green button" %>
 		</div>
+
+		<% end %>
 	</div>
-	<div class="one wide column"></div>
+	<% end %>
 </div>
 <% end %>
 

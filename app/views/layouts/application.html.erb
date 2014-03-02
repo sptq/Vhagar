@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Lubelskie Dni Informatyki - Panel Uczestnika</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-  <%= render 'layouts/shim' %>
+	<title>Lubelskie Dni Informatyki - Panel Uczestnika</title>
+	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	<%= csrf_meta_tags %>
+	<%= render 'layouts/shim' %>
 </head>
 
 <body id="home">
-    <%= render 'layouts/notifications' %>
-    <%= render 'layouts/toolbar' %>
-    
-    <%=yield%>
 
-    <%= render 'layouts/footer' %>
+	<%= render 'layouts/notifications' %>
+	<%= render 'layouts/toolbar' %>
+
+	<div class="ui page grid">
+		<div class="column">
+			<%=yield%>
+		</div>
+	</div>
+
+	<%= render 'layouts/footer' %>
 </body>
 </html>
 

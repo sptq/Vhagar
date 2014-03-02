@@ -1,39 +1,33 @@
-<div class="ui grid">
-  <div class="one wide column"></div>
-  <div class="fourteen wide column">
-    <div class="ui form segment">
+<div class="ui form segment">
 
-      <%= form_for(@lecture) do |f| %>
-      <% if @lecture.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@lecture.errors.count, "error") %> prohibited this lecture from being saved:</h2>
+  <%= form_for(@lecture) do |f| %>
+  <% if @lecture.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@lecture.errors.count, "error") %> prohibited this lecture from being saved:</h2>
 
-        <ul>
-          <% @lecture.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
+    <ul>
+      <% @lecture.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
       <% end %>
-
-      <div class="field">
-        <%= f.label :title %><br>
-        <%= f.text_field :title %>
-      </div>
-      <div class="field">
-        <%= f.label :description %><br>
-        <%= f.text_area :description %>
-      </div>
-      <div class="field">
-        <%= f.label :start_date %><br>
-        <%= f.datetime_select :start_date %>
-      </div>
-      <div class="actions">
-        <%= f.submit %>
-      </div>
-      <% end %>
-
-    </div>
+    </ul>
   </div>
-  <div class="one wide column"></div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :start_date %><br>
+    <%= f.datetime_select :start_date %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  <% end %>
+
 </div>
