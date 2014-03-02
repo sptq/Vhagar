@@ -397,23 +397,6 @@
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
-  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
-    <option name="USER" value="" />
-    <option name="PASSWORD" value="" />
-    <option name="mySSHConnectionTimeout" value="30000" />
-    <option name="mySSHReadTimeout" value="30000" />
-    <option name="LAST_MERGED_REVISION" />
-    <option name="MERGE_DRY_RUN" value="false" />
-    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
-    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
-    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
-    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
-    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
-    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
-    <option name="FORCE_UPDATE" value="false" />
-    <option name="IGNORE_EXTERNALS" value="false" />
-    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="9bdec402-067f-42bb-9f65-a9c94bf95fb7" name="Default" comment="" />
@@ -716,6 +699,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state line="10" column="16" selection-start="344" selection-end="344" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="486">
           <folding />
         </state>
@@ -745,6 +729,9 @@
     <entry file="file://$PROJECT_DIR$/public/500.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="55" column="75" selection-start="1282" selection-end="1282" vertical-scroll-proportion="0.8541001" vertical-offset="188" max-vertical-offset="1152">
+=======
+        <state line="12" column="35" selection-start="381" selection-end="381" vertical-scroll-proportion="0.23027718" vertical-offset="0" max-vertical-offset="938">
+>>>>>>> Add model and migration
           <folding />
         </state>
       </provider>
