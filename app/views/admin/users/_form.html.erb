@@ -1,0 +1,21 @@
+<div class="ui warning form segment">
+
+	<%= form_for(@user) do |f| %>
+
+	<div class="field">
+		<%= f.label :email %>
+		<%= f.text_field :email, readonly: :true %>
+	</div>
+
+	<div class="field">
+		<%= f.label :user_role %>
+		<%= f.text_field :user_role %>
+	</div>
+
+	<div class="actions">
+		<%= f.submit 'Save', class: 'ui green submit button' %>
+	</div>
+
+	<% end %>
+
+</div>
