@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
 
-	before_filter :authenticate_user!, :is_allowed
+	before_filter :authenticate_user!, :admin_filter
 	before_action :set_user, only: [:edit, :update]
 
 	def index
@@ -13,7 +13,7 @@ class Admin::UsersController < ApplicationController
 	def update
 		respond_to do |format|
 			if @user.update(user_params)
-				format.html { redirect_to users_path, notice: 'User was successfully updated. '}
+				format.html { redirect_to admin_users_path, notice: 'User was successfully updated. '}
 				format.json { head :no_content}
 			else
 				format.html { render action: :edit }

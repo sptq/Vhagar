@@ -1,6 +1,6 @@
 Crm::Application.routes.draw do
 
-  devise_for :user, :path => '', path_names: { 
+  devise_for :user, :path => '', path_names: {
     sign_in: "login",
     sign_out: "logout",
     sign_up: "register",
@@ -22,12 +22,8 @@ namespace :admin do
     root  'admin#dashboard'
     resources :users
     resources :lectures
-  end
-
-scope module: 'admin' do
-    resources :users
-    resources :lectures
 end
+
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 

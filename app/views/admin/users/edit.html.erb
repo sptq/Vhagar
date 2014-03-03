@@ -1,7 +1,7 @@
 <h1>Editing user</h1>
 
-<%= render 'form' %>
-
-<%= link_to users_path, class: "ui teal button" do %>
-	<i class="left icon"></i>
+<% content_for :form_buttons do %>
+	<%= link_to 'Cancel', admin_users_path, class: "ui red button" %>
 <% end %>
+
+<%= render 'form' %>

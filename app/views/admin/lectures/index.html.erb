@@ -14,8 +14,7 @@
     <% if user_signed_in? && current_user.is_admin %>
 
     <div class="ui right floated buttons">
-      <%= link_to 'Edit', edit_lecture_path(lecture), class: "ui small green button" %>
-      <%= link_to 'Delete', lecture, class: "ui small red button", method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to 'Edit', edit_admin_lecture_path(lecture), class: "ui small green button" %>
     </div>
 
     <% end %>

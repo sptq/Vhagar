@@ -1,10 +1,8 @@
-<div class="ui segment">
-	<h1 class="ui header">New lecture</h1>
+<h1 class="ui header">New lecture</h1>
 
-	<%= render 'form' %>
+<% content_for :form_buttons do %>
+	<%= link_to 'Cancel', admin_lectures_path, class: "ui red button" %>
+	<%= link_to 'Show', @lecture, class: "ui teal button" %>
+<% end %>
 
-	<%= link_to lectures_path, class: "ui teal button" do %>
-		<i class="left icon"></i>
-	<% end %>
-
-</div>
+<%= render 'form' %>

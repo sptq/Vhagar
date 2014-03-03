@@ -1,12 +1,18 @@
-<h2>Resend unlock instructions</h2>
+<div class="ui form segment">
+	<h1 class="ui header">Resend unlock instructions</h1>
+	<%= form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :method => :post }) do |f| %>
+		<div class="ui error message">
+			<%= devise_error_messages! %>
+		</div>
 
-<%= form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= devise_error_messages! %>
+		<div class="field">
+			<%= f.label :email %>
+			<%= f.email_field :email, :autofocus => true %>
+		</div>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
-
-  <div><%= f.submit "Resend unlock instructions" %></div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+		<div class="ui small buttons">
+			<%= f.submit "Resend unlock instructions", class: "ui green submit button" %>
+			<%= render "devise/shared/links" %>
+		</div>
+	<% end %>
+</div>

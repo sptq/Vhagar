@@ -12,8 +12,9 @@
 		<%= f.text_field :user_role %>
 	</div>
 
-	<div class="actions">
-		<%= f.submit 'Save', class: 'ui green submit button' %>
+	<div class="ui small buttons">
+		<%= yield :form_buttons %>
+		<%= f.submit class: "ui green button" %>
 	</div>
 
 	<% end %>
