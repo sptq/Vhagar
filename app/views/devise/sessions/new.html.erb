@@ -1,39 +1,50 @@
-<div class="ui form segment">
+<div id="login-container">
+  <div id="login-form">
+    <div class="ui form segment">
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+     <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 
   <div class="field">
-        <%= f.label :email %>
+    <%= f.label :email %>
 
-        <div class="ui left labeled icon input">
-            <%= f.email_field :email, :autofocus => true, :placeholder => "email@localhost" %>
-            <i class="user icon"></i>
-            <div class="ui corner label">
-                <i class="icon asterisk"></i>
-            </div>
-        </div>
+    <div class="ui left labeled icon input">
+      <%= f.email_field :email, :autofocus => true, :placeholder => 'email@localhost' %>
+      <i class="user icon"></i>
+      <div class="ui corner label">
+        <i class="icon asterisk"></i>
+      </div>
+    </div>
   </div>
 
   <div class="field">
-        <div><%= f.label :password %><br />
-        <div class="ui left labeled icon input">
-            <%= f.password_field :password %>
+    <div><%= f.label :password %></div>
+    <div class="ui left labeled icon input">
+      <%= f.password_field :password %>
 
-            <i class="lock icon"></i>
-            <div class="ui corner label">
-                <i class="icon asterisk"></i>
-            </div>
-        </div>
+      <i class="lock icon"></i>
+      <div class="ui corner label">
+        <i class="icon asterisk"></i>
+      </div>
+    </div>
   </div>
 
+      <br />
 
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
+      <% if devise_mapping.rememberable? -%>
+        <div class="ui toggle checkbox"><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+      <% end -%>
+      <br />
+      <br />
 
-  <div class="ui blue submit button"><%= f.submit "Sign in" %></div>
-<% end %>
+      <div class="ui green submit button" onClick="jacascript:submit()">Sign in</div>
 
-<%= render "devise/shared/links" %>
-
+      <% end %>
+      
+        <div class="links">
+          <%= render "devise/shared/links" %>
+        </div>
+      
+      </div>
+    </div>
+  </div>
 </div>
