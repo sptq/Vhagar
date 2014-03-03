@@ -18,3 +18,7 @@ pickle-email-*.html
 .project
 config/initializers/secret_token.rb
 .vagrant
+/.idea/
+.idea/
+.idea/crm.iml
+.idea/workspace.xml
