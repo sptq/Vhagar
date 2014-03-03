@@ -1,0 +1,28 @@
+<%= render 'admin/admin_toolbar' %>
+
+<% if @lectures != nil %>
+
+<div class="ui relax divided selection list">
+
+  <% @lectures.each do |lecture| %>
+
+  <div class="item">
+    <div class="ui horizontal label"><%= lecture.start_date %></div>
+
+    <%= lecture.title %>
+
+    <% if user_signed_in? && current_user.is_admin %>
+
+    <div class="ui right floated buttons">
+      <%= link_to 'Edit', edit_lecture_path(lecture), class: "ui small green button" %>
+      <%= link_to 'Delete', lecture, class: "ui small red button", method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+
+    <% end %>
+  </div>
+
+  <% end %>
+
+</div>
+
+<% end %>

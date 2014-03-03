@@ -1,14 +1,19 @@
 <div class="ui inverted page grid masthead segment">
         <div class="column">
             <div class="inverted secondary pointing ui menu">
-                <div class="header item"><%= link_to 'Home', root_path %></div>
+
+                <%= link_to 'Home', root_path, class: "header item" %>
+                <% if user_signed_in? && current_user.is_admin %>
+                    <%= link_to 'Admin', admin_root_path, class: "header item" %>
+                <% end %>
+
                 <div class="right menu">
                     <div class="ui top right pointing mobile dropdown link item">
                         Menu
                         <i class="dropdown icon"></i>
                         <div class="menu"></div>
                     </div>
-                    
+
                     <div class="ui dropdown link item">Courses<i class="dropdown icon"></i>
                         <div class="menu">
                             <a class="item">Petting</a>
@@ -16,10 +21,9 @@
                             <a class="item">Mind Reading</a>
                         </div>
                     </div>
-                    
+
                     <% if user_signed_in? %>
                         <strong><%= current_user.email %></strong>.
-                        <%= link_to 'List users', admin_users_path, class: 'item' unless not current_user.is_admin %>
                         <%= link_to 'Edit profile', edit_user_registration_path, :class => 'item' %>
                         <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'item'  %>
                     <% else %>
@@ -28,7 +32,7 @@
                     <% end %>
                 </div>
             </div>
-            
+
             <%= yield :mainbar %>
         </div>
     </div>

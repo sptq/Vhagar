@@ -18,9 +18,7 @@ class User < ActiveRecord::Base
 
 private
 
-def ensure_admin_presence
-	if User.find_by_user_role(:admin).count == 0
-		self.user_role = :admin
-	end	
-end
+  def ensure_admin_presence
+  		self.user_role = :admin unless User.where(user_role: :admin).count != 0
+  end
 end
