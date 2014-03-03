@@ -1,6 +1,6 @@
 Crm::Application.routes.draw do
 
-  devise_for :user, :path => '', path_names: { 
+  devise_for :user, :path => '', path_names: {
     sign_in: "login",
     sign_out: "logout",
     sign_up: "register",
@@ -22,7 +22,7 @@ namespace :admin do
     root  'admin#dashboard'
     resources :users
     resources :lectures
-  end
+end
 
 scope module: 'admin' do
     resources :users

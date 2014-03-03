@@ -1,7 +1,10 @@
 <div class="ui form segment">
 
 	<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-	<%= devise_error_messages! %>
+	<div class="ui error message">
+		<%= devise_error_messages! %>
+	</div>
+
 
 	<div class="field">
 		<%= f.label :email %>
@@ -41,8 +44,11 @@
 		</div>
 	</div>
 
-	<%= f.submit "Sign up", class: "ui blue submit button" %>
+
+	<div class="ui small buttons">
+		<%= f.submit "Sign up", class: 'ui green submit button' %>
+        <%= render "devise/shared/links" %>
+	</div>
 	<% end %>
 
-	<%= render "devise/shared/links" %>
 </div>
