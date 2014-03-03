@@ -57,7 +57,7 @@ class Admin::LecturesController < ApplicationController
   def destroy
     @lecture.destroy
     respond_to do |format|
-      format.html { redirect_to lectures_url }
+      format.html { redirect_to admin_lectures_url }
       format.json { head :no_content }
     end
   end
