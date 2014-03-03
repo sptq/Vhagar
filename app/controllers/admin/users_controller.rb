@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
 
-	before_filter :authenticate_user!, :is_allowed
+	before_filter :authenticate_user!, :admin_filter
 	before_action :set_user, only: [:edit, :update]
 
 	def index

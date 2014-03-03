@@ -1,5 +1,6 @@
 class Admin::LecturesController < ApplicationController
-  # before_action :set_admin_lecture, only: [:show, :edit, :update, :destroy]
+
+  before_filter :authenticate_user!, :admin_filter
   before_action :set_lecture, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/lectures
