@@ -203,3 +203,9 @@ p a {
 @media only screen and (max-width : 1000px) {
 
 }
+
+/* ====== OWN CSS ===== */
+.main-menu {
+    width: 50em;
+    text-align: right;
+}
