@@ -12,13 +12,20 @@ class User < ActiveRecord::Base
   before_validation :ensure_uuid, :ensure_admin_presence
   def ensure_uuid; self.uuid ||= SecureRandom.uuid end
 
-  def is_admin
-    user_role.to_sym == :admin
+  # named_scope :with_role, lambda { |role| {:conditions => "roles_mask & #{2**ROLES.index(role.to_s)} > 0 "} }
+  ROLES = [:admin, :moderator, :author, :editor]
+
+  def role?(role)
+    user_role.to_s == role.to_s
+  end
+
+  def admin?
+    role? :admin
   end
 
 private
 
   def ensure_admin_presence
-  		self.user_role = :admin unless User.where(user_role: :admin).count != 0
+  		user_role = 'admin' unless User.where(user_role: :admin).count != 0
   end
 end

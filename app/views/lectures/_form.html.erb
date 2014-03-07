@@ -1,6 +1,6 @@
 <div class="ui form segment">
 
-  <%= form_for @lecture, url: admin_lecture_path(@lecture), html: { method: :put } do |f| %>
+  <%= form_for @lecture, url: lecture_path(@lecture), html: { method: :put } do |f| %>
   <% if @lecture.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(@lecture.errors.count, "error") %> prohibited this lecture from being saved:</h2>

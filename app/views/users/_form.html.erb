@@ -1,6 +1,6 @@
 <div class="ui warning form segment">
 
-	<%= form_for @user, url: admin_user_path(@user), html: { method: :put } do |f| %>
+	<%= form_for @user, url: user_path(@user), html: { method: :put } do |f| %>
 
 	<div class="field">
 		<%= f.label :email %>
@@ -9,7 +9,7 @@
 
 	<div class="field">
 		<%= f.label :user_role %>
-		<%= f.text_field :user_role %>
+		<%= f.select :user_role, User::ROLES %>
 	</div>
 
 	<div class="ui small buttons">

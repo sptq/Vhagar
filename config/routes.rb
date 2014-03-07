@@ -18,10 +18,11 @@ Crm::Application.routes.draw do
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
+  resources :users
+  resources :lectures
+
 namespace :admin do
     root  'admin#dashboard'
-    resources :users
-    resources :lectures
 end
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

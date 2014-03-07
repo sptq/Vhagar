@@ -36,6 +36,7 @@ gem 'jbuilder', '~> 1.2'
 
 # Auth
 gem 'devise'
+gem "cancancan", "~> 1.7.0"
 
 # Use unicorn as the app server
 # gem 'unicorn'

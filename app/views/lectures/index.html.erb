@@ -11,10 +11,10 @@
 
     <%= lecture.title %>
 
-    <% if user_signed_in? && current_user.is_admin %>
+    <% if user_signed_in? && current_user.admin? %>
 
     <div class="ui right floated buttons">
-      <%= link_to 'Edit', edit_admin_lecture_path(lecture), class: "ui small green button" %>
+      <%= link_to 'Edit', edit_lecture_path(lecture), class: "ui small green button" %>
     </div>
 
     <% end %>

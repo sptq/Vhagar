@@ -3,7 +3,7 @@
             <div class="inverted secondary pointing ui menu">
 
                 <%= link_to 'Home', root_path, class: "header item" %>
-                <% if user_signed_in? && current_user.is_admin %>
+                <% if user_signed_in? && current_user.role?(:admin) %>
                     <%= link_to 'Admin', admin_root_path, class: "header item" %>
                 <% end %>
 
