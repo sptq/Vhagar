@@ -30,7 +30,7 @@ class Admin::LecturesController < ApplicationController
 
     respond_to do |format|
       if @lecture.save
-        format.html { redirect_to @lecture, notice: 'Lecture was successfully created.' }
+        format.html { redirect_to admin_lectures_path, notice: 'Lecture was successfully created.' }
         format.json { render action: 'show', status: :created, location: @lecture }
       else
         format.html { render action: 'new' }
@@ -44,7 +44,7 @@ class Admin::LecturesController < ApplicationController
   def update
     respond_to do |format|
       if @lecture.update(lecture_params)
-        format.html { redirect_to @lecture, notice: 'Lecture was successfully updated.' }
+        format.html { redirect_to admin_lectures_path, notice: 'Lecture was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

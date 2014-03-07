@@ -1,6 +1,6 @@
 <div class="ui form segment">
 
-  <%= form_for(@lecture) do |f| %>
+  <%= form_for @lecture, url: admin_lecture_path(@lecture), html: { method: :put } do |f| %>
   <% if @lecture.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(@lecture.errors.count, "error") %> prohibited this lecture from being saved:</h2>
@@ -30,7 +30,7 @@
 
   <div class="ui small buttons">
     <%= yield :form_buttons %>
-    <%= f.submit class: "ui green button" %>
+    <%= f.submit class: "ui green positive button" %>
   </div>
   <% end %>
 

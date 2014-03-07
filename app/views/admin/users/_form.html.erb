@@ -1,6 +1,6 @@
 <div class="ui warning form segment">
 
-	<%= form_for(@user) do |f| %>
+	<%= form_for @user, url: admin_user_path(@user), html: { method: :put } do |f| %>
 
 	<div class="field">
 		<%= f.label :email %>
