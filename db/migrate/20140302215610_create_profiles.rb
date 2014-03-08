@@ -6,6 +6,11 @@ class CreateProfiles < ActiveRecord::Migration
       t.string :job,            :default => ""
       t.string :place,          :default => ""
       t.string :phone,          :default => ""
+      
+      # If user is a student
+      t.string :album,          :default => ""
+      t.string :universityCode, :default => "" #UMCS, KUL, PL, UM
+      t.string :fieldOfStudy,   :default => ""
 
       # Assosations
       t.uuid :user_id
