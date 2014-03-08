@@ -49,6 +49,11 @@ group :doc do
 end
 
 group :development do
+	# Better debud
+	gem 'better_errors'
+  	gem 'binding_of_caller'
+  	gem 'meta_request'
+	
 	# Use Capistrano for deployment
 	gem 'capistrano'
 	gem 'rspec-rails', "~> 2.12"
@@ -58,6 +63,7 @@ group :development do
 	gem "cucumber-rails", "~> 1.4.0", require: false
 	gem 'database_cleaner'
 end
+
 
 group :test, :development do
 	gem 'debugger'
