@@ -16,16 +16,22 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test: &test
-  adapter: sqlite3
-  database: db/test.sqlite3
-  pool: 5
-  timeout: 5000
+    adapter: postgresql
+    encoding: unicode
+    database: crm_test
+    pool: 5
+    host: localhost
+    username: postgres
+    password: postgres
 
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
-  pool: 5
-  timeout: 5000
+    adapter: postgresql
+    encoding: unicode
+    database: crm_production
+    pool: 5
+    host: localhost
+    username: postgres
+    password: postgres
 
 cucumber:
   <<: *test
