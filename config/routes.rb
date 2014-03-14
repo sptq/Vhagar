@@ -21,10 +21,6 @@ Crm::Application.routes.draw do
   resources :users
   resources :lectures
 
-namespace :admin do
-    root  'admin#dashboard'
-end
-
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 

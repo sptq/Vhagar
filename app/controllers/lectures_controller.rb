@@ -4,28 +4,27 @@ class LecturesController < ApplicationController
 
   before_filter :authenticate_user!
 
-  # GET /admin/lectures
-  # GET /admin/lectures.json
+  # GET /lectures
+  # GET /lectures.json
   def index
   end
 
-  # GET /admin/lectures/1
-  # GET /admin/lectures/1.json
+  # GET /lectures/1
+  # GET /lectures/1.json
   def show
   end
 
-  # GET /admin/lectures/new
+  # GET /lectures/new
   def new
   end
 
-  # GET /admin/lectures/1/edit
+  # GET /lectures/1/edit
   def edit
   end
 
-  # POST /admin/lectures
-  # POST /admin/lectures.json
+  # POST /lectures
+  # POST /lectures.json
   def create
-
     respond_to do |format|
       if @lecture.save
         format.html { redirect_to lectures_path, notice: 'Lecture was successfully created.' }
@@ -37,22 +36,22 @@ class LecturesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /admin/lectures/1
-  # PATCH/PUT /admin/lectures/1.json
+  # PATCH/PUT /lectures/1
+  # PATCH/PUT /lectures/1.json
   def update
     respond_to do |format|
       if @lecture.update(lecture_params)
         format.html { redirect_to lectures_path, notice: 'Lecture was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        format.html { render action: :edit }
         format.json { render json: @lecture.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /admin/lectures/1
-  # DELETE /admin/lectures/1.json
+  # DELETE /lectures/1
+  # DELETE /lectures/1.json
   def destroy
     @lecture.destroy
     respond_to do |format|

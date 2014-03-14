@@ -210,6 +210,8 @@ GEM
     semantic-ui-rails (0.13.1)
       autoprefixer-rails
       less-rails
+    shoulda-matchers (2.5.0)
+      activesupport (>= 3.0.0)
     slop (3.4.7)
     spork (1.0.0rc4)
     spork-rails (4.0.0)
@@ -283,6 +285,7 @@ DEPENDENCIES
   rspec-rails (~> 2.12)
   sdoc
   semantic-ui-rails
+  shoulda-matchers
   spork-rails (~> 4.0.0)
   sqlite3
   therubyracer

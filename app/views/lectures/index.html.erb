@@ -1,6 +1,10 @@
-<%= render 'admin/admin_toolbar' %>
-
 <% if @lectures != nil %>
+
+<div class="ui buttons">
+  <%- if can? :create, Lecture -%>
+    <%= link_to "Add lecture", new_lecture_path, class: "ui green button" -%>
+  <%- end -%>
+</div>
 
 <div class="ui relax divided selection list">
 
@@ -9,15 +13,18 @@
   <div class="item">
     <div class="ui horizontal label"><%= lecture.start_date %></div>
 
-    <%= lecture.title %>
+    <%= link_to lecture.title, lecture, class: "header" %>
 
-    <% if user_signed_in? && current_user.admin? %>
+    <div class="ui right floated small buttons">
+      <%- if can? :edit, Lecture -%>
+        <%= link_to 'Edit', edit_lecture_path(lecture), class: "ui positive button" %>
+      <%- end -%>
 
-    <div class="ui right floated buttons">
-      <%= link_to 'Edit', edit_lecture_path(lecture), class: "ui small green button" %>
+      <%- if can? :destroy, Lecture -%>
+        <%= link_to 'Delete', lecture_path(lecture), class: "ui negative button", method: :delete, data: {confirm: "You sure?"} %>
+      <%- end -%>
     </div>
 
-    <% end %>
   </div>
 
   <% end %>

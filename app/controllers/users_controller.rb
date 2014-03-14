@@ -22,6 +22,14 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def destroy
+		@user.destroy
+	    respond_to do |format|
+	      format.html { redirect_to users_url }
+	      format.json { head :no_content }
+	    end
+	end
+
 	private
 
     # Never trust parameters from the scary internet, only allow the white list through.

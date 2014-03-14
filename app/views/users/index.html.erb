@@ -1,19 +1,23 @@
-<%= render 'admin/admin_toolbar' %>
 <% if @users != nil %>
 <div class="ui relax divided selection list">
 	<% @users.each do |user| %>
 	<div class="item">
-		<div class="ui left floated label"><%= user.user_role %></div>
+		<%- if can? :see_role, User -%>
+			<div class="ui left floated label"><%= user.user_role %></div>
+		<%- end -%>
 
 		<%= user.email %>
 
-		<% if user_signed_in? && current_user.admin? %>
+		<div class="ui right floated small buttons">
+			<%- if can? :edit, user -%>
+				<%= link_to "Edit", edit_user_path(id: user.uuid), class: "ui green button" %>
+			<%- end -%>
 
-		<div class="ui right floated buttons">
-			<%= link_to "Edit", edit_user_path(id: user.uuid), class: "ui small green button" %>
+			<%- if can? :destroy, User -%>
+				<%= link_to "Delete", user_path(id: user.uuid), class: "ui red button", method: :delete, data: {confirm: "You sure?"} %>
+			<%- end -%>
 		</div>
 
-		<% end %>
 	</div>
 	<% end %>
 </div>

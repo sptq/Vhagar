@@ -50,6 +50,7 @@ group :development do
 	# Use Capistrano for deployment
 	gem 'capistrano'
 	gem 'rspec-rails', "~> 2.12"
+	gem 'shoulda-matchers'
 	gem "capybara", "~> 2.0"
 	gem "cucumber", "~> 1.3"
 	gem "cucumber-rails", "~> 1.4.0", require: false
