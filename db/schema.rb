@@ -11,19 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140307150722) do
+ActiveRecord::Schema.define(version: 20140315153308) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
 
-  create_table "lectures", force: true do |t|
+  create_table "lectures", id: false, force: true do |t|
     t.string   "title"
     t.text     "description"
     t.datetime "start_date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.uuid     "uuid",        null: false
   end
+
+  add_index "lectures", ["uuid"], name: "index_lectures_on_uuid", unique: true, using: :btree
 
   create_table "users", id: false, force: true do |t|
     t.uuid     "uuid",                                    null: false
