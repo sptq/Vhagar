@@ -42,11 +42,14 @@ ActiveRecord::Schema.define(version: 20140320162656) do
   end
 
   create_table "profiles", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
-    t.string   "firstName",               null: false
-    t.string   "lastname",                null: false
-    t.string   "job",        default: ""
-    t.string   "place",      default: ""
-    t.string   "phone",      default: ""
+    t.string   "firstName",                   null: false
+    t.string   "lastName",                    null: false
+    t.string   "job",            default: ""
+    t.string   "place",          default: ""
+    t.string   "phone",          default: ""
+    t.string   "album",          default: ""
+    t.string   "universityCode", default: ""
+    t.string   "fieldOfStudy",   default: ""
     t.uuid     "user_id"
 
     t.datetime "created_at"
