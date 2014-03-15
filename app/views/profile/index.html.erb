@@ -1,0 +1,9 @@
+<div>
+	<% if @profile != nil %>
+		<%= @profile.firstName %>
+		<%= @profile.lastName %>
+		<%= @profile.job %>
+	<% else %>
+		<div class="error">Nie masz zdefiniowanego profilu - zdefinij teraz </div>
+	<% end %>
+</div>
