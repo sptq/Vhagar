@@ -11,11 +11,10 @@
 	<div class="date"><%= @lecture.start_date -%></div>
 </div>
 
-
-  <div class="ui small buttons">
+<div class="ui small buttons">
 	<%= link_to 'Back', lectures_path, class: "ui red button" %>
 
-	<%- if can? :edit, Lecture -%>
+	<%- if can? :edit, @lecture -%>
 	    <%= link_to 'Edit', edit_lecture_path(@lecture), class: "ui small positive button" %>
 	<%- end -%>
-  </div>
+</div>

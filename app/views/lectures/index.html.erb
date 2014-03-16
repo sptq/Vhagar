@@ -13,15 +13,15 @@
   <div class="item">
     <div class="ui horizontal label"><%= lecture.start_date %></div>
 
-    <%= link_to lecture.title, lecture_path(id: lecture.uuid), class: "header" %>
+    <%= link_to lecture.title, lecture, class: "header" %>
 
     <div class="ui right floated small buttons">
-      <%- if can? :edit, Lecture -%>
-        <%= link_to 'Edit', edit_lecture_path(id: lecture.uuid), class: "ui positive button" %>
+      <%- if can? :edit, lecture -%>
+        <%= link_to 'Edit', edit_lecture_path(lecture), class: "ui positive button" %>
       <%- end -%>
 
-      <%- if can? :destroy, Lecture -%>
-        <%= link_to 'Delete', lecture_path(id: lecture.uuid), class: "ui negative button", method: :delete, data: {confirm: "You sure?"} %>
+      <%- if can? :destroy, lecture -%>
+        <%= link_to 'Delete', lecture, class: "ui negative button", method: :delete, data: {confirm: "You sure?"} %>
       <%- end -%>
     </div>
 

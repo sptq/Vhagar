@@ -1,8 +1,7 @@
 class DeviseCreateUsers < ActiveRecord::Migration
   def change
-    create_table :users, id: false do |t|
+    create_table :users, id: :uuid do |t|
       ## Database authenticatable
-      t.uuid   :uuid,               :null => false
       t.string :email,              :null => false, :default => ""
       t.string :encrypted_password, :null => false, :default => ""
 
@@ -36,20 +35,11 @@ class DeviseCreateUsers < ActiveRecord::Migration
     end
 
     change_table :users do |t|
-      t.index :uuid, unique: true
+      t.index :id, unique: true
     end
 
     add_index :users, :email,                :unique => true
     add_index :users, :reset_password_token, :unique => true
     # add_index :users, :unlock_token,         :unique => true
-  end
-
-  def migrate(direction)
-    super
-    if direction == :up
-      # This is only necessary because the following does not work:
-      # t.uuid :uuid, primary: true, null: false
-      execute "ALTER TABLE users ADD PRIMARY KEY (uuid);"
-    end
   end
 end

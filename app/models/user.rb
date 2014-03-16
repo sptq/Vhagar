@@ -2,17 +2,15 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
-  primary_key = :uuid
-
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates :uuid, presence: true
+  validates :id, presence: true
   validates :user_role, presence: true
   before_validation :ensure_uuid, :ensure_admin_presence
 
   def ensure_uuid
-    self.uuid ||= SecureRandom.uuid
+    self.id ||= SecureRandom.uuid
   end
   def ensure_admin_presence
     self.user_role = 'admin' if User.where(user_role: 'admin').to_a.count == 0

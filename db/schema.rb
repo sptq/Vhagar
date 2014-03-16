@@ -11,25 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140315153308) do
+ActiveRecord::Schema.define(version: 20140301204400) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
 
-  create_table "lectures", id: false, force: true do |t|
+  create_table "lectures", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "title"
     t.text     "description"
     t.datetime "start_date"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.uuid     "uuid",        null: false
   end
 
-  add_index "lectures", ["uuid"], name: "index_lectures_on_uuid", unique: true, using: :btree
-
-  create_table "users", id: false, force: true do |t|
-    t.uuid     "uuid",                                    null: false
+  create_table "users", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "email",                  default: "",     null: false
     t.string   "encrypted_password",     default: "",     null: false
     t.string   "reset_password_token"
@@ -46,7 +42,7 @@ ActiveRecord::Schema.define(version: 20140315153308) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["id"], name: "index_users_on_id", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-  add_index "users", ["uuid"], name: "index_users_on_uuid", unique: true, using: :btree
 
 end
