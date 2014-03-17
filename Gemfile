@@ -38,6 +38,8 @@ gem 'jbuilder', '~> 1.2'
 gem 'devise'
 gem "cancancan", "~> 1.7.0"
 
+# Pagination - https://github.com/mislav/will_paginate/
+gem 'will_paginate', '~> 3.0'
 # Use unicorn as the app server
 # gem 'unicorn'
 
