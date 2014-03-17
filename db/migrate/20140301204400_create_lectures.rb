@@ -1,6 +1,6 @@
-class CreateAdminLectures < ActiveRecord::Migration
+class CreateLectures < ActiveRecord::Migration
   def change
-    create_table :admin_lectures do |t|
+    create_table :lectures, id: :uuid do |t|
       t.string :title
       t.text :description
       t.datetime :start_date

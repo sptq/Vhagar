@@ -1,10 +1,12 @@
 class Lecture < ActiveRecord::Base
 
-  primary_key = :uuid
-
+  validates :id, presence: true
   before_validation :ensure_uuid
 
-  def ensure_uuid; self.uuid ||= SecureRandom.uuid end
+  def ensure_uuid; self.id ||= SecureRandom.uuid end
+
+  has_many :participations
+  has_many :participants, :through => :participations, :source => :user
 
 	private
 

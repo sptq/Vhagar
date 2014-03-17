@@ -10,11 +10,11 @@
 
 		<div class="ui right floated small buttons">
 			<%- if can? :edit, user -%>
-				<%= link_to "Edit", edit_user_path(id: user.uuid), class: "ui green button" %>
+				<%= link_to "Edit", edit_user_path(user), class: "ui green button" %>
 			<%- end -%>
 
-			<%- if can? :destroy, User -%>
-				<%= link_to "Delete", user_path(id: user.uuid), class: "ui red button", method: :delete, data: {confirm: "You sure?"} %>
+			<%- if can? :destroy, user -%>
+				<%= link_to "Delete", user, class: "ui red button", method: :delete, data: {confirm: "You sure?"} %>
 			<%- end -%>
 		</div>
 
