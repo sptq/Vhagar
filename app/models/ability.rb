@@ -34,6 +34,14 @@ class Ability
     cannot :manage, User
     cannot :manage, Lecture
     can :read, Lecture
+
+    can :attend, Lecture do |lecture|
+      lecture.participants.exclude? @user
+    end
+
+    can :resign, Lecture do |lecture|
+      lecture.participants.include? @user
+    end
   end
 
   def staff
@@ -47,6 +55,8 @@ class Ability
 
     can :manage, Lecture
     cannot :destroy, Lecture
+    cannot :attend, Lecture
+    cannot :resign, Lecture
   end
 
   def admin
@@ -54,5 +64,7 @@ class Ability
 
     can :manage, :all
     can :promote, User
+    cannot :attend, Lecture
+    cannot :resign, Lecture
   end
 end

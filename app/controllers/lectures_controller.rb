@@ -60,6 +60,16 @@ class LecturesController < ApplicationController
     end
   end
 
+  def attend
+    @lecture.participants << current_user
+    redirect_to lectures_path
+  end
+
+  def resign
+    @lecture.participants.delete current_user
+    redirect_to lectures_path
+  end
+
   private
 
     # Never trust parameters from the scary internet, only allow the white list through.

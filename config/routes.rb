@@ -21,6 +21,9 @@ Crm::Application.routes.draw do
   resources :users
   resources :lectures
 
+  get '/lectures/:id/attend' => 'lectures#attend', as: :attend_lecture
+  get '/lectures/:id/resign' => 'lectures#resign', as: :resign_lecture
+
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 

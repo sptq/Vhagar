@@ -17,4 +17,13 @@
 	<%- if can? :edit, @lecture -%>
 	    <%= link_to 'Edit', edit_lecture_path(@lecture), class: "ui small positive button" %>
 	<%- end -%>
+
+	<%- if can? :attend, @lecture -%>
+	    <%= link_to 'Attend', attend_lecture_path, class: "ui small positive button" %>
+	<%- end -%>
+
+	<%- if can? :resign, @lecture -%>
+	    <%= link_to 'resign', resign_lecture_path, class: "ui small positive button" %>
+	<%- end -%>
+
 </div>

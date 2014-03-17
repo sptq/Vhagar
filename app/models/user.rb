@@ -16,6 +16,9 @@ class User < ActiveRecord::Base
     self.user_role = 'admin' if User.where(user_role: 'admin').to_a.count == 0
   end
 
+  has_many :participations
+  has_many :lectures, :through => :participations
+
   # named_scope :with_role, lambda { |role| {:conditions => "roles_mask & #{2**ROLES.index(role.to_s)} > 0 "} }
   ROLES = %w[admin staff user guest]
 
