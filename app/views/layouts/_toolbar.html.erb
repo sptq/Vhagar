@@ -3,9 +3,14 @@
             <div class="inverted secondary pointing ui menu">
 
                 <%= link_to 'Home', root_path, class: "header item" %>
-                <% if user_signed_in? && current_user.is_admin %>
-                    <%= link_to 'Admin', admin_root_path, class: "header item" %>
-                <% end %>
+
+                <%- if can? :read, User -%>
+                    <%= link_to 'Users', users_path, class: "header item" %>
+                <%- end -%>
+
+                <%- if can? :read, Lecture -%>
+                    <%= link_to 'Lectures', lectures_path, class: "header item" %>
+                <%- end -%>
 
                 <div class="right menu">
                     <div class="ui top right pointing mobile dropdown link item">

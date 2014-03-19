@@ -3,10 +3,11 @@ class ApplicationController < ActionController::Base
 	# For APIs, you may want to use :null_session instead.
 	protect_from_forgery with: :exception
 
-	def admin_filter
-		unless user_signed_in? && current_user.is_admin
-			flash[:alert] = "You are not allowed here"
-			redirect_to root_path
-		end
+	rescue_from CanCan::Unauthorized do |exception|
+		redirect_to root_url, alert: exception.message
+	end unless :devise_controller?
+
+	rescue_from CanCan::AccessDenied do |exception|
+	  redirect_to root_url, alert: exception.message
 	end
 end

@@ -1,16 +1,18 @@
 <div class="ui warning form segment">
 
-	<%= form_for @user, url: admin_user_path(@user), html: { method: :put } do |f| %>
+	<%= form_for @user do |f| %>
 
 	<div class="field">
 		<%= f.label :email %>
 		<%= f.text_field :email, readonly: :true %>
 	</div>
 
-	<div class="field">
-		<%= f.label :user_role %>
-		<%= f.text_field :user_role %>
-	</div>
+	<% if can? :promote, User %>
+		<div class="field">
+			<%= f.label :user_role %>
+			<%= f.select :user_role, User::ROLES %>
+		</div>
+	<% end %>
 
 	<div class="ui small buttons">
 		<%= yield :form_buttons %>

@@ -36,6 +36,7 @@ gem 'jbuilder', '~> 1.2'
 
 # Auth
 gem 'devise'
+gem "cancancan", "~> 1.7.0"
 
 # Pagination - https://github.com/mislav/will_paginate/
 gem 'will_paginate', '~> 3.0'
@@ -51,6 +52,7 @@ group :development do
 	# Use Capistrano for deployment
 	gem 'capistrano'
 	gem 'rspec-rails', "~> 2.12"
+	gem 'shoulda-matchers'
 	gem "capybara", "~> 2.0"
 	gem "cucumber", "~> 1.3"
 	gem "cucumber-rails", "~> 1.4.0", require: false
