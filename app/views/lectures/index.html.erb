@@ -1,10 +1,12 @@
 <% if @lectures != nil %>
 
-<div class="ui buttons">
-  <%- if can? :create, Lecture -%>
-    <%= link_to "Add lecture", new_lecture_path, class: "ui green button" -%>
-  <%- end -%>
-</div>
+<%- if can? :manage, Lecture -%>
+  <div class="ui buttons">
+    <%- if can? :create, Lecture -%>
+      <%= link_to "Add lecture", new_lecture_path, class: "ui green button" -%>
+    <%- end -%>
+  </div>
+<%- end -%>
 
 <div class="ui relax divided selection list">
 

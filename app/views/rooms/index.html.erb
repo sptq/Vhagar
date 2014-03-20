@@ -1,31 +1,27 @@
-<h1>Listing rooms</h1>
+<%- if can? :manage, Room -%>
+  <div class="ui buttons">
+    <%- if can? :create, Room -%>
+      <%= link_to "Add room", new_room_path, class: "ui green button" -%>
+    <%- end -%>
+  </div>
+<%- end -%>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Capacity</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="ui relaxed divided selection list">
     <% @rooms.each do |room| %>
-      <tr>
-        <td><%= room.title %></td>
-        <td><%= room.description %></td>
-        <td><%= room.capacity %></td>
-        <td><%= link_to 'Show', room %></td>
-        <td><%= link_to 'Edit', edit_room_path(room) %></td>
-        <td><%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="item">
+        <div class="ui horizontal label"><%= room.capacity %></div>
+
+        <%= link_to room.title, room, class: "header" %>
+
+        <div class="ui right floated small buttons">
+          <%- if can? :edit, room -%>
+            <%= link_to 'Edit', edit_room_path(room), class: "ui positive button" %>
+          <%- end -%>
+
+          <%- if can? :destroy, room -%>
+            <%= link_to 'Delete', room, class: "ui negative button", method: :delete, data: {confirm: "You sure?"} %>
+          <%- end -%>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Room', new_room_path %>
+</div>

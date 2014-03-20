@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_room, only: [:show, :edit, :update, :destroy]
 
   # GET /rooms
@@ -28,7 +29,7 @@ class RoomsController < ApplicationController
 
     respond_to do |format|
       if @room.save
-        format.html { redirect_to @room, notice: 'Room was successfully created.' }
+        format.html { redirect_to rooms_path, notice: 'Room was successfully created.' }
         format.json { render action: 'show', status: :created, location: @room }
       else
         format.html { render action: 'new' }
@@ -54,10 +55,14 @@ class RoomsController < ApplicationController
   # DELETE /rooms/1
   # DELETE /rooms/1.json
   def destroy
-    @room.destroy
-    respond_to do |format|
-      format.html { redirect_to rooms_url }
-      format.json { head :no_content }
+    if @room.lectures.count > 0 then
+      redirect_to @room, alert: "Room has #{@room.lectures.count} associated lectures"
+    else
+      @room.destroy
+      respond_to do |format|
+        format.html { redirect_to rooms_url }
+        format.json { head :no_content }
+      end
     end
   end
 

@@ -1,4 +1,6 @@
-<%= form_for(@room) do |f| %>
+<div class="ui form segment">
+
+  <%= form_for(@room) do |f| %>
   <% if @room.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@room.errors.count, "error") %> prohibited this room from being saved:</h2>
@@ -23,7 +25,10 @@
     <%= f.label :capacity %><br>
     <%= f.number_field :capacity %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="ui small buttons">
+    <%= yield :form_buttons %>
+    <%= f.submit class: "ui green positive button" %>
   </div>
 <% end %>
+
+</div>
