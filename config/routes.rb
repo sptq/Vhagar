@@ -1,5 +1,7 @@
 Crm::Application.routes.draw do
 
+  resources :rooms
+
   devise_for :user, :path => '', path_names: {
     sign_in: "login",
     sign_out: "logout",
