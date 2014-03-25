@@ -2,13 +2,9 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
-<<<<<<< HEAD
-=======
   has_one :profile
    
   primary_key = :uuid
-
->>>>>>> Fix migration and connect profile with user
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -31,5 +27,9 @@ class User < ActiveRecord::Base
 
   def role?(role)
     user_role.to_s.include? role.to_s
+  end
+
+  def admin?
+    self.role?('admin')
   end
 end

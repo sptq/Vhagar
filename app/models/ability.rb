@@ -72,6 +72,7 @@ class Ability
   def admin
     staff
 
+    can :read, :all
     can :manage, :all
     can :promote, User
     cannot :attend, Lecture
