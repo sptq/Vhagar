@@ -33,14 +33,6 @@ ActiveRecord::Schema.define(version: 20140320162656) do
     t.datetime "updated_at"
   end
 
-  create_table "rooms", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
-    t.string   "title"
-    t.text     "description"
-    t.integer  "capacity"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "profiles", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "firstName",                   null: false
     t.string   "lastName",                    null: false
@@ -51,7 +43,14 @@ ActiveRecord::Schema.define(version: 20140320162656) do
     t.string   "universityCode", default: ""
     t.string   "fieldOfStudy",   default: ""
     t.uuid     "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
+  create_table "rooms", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "capacity"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
