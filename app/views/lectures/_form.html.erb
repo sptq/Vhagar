@@ -28,6 +28,11 @@
     <%= f.datetime_select :start_date %>
   </div>
 
+  <div class="field">
+    <%= f.label :room_id %>
+    <%= f.collection_select :room_id, available_rooms, :id, :title %>
+  </div>
+
   <div class="ui small buttons">
     <%= yield :form_buttons %>
     <%= f.submit class: "ui green positive button" %>

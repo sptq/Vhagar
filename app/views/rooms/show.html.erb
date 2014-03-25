@@ -1,0 +1,28 @@
+<div class="ui form segment">
+  <h2 class="ui header">Title</h2>
+  <p class="text"><%= @room.title -%></p>
+
+  <h2 class="ui header">Description</h2>
+  <p class="text"><%= @room.description -%></p>
+
+  <h2 class="ui header">Capacity</h2>
+  <div class="date"><%= @room.capacity -%></div>
+
+  <h2 class="ui header">Lectures</h2>
+  <div class="ui relaxed divided selection list">
+    <% @room.lectures.each do |lecture| %>
+      <div class="item">
+        <div class="ui horizontal label"><%= lecture.start_date %></div>
+        <%= link_to lecture.title, lecture, class: "header" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="ui small buttons">
+  <%= link_to 'Back', rooms_path, class: "ui red button" %>
+
+  <%# if can? :edit, @room -%>
+      <%= link_to 'Edit', edit_room_path(@room), class: "ui small positive button" %>
+  <%# end -%>
+</div>

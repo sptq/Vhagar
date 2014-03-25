@@ -12,6 +12,10 @@
                     <%= link_to 'Lectures', lectures_path, class: "header item" %>
                 <%- end -%>
 
+                <%- if can? :read, Room -%>
+                    <%= link_to 'Rooms', rooms_path, class: "header item" %>
+                <%- end -%>
+
                 <div class="right menu">
                     <div class="ui top right pointing mobile dropdown link item">
                         Menu

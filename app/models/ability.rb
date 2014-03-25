@@ -5,6 +5,7 @@ class Ability
     # Define abilities for the passed in user here. For example:
     #
     @user = user || User.new # for guest
+    @user.user_role = 'guest'
     @user.user_role.to_s.split(' ').each { |role| send(role) }
 
     #
@@ -28,20 +29,25 @@ class Ability
   end
 
   def guest
+    can :read, Lecture
+    can :read, Room
   end
 
   def user
     cannot :manage, User
+
     cannot :manage, Lecture
-    can :read, Lecture
+    cannot :see_participants, Lecture
 
     can :attend, Lecture do |lecture|
-      lecture.participants.exclude? @user
+      lecture.participants.count < lecture.room.capacity and lecture.participants.exclude? @user
     end
 
     can :resign, Lecture do |lecture|
       lecture.participants.include? @user
     end
+
+    cannot :manage, Room
   end
 
   def staff
@@ -54,9 +60,13 @@ class Ability
     cannot :destroy, User
 
     can :manage, Lecture
+    can :see_participants, Lecture
     cannot :destroy, Lecture
     cannot :attend, Lecture
     cannot :resign, Lecture
+
+    can :manage, Room
+    cannot :destroy, Room
   end
 
   def admin
