@@ -5,7 +5,7 @@ class Ability
     # Define abilities for the passed in user here. For example:
     #
     @user = user || User.new # for guest
-    @user.user_role = 'guest'
+    @user.user_role ||= 'guest'
     @user.user_role.to_s.split(' ').each { |role| send(role) }
 
     #
