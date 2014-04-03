@@ -210,6 +210,11 @@ p a {
     text-align: right;
 }
 
+.myprofileSegment {
+  text-align: center;
+}
+
+
 .flickr_pagination {
   text-align: center;
   padding: 0.3em;

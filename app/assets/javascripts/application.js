@@ -72,7 +72,11 @@ $(document)
             $(this).closest('.message').fadeOut();
         });
 
-        setInterval(changeSides, 3000);
+        $('.withPopup').popup({
+            on: 'click',
+            title: 'Uzupełnij profil',
+            content: 'Aby wykonać tą akcję musisz najpierw uzupełnić swój profil.',
+            variation: 'inverted'
+        });
 
-    })
-;
+    });

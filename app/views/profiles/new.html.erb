@@ -1,0 +1,46 @@
+<div class="ui form segment">
+
+  <%= form_for @profile do |f| %>
+  <% if @profile.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@profile.errors.count, "error") %></h2>
+    <ul>
+      <% @profile.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :firstName %><br>
+    <%= f.text_field :firstName %>
+  </div>
+
+  <div class="field">
+    <%= f.label :lastName %><br>
+    <%= f.text_field :lastName %>
+  </div>
+
+  <div class="field">
+    <%= f.label :job %><br>
+    <%= f.text_field :job %>
+  </div>
+
+  <div class="field">
+    <%= f.label :palce %>
+    <%= f.text_field :place %> 
+  </div>
+
+  <div class="field">
+    <%= f.label :phone %>
+    <%= f.text_field :phone %> 
+  </div>
+
+  <div class="ui small buttons">
+    <%= yield :form_buttons %>
+    <%= f.submit class: "ui green positive button" %>
+  </div>
+  <% end %>
+
+</div>
