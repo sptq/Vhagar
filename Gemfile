@@ -36,6 +36,7 @@ gem 'jbuilder', '~> 1.2'
 
 # Auth
 gem 'devise'
+gem 'devise-i18n-views'
 gem "cancancan", "~> 1.7.0"
 
 # Pagination - https://github.com/mislav/will_paginate/

@@ -15,7 +15,7 @@ Crm::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'home#index'
-
+  get '/panel' => 'home#panel'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -26,8 +26,7 @@ Crm::Application.routes.draw do
   get '/lectures/:id/attend' => 'lectures#attend', as: :attend_lecture
   get '/lectures/:id/resign' => 'lectures#resign', as: :resign_lecture
 
-  resources :profile 
-
+  resources :profiles
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

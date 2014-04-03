@@ -48,6 +48,8 @@ class Ability
     end
 
     cannot :manage, Room
+
+    can :manage, Profile
   end
 
   def staff
