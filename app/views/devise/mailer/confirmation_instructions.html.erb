@@ -1,5 +1,13 @@
 <div class="ui justified segment">
-	<h1 class="ui header">Welcome <%= @email %>!</h1>
-	<p>You can confirm your account email through the link below:</p>
-	<p><%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @token) %></p>
+	<h1 class="ui header">Witaj <%= @email %>!</h1>
+	<div class="ui segment">
+		<p>Gratulujemy pomyślnej rejestracji na bezpłatną konferencję Lubelskie Dni Informatyki, największego tegorocznego wydarzenia IT we wschodniej Polsce!</p>
+		<p>Ta wiadomość zawiera ważne informacje na temat Twojego konta i sposobu jego aktywacji.</p>
+		<p>Dziękujemy za zainteresowanie się naszą konferencją. Mamy nadzieję, że tegoroczna edycja Lubelskich Dni Informatyki szczególnie zapadnie Wam w pamięć. Tylko dzięki Waszemu wsparciu i zaufaniu możemy stawać się coraz lepsi z każdym kolejnym wydarzeniem.</p>
+	</div>
+	<div class="ui segment">
+		<p>Prosimy pamiętać, iż w razie jakichkolwiek zmian, odzyskiwania konta oraz potwierdzenia swojej tożsamości niezbędny jest adres e-mail podany podczas rejestracji.</p>
+		<p>W celu ukończenia rejestracji prosimy aktywować konto.</p>
+		<p><%= link_to 'AKTYWUJ KONTO', confirmation_url(@resource, :confirmation_token => @token), class: "ui positive button" %></p>
+	</div>
 </div>
