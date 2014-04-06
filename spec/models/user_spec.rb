@@ -21,6 +21,7 @@ describe User do
 		describe "interacts with lecture" do
 			before :all do
 				@lecture = Lecture.new(id: SecureRandom.uuid, title: "title", description: "description", start_date: Time.now)
+				@lecture.room = Room.new(id: SecureRandom.uuid, title: "title", description: "description", capacity: 10)
 			end
 
 			it { should be_able_to :read, @lecture }

@@ -1,5 +1,4 @@
-<br /><br />
-<div class="ui piled feed segment">
+<div>
   <h2 class="ui header">
     Oto twój profil w naszym serwisie.
   </h2>
@@ -46,3 +45,10 @@
 <% else %>
 	<div class="error">Nie masz zdefiniowanego profilu - zdefinij teraz </div>
 <% end %>
+
+	<div class="column">
+		<div class="ui piled segment">
+			<%= render partial: "lectures/list", locals: { lectures: @profile.user.lectures } -%>
+		</div>
+	</div>
+</div>

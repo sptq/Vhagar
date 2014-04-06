@@ -1,6 +1,8 @@
 <h1>Editing room</h1>
 
-<%= render 'form' %>
+<% content_for :form_buttons do %>
+	<%= link_to 'Anuluj', rooms_path, class: "ui red button" %>
+	<%= link_to 'Zobacz', @room, class: "ui teal button" %>
+<% end %>
 
-<%= link_to 'Show', @room %> |
-<%= link_to 'Back', rooms_path %>
+<%= render 'form' %>

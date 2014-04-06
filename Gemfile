@@ -34,6 +34,8 @@ gem 'jbuilder', '~> 1.2'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
+gem 'rails-i18n', '~> 4.0.2'
+
 # Auth
 gem 'devise'
 gem 'devise-i18n-views'
@@ -49,12 +51,14 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'rails_12factor', group: :production
+
 group :development do
 	# Better debud
 	gem 'better_errors'
   	gem 'binding_of_caller'
   	gem 'meta_request'
-	
+
 	# Use Capistrano for deployment
 	gem 'capistrano'
 	gem 'rspec-rails', "~> 2.12"

@@ -1,0 +1,13 @@
+<div class="ui piled segment">
+  <h1 class="ui header"><%= @room.title -%></h1>
+
+  <p><%= @room.description -%></p>
+
+  <%- if @room.capacity > 0 -%>
+    <h2 class="ui header">Ilość miejsc: <%= @room.capacity -%></h2>
+  <%- end -%>
+
+  <h2 class="ui header">Powiązane wydarzenia:</h2>
+
+  <%= render partial: "lectures/list", locals: { lectures: @room.lectures } -%>
+</div>

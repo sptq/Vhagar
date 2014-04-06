@@ -43,7 +43,7 @@
 	      	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 	      	<br /><br />
 	      	<% if current_user.profile %>
-	      		<a class="ui green button">Zapisz się na wykłady</a>
+	      		<%= link_to "Zapisz się na wykłady", lectures_path, class: "ui green button" -%>
 	      	<% else %>
 	      		<a class="ui green button disabled withPopup">Zapisz się na wykłady</a>
 	      	<% end %>
