@@ -1,0 +1,19 @@
+<div class="ui piled segment">
+	<h1 class="ui header"><%= @lecture.title -%></h1>
+
+	<p class="text"><%= @lecture.description -%></p>
+
+	<h2 class="ui header">Start date</h2>
+	<div class="date"><%= l @lecture.start_date, format: :short -%></div>
+
+	<%- if can? :see_participants, @lecture -%>
+		<h2 class="ui header">Uczestnicy</h2>
+		<div class="ui relaxed divided selection list">
+			<% @lecture.participants.each do |participant| %>
+			<div class="item">
+				<div class="header"><%= participant.email -%></div>
+			</div>
+			<% end %>
+		</div>
+	<%- end -%>
+</div>

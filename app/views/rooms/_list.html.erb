@@ -1,0 +1,19 @@
+<div class="ui relaxed divided selection list">
+    <% rooms.each do |room| %>
+      <div class="item">
+        <div class="ui horizontal label"><%= room.capacity %></div>
+
+        <%= link_to room.title, room, class: "header" %>
+
+        <div class="ui right floated small buttons">
+          <%- if can? :edit, room -%>
+            <%= link_to 'Edytuj', edit_room_path(room), class: "ui positive button" %>
+          <%- end -%>
+
+          <%- if can? :destroy, room -%>
+            <%= link_to 'Usuń', room, class: "ui negative button", method: :delete, data: { confirm: "Na pewno?" } %>
+          <%- end -%>
+        </div>
+      </div>
+    <% end %>
+</div>

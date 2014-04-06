@@ -1,42 +1,32 @@
 <div class="ui form segment">
 
-  <%= form_for @lecture do |f| %>
-  <% if @lecture.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@lecture.errors.count, "error") %> prohibited this lecture from being saved:</h2>
+<%= form_for @lecture do |f| %>
+    <%= render partial: "layouts/form_errors", locals: { errors: @lecture.errors } -%>
 
-    <ul>
-      <% @lecture.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
-  <% end %>
+    <div class="field">
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
+    </div>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
+    <div class="field">
+      <%= f.label :description %><br>
+      <%= f.text_area :description %>
+    </div>
 
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
+    <div class="field">
+      <%= f.label :start_date %><br>
+      <%= f.datetime_select :start_date %>
+    </div>
 
-  <div class="field">
-    <%= f.label :start_date %><br>
-    <%= f.datetime_select :start_date %>
-  </div>
+    <div class="field">
+      <%= f.label :room_id %>
+      <%= f.collection_select :room_id, available_rooms, :id, :title %>
+    </div>
 
-  <div class="field">
-    <%= f.label :room_id %>
-    <%= f.collection_select :room_id, available_rooms, :id, :title %>
-  </div>
-
-  <div class="ui small buttons">
-    <%= yield :form_buttons %>
-    <%= f.submit class: "ui green positive button" %>
-  </div>
+    <div class="ui small buttons">
+      <%= yield :form_buttons %>
+      <%= f.submit "Zapisz", class: "ui green positive button" %>
+    </div>
   <% end %>
 
 </div>

@@ -1,41 +1,25 @@
-<div class="ui form segment">
-	<h2 class="ui header">Title</h2>
-	<p class="text"><%= @lecture.title -%></p>
-
-	<h2 class="ui header">Description</h2>
-	<p class="text"><%= @lecture.description -%></p>
-
-	<h2 class="ui header">Start date</h2>
-	<div class="date"><%= @lecture.start_date -%></div>
-
-	<h2 class="ui header">Room</h2>
-  <%= link_to @lecture.room.title, @lecture.room, class: "text" %>
-
-  <%- if can? :see_participants, @lecture -%>
-	  <h2 class="ui header">Participants</h2>
-	  <div class="ui relaxed divided selection list">
-	    <% @lecture.participants.each do |participant| %>
-	      <div class="item">
-	        <%= link_to participant.email, participant, class: "header" %>
-	      </div>
-	    <% end %>
-	  </div>
-	 <%- end -%>
+<div class="ui two column grid">
+	<div class="column">
+		<%= render "preview" %>
+	</div>
+	<div class="column">
+		<%- @room = @lecture.room -%>
+		<%= render partial: "rooms/preview" %>
+	</div>
 </div>
 
 <div class="ui small buttons">
 	<%= link_to 'Back', lectures_path, class: "ui red button" %>
 
 	<%- if can? :edit, @lecture -%>
-	    <%= link_to 'Edit', edit_lecture_path(@lecture), class: "ui small positive button" %>
+	<%= link_to 'Edit', edit_lecture_path(@lecture), class: "ui small positive button" %>
 	<%- end -%>
 
 	<%- if can? :attend, @lecture -%>
-	    <%= link_to 'Attend', attend_lecture_path, class: "ui small positive button" %>
+	<%= link_to 'Attend', attend_lecture_path, class: "ui small positive button" %>
 	<%- end -%>
 
 	<%- if can? :resign, @lecture -%>
-	    <%= link_to 'resign', resign_lecture_path, class: "ui small positive button" %>
+	<%= link_to 'resign', resign_lecture_path, class: "ui small positive button" %>
 	<%- end -%>
-
 </div>
