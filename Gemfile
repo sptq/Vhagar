@@ -34,6 +34,8 @@ gem 'jbuilder', '~> 1.2'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
+gem 'rails-i18n', '~> 4.0.2'
+
 # Auth
 gem 'devise'
 gem 'devise-i18n-views'
