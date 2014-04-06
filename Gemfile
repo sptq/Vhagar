@@ -51,12 +51,14 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'rails_12factor', group: :production
+
 group :development do
 	# Better debud
 	gem 'better_errors'
   	gem 'binding_of_caller'
   	gem 'meta_request'
-	
+
 	# Use Capistrano for deployment
 	gem 'capistrano'
 	gem 'rspec-rails', "~> 2.12"

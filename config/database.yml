@@ -30,8 +30,6 @@ production:
     database: crm_production
     pool: 5
     host: localhost
-    username: postgres
-    password: postgres
 
 cucumber:
   <<: *test
