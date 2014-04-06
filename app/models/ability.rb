@@ -39,6 +39,7 @@ class Ability
     cannot :manage, Lecture
     cannot :see_participants, Lecture
 
+    guest
     can :attend, Lecture do |lecture|
       lecture.participants.count < lecture.room.capacity and lecture.participants.exclude? @user
     end

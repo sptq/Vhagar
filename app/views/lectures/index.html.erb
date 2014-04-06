@@ -8,29 +8,8 @@
   </div>
 <%- end -%>
 
-<div class="ui relax divided selection list">
-
-  <% @lectures.each do |lecture| %>
-
-  <div class="item">
-    <div class="ui horizontal label"><%= lecture.start_date %></div>
-
-    <%= link_to lecture.title, lecture, class: "header" %>
-
-    <div class="ui right floated small buttons">
-      <%- if can? :edit, lecture -%>
-        <%= link_to 'Edit', edit_lecture_path(lecture), class: "ui positive button" %>
-      <%- end -%>
-
-      <%- if can? :destroy, lecture -%>
-        <%= link_to 'Delete', lecture, class: "ui negative button", method: :delete, data: {confirm: "You sure?"} %>
-      <%- end -%>
-    </div>
-
-  </div>
-
-  <% end %>
-
+<div class="ui piled segment">
+  <%= render partial: "list", locals: { lectures: @lectures } -%>
 </div>
 
 <% end %>

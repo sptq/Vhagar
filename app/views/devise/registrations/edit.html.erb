@@ -1,5 +1,5 @@
 <div class="ui form segment">
-  <h1 class="ui header">Edit <%= resource_name.to_s.humanize %></h1>
+  <h1 class="ui header">Edycja konta</h1>
 
 	<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
 	<div class="ui error message">
@@ -19,11 +19,11 @@
 	</div>
 
 	<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-	<div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+		<div>Aktualnie czekamy na potwierdzenie: <%= resource.unconfirmed_email %></div>
 	<% end %>
 
 	<div class="field">
-		<div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+		<div><%= f.label "Hasło" %> <i>(pozostaw puste jeżeli nie chcesz zmieniać)</i><br />
 			<div class="ui left labeled icon input">
 				<%= f.password_field :password, autocomplete: "off" %>
 
@@ -36,7 +36,7 @@
 	</div>
 
 	<div class="field">
-		<div><%= f.label :password_confirmation %><br />
+		<div><%= f.label "Potwierdzenie hasła" %><br />
 			<div class="ui left labeled icon input">
 				<%= f.password_field :password_confirmation %>
 
@@ -49,7 +49,7 @@
 	</div>
 
 	<div class="field">
-		<div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+		<div><%= f.label "Aktualne hasło" %> <i>(wymagane aby potwierdzić zmiany)</i><br />
 			<div class="ui left labeled icon input">
 				<%= f.password_field :current_password %>
 
@@ -62,9 +62,9 @@
 	</div>
 
 	<div class="ui small buttons">
-		<%= link_to "Back", :back, class: "ui teal button"%>
-		<%= f.submit "Update", class: "ui green submit button" %>
-		<%= link_to "Cancel my account", registration_path(resource_name), class: "ui red submit button", :data => { :confirm => "Are you sure?" }, :method => :delete %>
+		<%= link_to "Wróć", :back, class: "ui teal button"%>
+		<%= f.submit "Aktualizuj", class: "ui green submit button" %>
+		<%= link_to "Usuń konto", registration_path(resource_name), class: "ui red submit button", :data => { :confirm => "Are you sure?" }, :method => :delete %>
 	</div>
 	<% end %>
 </div>

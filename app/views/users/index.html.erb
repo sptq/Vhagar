@@ -1,25 +1,4 @@
 <% if @users != nil %>
-<div class="ui relax divided selection list">
-	<% @users.each do |user| %>
-	<div class="item">
-		<%- if can? :see_role, User -%>
-			<div class="ui left floated label"><%= user.user_role %></div>
-		<%- end -%>
-
-		<%= user.email %>
-
-		<div class="ui right floated small buttons">
-			<%- if can? :edit, user -%>
-				<%= link_to "Edit", edit_user_path(user), class: "ui green button" %>
-			<%- end -%>
-
-			<%- if can? :destroy, user -%>
-				<%= link_to "Delete", user, class: "ui red button", method: :delete, data: {confirm: "You sure?"} %>
-			<%- end -%>
-		</div>
-
-	</div>
-	<% end %>
-</div>
+	<%= render partial: "list", locals: { users: @users } -%>
 <% end %>
 
