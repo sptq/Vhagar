@@ -2,7 +2,7 @@ class Lecture < ActiveRecord::Base
 
   validates :id, presence: true
   validates :title, presence: true
-  validates :descriptions, presence: true
+  validates :description, presence: true
 
   before_validation :ensure_uuid
 
