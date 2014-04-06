@@ -214,6 +214,15 @@ p a {
   text-align: center;
 }
 
+.register_link a {
+  color: #FFF;
+}
+
+.register_link a:hover, a:visited {
+  color: #FFF;
+}
+
+
 
 .flickr_pagination {
   text-align: center;

@@ -2,19 +2,25 @@
         <div class="column">
             <div class="inverted secondary pointing ui menu">
 
-                <%= link_to 'Home', root_path, class: "header item" %>
+                <%= link_to 'Strona Startowa', root_path, class: "header item" %>
 
                 <%- if can? :read, User -%>
-                    <%= link_to 'Users', users_path, class: "header item" %>
+                    <%= link_to 'Użytkownicy', users_path, class: "header item" %>
                 <%- end -%>
 
                 <%- if can? :read, Lecture -%>
-                    <%= link_to 'Lectures', lectures_path, class: "header item" %>
+                    <%= link_to 'Wykłady', lectures_path, class: "header item" %>
                 <%- end -%>
 
                 <%- if can? :read, Room -%>
-                    <%= link_to 'Rooms', rooms_path, class: "header item" %>
+                    <%= link_to 'Pokoje', rooms_path, class: "header item" %>
                 <%- end -%>
+
+                <%- if can? :read, Stat -%>
+                    <%= link_to 'Statystyki', stats_path, class: "header item" %>
+                <%- end -%>
+                
+
 
                 <div class="right menu">
                     <% if user_signed_in? %>

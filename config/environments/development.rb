@@ -36,7 +36,7 @@ Crm::Application.configure do
     port:                 587,
     domain:               'ldi.org.pl',
     user_name:            'noreply@ldi.org.pl',
-    password:             '',
+    password:             'UwheComy',
     authentication:       'plain',
     openssl_verify_mode:  'none',
     enable_starttls_auto: true  

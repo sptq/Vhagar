@@ -1,7 +1,7 @@
 <div id="login-container">
     <div id="login-form">
         <div class="ui form segment">
-            <h1 class="ui header">Login</h1>
+            <h1 class="ui header">Logowanie</h1>
             <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
                 <div class="field">
                     <%= f.label :email %>
@@ -32,7 +32,7 @@
                 <% end -%>
 
                 <div class="ui small buttons">
-                    <div class="ui green button" onClick="document.getElementById('new_user').submit();">Login</div>
+                    <div class="ui green button" onClick="document.getElementById('new_user').submit();">Zaloguj</div>
                     <%= render "devise/shared/links" %>
                 </div>
 
