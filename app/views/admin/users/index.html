@@ -9,14 +9,14 @@
 		<%= user.profile.lastName %>
 
 		|
-		
+
 		<%= user.email %>
-		 
+
 
 		<% if user_signed_in? && current_user.is_admin %>
 
 		<div class="ui right floated buttons">
-			<%= link_to "Edit", edit_admin_user_path(id: user.uuid), class: "ui small green button" %>
+			<%= link_to "Edytuj", edit_admin_user_path(id: user.uuid), class: "ui small green button" %>
 		</div>
 
 		<% end %>

@@ -1,4 +1,17 @@
 <div class="ui piled segment">
-	<h1><%= profile.firstName -%> <%= profile.lastName -%></h1>
-	<p><%= profile.job -%> @ <%= profile.place -%></p>
+	<div class="ui ribbon label"><%= profile.job %></div>
+	<div class="ui teal ribbon label"><%= profile.place %></div>
+	<div class="ui red ribbon label"><%= profile.phone %></div>
+	<br /><br />
+
+	<p>
+		<%= profile.firstName %>
+		<%= profile.lastName %>
+	</p>
+
+	<% if profile.album =! "" %>
+		<div class="ui red ribbon label"><%= profile.album %></div><br />
+		<div class="ui red ribbon label"><%= profile.universityCode %></div><br />
+		<div class="ui red ribbon label"><%= profile.fieldOfStudy %></div>
+	<% end %>
 </div>

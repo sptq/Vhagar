@@ -4,7 +4,7 @@ class Ability
   def initialize(user)
     # Define abilities for the passed in user here. For example:
     #
-    @user = user || User.new # for guest
+    @user = user || User.new(id: SecureRandom.uuid, user_role: 'guest') # for guest
     @user.user_role ||= 'guest'
     @user.user_role.to_s.split(' ').each { |role| send(role) }
 
@@ -29,26 +29,22 @@ class Ability
   end
 
   def guest
-    can :read, Lecture
-    can :read, Room
+    cannot :read, Lecture
+    cannot :read, Room
   end
 
   def user
-    cannot :manage, User
-
-    cannot :manage, Lecture
+    can :read, Lecture
+    can :read, Room
     cannot :see_participants, Lecture
 
-    guest
     can :attend, Lecture do |lecture|
-      lecture.participants.count < lecture.room.capacity and lecture.participants.exclude? @user
+      @user.profile? and lecture.participants.count < lecture.room.capacity and lecture.participants.exclude? @user
     end
 
     can :resign, Lecture do |lecture|
       lecture.participants.include? @user
     end
-
-    cannot :manage, Room
 
     can :manage, Profile
   end

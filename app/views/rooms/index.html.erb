@@ -1,9 +1,12 @@
 <%- if can? :manage, Room -%>
   <div class="ui buttons">
     <%- if can? :create, Room -%>
-      <%= link_to "Add room", new_room_path, class: "ui green button" -%>
+      <%= link_to "Dodaj pokój", new_room_path, class: "ui green button" -%>
     <%- end -%>
   </div>
 <%- end -%>
 
-<%= render partial: "list", locals: { rooms: @rooms } -%>
+<div class="ui piled segment">
+	<h1 class="ui header">Pokoje</h1>
+	<%= render partial: "list", locals: { rooms: @rooms } -%>
+</div>

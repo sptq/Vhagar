@@ -4,16 +4,19 @@
 
     <div class="item">
       <div class="ui horizontal label"><%= l lecture.start_date, format: :short %></div>
+      <%= lecture.title -%>
 
-      <%= link_to lecture.title, lecture, class: "header" %>
+      <div class="ui right floated tiny buttons">
+        <%- if can? :read, lecture -%>
+          <%= link_to 'Zobacz', lecture, class: "ui teal button" %>
+        <%- end -%>
 
-      <div class="ui right floated small buttons">
         <%- if can? :edit, lecture -%>
-        <%= link_to 'Edit', edit_lecture_path(lecture), class: "ui positive button" %>
+          <%= link_to 'Edytuj', edit_lecture_path(lecture), class: "ui positive button" %>
         <%- end -%>
 
         <%- if can? :destroy, lecture -%>
-        <%= link_to 'Delete', lecture, class: "ui negative button", method: :delete, data: {confirm: "You sure?"} %>
+          <%= link_to 'Usuń', lecture, class: "ui negative button", method: :delete, data: {confirm: "You sure?"} %>
         <%- end -%>
       </div>
 

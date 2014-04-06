@@ -3,9 +3,13 @@
       <div class="item">
         <div class="ui horizontal label"><%= room.capacity %></div>
 
-        <%= link_to room.title, room, class: "header" %>
+        <%= room.title -%>
 
-        <div class="ui right floated small buttons">
+        <div class="ui right floated tiny buttons">
+          <%- if can? :read, room -%>
+            <%= link_to 'Zobacz', room, class: "ui teal button" %>
+          <%- end -%>
+
           <%- if can? :edit, room -%>
             <%= link_to 'Edytuj', edit_room_path(room), class: "ui positive button" %>
           <%- end -%>
