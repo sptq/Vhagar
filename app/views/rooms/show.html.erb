@@ -1,18 +1,17 @@
-<div class="ui form segment">
-  <h2 class="ui header">Title</h2>
-  <p class="text"><%= @room.title -%></p>
+<div class="ui piled segment">
+  <h1 class="ui header"><%= @room.title -%></h1>
 
-  <h2 class="ui header">Description</h2>
-  <p class="text"><%= @room.description -%></p>
+  <p><%= @room.description -%></p>
 
-  <h2 class="ui header">Capacity</h2>
-  <div class="date"><%= @room.capacity -%></div>
+  <%- if @room.capacity > 0 -%>
+    <h2 class="ui header">Ilość miejsc: <%= @room.capacity -%></h2>
+  <%- end -%>
 
-  <h2 class="ui header">Lectures</h2>
+  <h2 class="ui header">Powiązane wydarzenia:</h2>
   <div class="ui relaxed divided selection list">
     <% @room.lectures.each do |lecture| %>
       <div class="item">
-        <div class="ui horizontal label"><%= lecture.start_date %></div>
+        <div class="ui horizontal label"><%= lecture.start_date.to_s :short %></div>
         <%= link_to lecture.title, lecture, class: "header" %>
       </div>
     <% end %>
@@ -22,7 +21,7 @@
 <div class="ui small buttons">
   <%= link_to 'Back', rooms_path, class: "ui red button" %>
 
-  <%# if can? :edit, @room -%>
+  <%- if can? :edit, @room -%>
       <%= link_to 'Edit', edit_room_path(@room), class: "ui small positive button" %>
-  <%# end -%>
+  <%- end -%>
 </div>

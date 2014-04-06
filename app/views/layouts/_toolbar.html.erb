@@ -5,15 +5,15 @@
                 <%= link_to 'Home', root_path, class: "header item" %>
 
                 <%- if can? :read, User -%>
-                    <%= link_to 'Users', users_path, class: "header item" %>
+                    <%= link_to 'Użytkownicy', users_path, class: "header item" %>
                 <%- end -%>
 
                 <%- if can? :read, Lecture -%>
-                    <%= link_to 'Lectures', lectures_path, class: "header item" %>
+                    <%= link_to 'Wydarzenia', lectures_path, class: "header item" %>
                 <%- end -%>
 
                 <%- if can? :read, Room -%>
-                    <%= link_to 'Rooms', rooms_path, class: "header item" %>
+                    <%= link_to 'Pomieszczenia', rooms_path, class: "header item" %>
                 <%- end -%>
 
                 <div class="right menu">
