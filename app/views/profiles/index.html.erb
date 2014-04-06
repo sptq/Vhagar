@@ -2,43 +2,18 @@
   <h2 class="ui header">
     Oto twój profil w naszym serwisie.
   </h2>
-  <div class="event">
-  	Konferencja Lubelskie Dni Informatuki 2014 już niebawem. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-  	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-  	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-  	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-  	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-  	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  </div>
 </div>
 
 <% if @profile != nil %>
-	<div class="ui two column grid" style="display: block;">
-		<div class="row">
+	<div class="ui two column grid">
 			<div class="column">
-				<div class="ui raised segment">
-				
-				<div class="ui ribbon label"><%= @profile.job %></div>
-				<div class="ui teal ribbon label"><%= @profile.place %></div>
-				<div class="ui red ribbon label"><%= @profile.phone %></div>
-				<br /><br />
+			<%= render partial: "preview", locals: { profile: @profile } -%>
+			</div>
 
-				<p>
-					<%= @profile.firstName %>
-					<%= @profile.lastName %>
-				</p>
-
-				<% if @profile.album =! "" %>
-					<div class="ui red ribbon label"><%= @profile.album %></div><br />
-					<div class="ui red ribbon label"><%= @profile.universityCode %></div><br />
-					<div class="ui red ribbon label"><%= @profile.fieldOfStudy %></div>
-				<% end %>
- 
-				<p></p>
-
-
-				<p>Never seen one as a pet before, but I imagine they'd make pretty terrible companions.</p>
-				</div>
+		<div class="column">
+			<div class="ui piled segment">
+			<h2 class="ui header">Twoje wykłady</h2>
+			<%= render partial: "lectures/list", locals: { lectures: @profile.user.lectures } -%>
 			</div>
 		</div>
 	</div>
@@ -46,9 +21,5 @@
 	<div class="error">Nie masz zdefiniowanego profilu - zdefinij teraz </div>
 <% end %>
 
-	<div class="column">
-		<div class="ui piled segment">
-			<%= render partial: "lectures/list", locals: { lectures: @profile.user.lectures } -%>
-		</div>
-	</div>
+
 </div>

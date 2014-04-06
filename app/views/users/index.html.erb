@@ -1,4 +1,5 @@
 <% if @users != nil %>
-	<%= render partial: "list", locals: { users: @users } -%>
+	<div class="ui piled segment">
+		<%= render partial: "list", locals: { users: @users } -%>
+	</div>
 <% end %>
-

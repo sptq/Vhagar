@@ -1,4 +1,14 @@
-<%= render "preview" %>
+<div class="ui two column grid">
+	<div class="column">
+		<div class="ui piled segment">
+			<h1 class="ui header">Pokoje</h1>
+			<%= render partial: "rooms/list", locals: { rooms: @rooms } %>
+		</div>
+	</div>
+	<div class="column">
+		<%= render "preview" -%>
+	</div>
+</div>
 
 <div class="ui small buttons">
   <%= link_to 'Back', rooms_path, class: "ui red button" %>

@@ -4,7 +4,7 @@
 	<p class="text"><%= @lecture.description -%></p>
 
 	<h2 class="ui header">Start date</h2>
-	<div class="date"><%= l @lecture.start_date, format: :short -%></div>
+	<%= l @lecture.start_date, format: :short -%>
 
 	<%- if can? :see_participants, @lecture -%>
 		<h2 class="ui header">Uczestnicy</h2>

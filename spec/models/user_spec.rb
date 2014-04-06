@@ -16,6 +16,9 @@ describe User do
 			it { should_not be_able_to :manage, @other }
 			it { should_not be_able_to :see_role, @other }
 			it { should_not be_able_to :promote,  @other }
+
+			it { should be_able_to :read, Room }
+			it { should be_able_to :read, Lecture }
 		end
 
 		describe "interacts with lecture" do
