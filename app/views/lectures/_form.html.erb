@@ -4,23 +4,36 @@
     <%= render partial: "layouts/form_errors", locals: { errors: @lecture.errors } -%>
 
     <div class="field">
-      <%= f.label :title %><br>
+      <%= f.label 'Nazwa' %><br/>
       <%= f.text_field :title %>
     </div>
 
     <div class="field">
-      <%= f.label :description %><br>
+      <%= f.label 'Opis' %><br/>
       <%= f.text_area :description %>
     </div>
 
-    <div class="field">
-      <%= f.label :start_date %><br>
-      <%= f.datetime_select :start_date %>
-    </div>
+    <div class="ui three column grid">
+      <div class="column">
+        <div class="field">
+          <%= f.label 'Data rozpoczęcia' %><br/>
+          <%= f.datetime_select :start_date %>
+        </div>
+      </div>
 
-    <div class="field">
-      <%= f.label :room_id %>
-      <%= f.collection_select :room_id, available_rooms, :id, :title %>
+      <div class="column">
+        <div class="field">
+          <%= f.label 'Czas trwania (min)' %><br/>
+          <%= f.number_field :duration %>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="field">
+          <%= f.label 'Pomieszczenie' %><br/>
+          <%= f.collection_select :room_id, available_rooms, :id, :title %>
+        </div>
+      </div>
     </div>
 
     <div class="ui small buttons">
