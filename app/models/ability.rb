@@ -31,6 +31,7 @@ class Ability
   def guest
     cannot :read, Lecture
     cannot :read, Room
+    cannot :see_profile, User
   end
 
   def user
@@ -55,7 +56,7 @@ class Ability
     can :manage, User
     can :see_role, User
     can :see_profile, User do |u|
-        u.user_profile
+        u.profile != nil
     end
 
     cannot :create, User
