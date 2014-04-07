@@ -1,9 +1,8 @@
 <div>
   <h2 class="ui header">
-    Zdobądź bilet ZTM 
+    Zdobądź bilet ZTM
   </h2>
 </div>
-
 
 <div class="ui two column grid">
 	<div class="column">
@@ -11,11 +10,11 @@
 		<h2 class="ui header"></h2>
 
 			<i class="circular ticket huge icon"></i>
-			
+
 			<h3> Zostało jeszcze <%= @tickets %> biletów </h3>
 			<% if @tickets > 0 %>
 				<% if !current_user.ztmTicket %>
-		    		<%= link_to "Zdobądź bilet ZTM", panel_ztm_get_path, class: "ui green button" -%>
+		    		<%= link_to "Zdobądź darmowy przejazd ZTM", panel_ztm_get_path, class: "ui green button" -%>
 		      	<% else %>
 		      		<a class="ui green button disabled">Posiadasz już bilet ZTM</a>
 		      	<% end %>
@@ -28,8 +27,4 @@
 		<h2 class="ui header">Jak to działa?</h2>
 		</div>
 	</div>
-</div>
-
-
-
 </div>

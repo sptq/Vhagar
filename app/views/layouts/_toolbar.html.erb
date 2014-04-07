@@ -2,7 +2,7 @@
         <div class="column">
             <div class="inverted secondary pointing ui menu">
 
-                <%= link_to 'Strona Startowa', root_path, class: "header item" %>
+                <%= link_to 'Strona startowa', root_path, class: "header item" %>
 
                 <%- if can? :read, User -%>
                     <%= link_to 'Użytkownicy', users_path, class: "header item" %>
