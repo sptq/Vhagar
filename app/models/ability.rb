@@ -54,6 +54,10 @@ class Ability
 
     can :manage, User
     can :see_role, User
+    can :see_profile, User do |u|
+        u.user_profile
+    end
+
     cannot :create, User
     cannot :promote, User
     cannot :destroy, User

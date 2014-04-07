@@ -1,6 +1,6 @@
 <% if errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(errors.count, "error") %> prohibited this room from being saved:</h2>
+  <div class="ui red inverted segment">
+    <h2 class="ui header">Błędy uniemożliwiające zapis formularza:</h2>
 
     <ul>
     <% errors.full_messages.each do |msg| %>
