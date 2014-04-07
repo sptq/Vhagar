@@ -2,9 +2,8 @@
   <h1 class="ui header">Edycja konta</h1>
 
 	<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-	<div class="ui error message">
-		<%= devise_error_messages! %>
-	</div>
+
+	<%= render partial: "layouts/form_errors", locals: { errors: resource.errors } -%>
 
 	<div class="field">
 		<%= f.label :email %>
