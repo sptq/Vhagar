@@ -2,9 +2,7 @@
 	<h2 class="ui header">Odzyskiwanie hasła</h2>
 	<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
 
-		<div class="ui error message">
-			<%= devise_error_messages! %>
-		</div>
+		<%= render partial: "layouts/form_errors", locals: { errors: resource.errors } -%>
 
 		<div class="field">
 			Adres email
