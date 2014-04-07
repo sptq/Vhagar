@@ -223,9 +223,10 @@ p a {
 }
 
 #home > div.ui.inverted.page.grid.segment.crm-footer {
-  position: absolute;
+  position: inherit;
   bottom: 0;
   width: 100%;
+  padding: 0px;
 }
 
 .flickr_pagination {
