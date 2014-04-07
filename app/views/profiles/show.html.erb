@@ -1,14 +1,1 @@
-<br /><br />
-<div class="ui piled feed segment">
-  <h2 class="ui center aligned header">Oto twój profil w naszym serwisie.</h2>
-  <div class="event">
-  	Konferencja Lubelskie Dni Informatuki 2014 już niebawem.
-  </div>
-</div>
-
-
-<% if @profile != nil %>
-	<%= render partial: "preview", locals: { profile: @profile } %>
-<% else %>
-	<div class="error">Nie masz zdefiniowanego profilu - zdefinij teraz </div>
-<% end %>
+<%= render partial: "profile", locals: { profile: @profile } -%>

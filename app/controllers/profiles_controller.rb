@@ -22,6 +22,7 @@ class ProfilesController < ApplicationController
 		@profile.user_id = current_user.id
 
 		if @profile.save
+			current_user.user_role = 'user'
 			redirect_to root_path, notice: 'User was successfully updated.'
 		else
 			render action: :edit
