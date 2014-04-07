@@ -12,9 +12,9 @@
 		<% end %>
 
 		<div class="ui right floated small buttons">
-			<% if can? :see_profile, user %>
-				<%= link_to "Zobacz profil", profile_path(user.profile.id), class: "ui blue button" %>
-			<% end %>
+			<%- if user.profile and can? :see_profile, user -%>
+				<%= link_to "Zobacz profil", user.profile, class: "ui blue button" %>
+			<%- end -%>
 
 			<%- if can? :edit, user -%>
 				<%= link_to "Edytuj", edit_user_path(user), class: "ui green button" %>
