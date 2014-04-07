@@ -227,3 +227,9 @@ pl:
         password_confirmation: "Powtórzone hasło"
         current_password: "Aktualne hasło"
         remember_me: "Zapamniętaj mnie"
+      profile:
+        firstName: "Imię"
+        lastName: "Nazwisko"
+        job: "Stanowisko / kierunek / profil"
+        place: "Firma / Uczelnia / Szkoła"
+        album: "nr albumu / legitymacji"
