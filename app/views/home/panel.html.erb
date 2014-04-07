@@ -5,15 +5,15 @@
   <h2 class="ui header">
     Witaj w panelu uczestnika!
   </h2>
-  <div class="event">
-  	Konferencja Lubelskie Dni Informatuki 2014 już niebawem.
-  </div>
+  <p> Lubelskie Dni Informatyki to bezpłatna konferencja IT organizowana od 2007 roku w Lublinie przez grupę KUL.NET oraz Koło Naukowe Informatyków Katolickiego Uniwersytetu Lubelskiego, która zdążyła już na stałe wpisać się do kalendarza imprez technologicznych nie tylko w województwie lubelskim. Z roku na rok w konferencji bierze udział coraz większa liczba pasjonatów z branży IT. Lubelskie Dni Informatyki skierowane są przede wszystkim do studentów, pracowników firm z branży informatycznej, kadry zarządzającej odpowiedzialnej za IT, a także osób zainteresowanych światem nowych technologii. Tegoroczna edycja Lubelskich Dni Informatyki odbędzie się w ramach Dni Lubelskiej Wyżyny IT.</p>
 </div>
 
 <div class="ui four column grid">
 	<div class="column">
 	    <div class="ui segment myprofileSegment">
 	      	<i class="circular user huge icon"></i>
+	    	<br />
+	    	<br />
 	      	<% if current_user.profile %>
 	      		<%= link_to 'Zobacz swój profil', profiles_path, class: "ui green button" %>
 	      	<% else %>
@@ -25,6 +25,8 @@
 	<div class="column">
 	    <div class="ui segment myprofileSegment">
 	    	<i class="circular browser huge icon"></i>
+	    	<br />
+	    	<br />
 	      	<% if current_user.profile %>
 	      		<%= link_to "Zapisz się na wykłady", lectures_path, class: "ui green button" -%>
 	      	<% else %>
@@ -36,6 +38,8 @@
 	<div class="column">
 	    <div class="ui segment myprofileSegment">
 	    	<i class="circular ticket huge icon"></i>
+	    	<br />
+	    	<br />
 	    	<% if current_user.profile %>
 	      		<a class="ui green button">Zgarnij bilet MPK</a>
 	      	<% else %>
@@ -47,6 +51,8 @@
 	<div class="column">
 	    <div class="ui segment myprofileSegment">
 	     	<i class="circular certificate huge icon"></i>
+	    	<br />
+	    	<br />
 	      	<% if current_user.profile %>
 	      		<a class="ui green button">Zgarnij Certyfikat LDI</a>
 	      	<% else %>

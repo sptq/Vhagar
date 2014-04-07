@@ -1,19 +1,12 @@
-<br /><br />
 <div class="ui piled feed segment">
   <h2 class="ui header">
     Oto pierwszy krok zakładania konta w panelu uczestnika.
   </h2>
-  <div class="event">
-  	Konferencja Lubelskie Dni Informatuki 2014 już niebawem.
-  </div>
+  <p>Aby mieć możliwość wzięcia udziału we wszystkich wydażeniach podczas Lubelskich Dni Informatyki niezbędne jest zarejestrowanie się.</p>
 </div>
 
 <div class="ui form segment">
 	<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-	<div class="ui error message">
-		<%= devise_error_messages! %>
-	</div>
-
 
 	<div class="field">
 		<%= f.label :email %>

@@ -1,5 +1,5 @@
 <div class="ui form segment">
-	<h1 class="ui header">Resend confirmation instructions</h1>
+	<h1 class="ui header">Wyślij instrukcje odblokowujące konto</h1>
 	<%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
 		<div class="ui error message">
 			<%= devise_error_messages! %>
@@ -11,7 +11,7 @@
 		</div>
 
 		<div class="ui small buttons">
-			<%= f.submit "Resend confirmation instructions", class: 'ui green confirm button' %>
+			<%= f.submit "Wyślij instrukcje odblokowujące konto", class: 'ui green confirm button' %>
 			<%= render "devise/shared/links" %>
 		</div>
 
