@@ -1,11 +1,7 @@
-
-<br />
-
 <div class="ui piled feed segment">
   <h2 class="ui header">
     Witaj w panelu uczestnika!
   </h2>
-  <p> Lubelskie Dni Informatyki to bezpłatna konferencja IT organizowana od 2007 roku w Lublinie przez grupę KUL.NET oraz Koło Naukowe Informatyków Katolickiego Uniwersytetu Lubelskiego, która zdążyła już na stałe wpisać się do kalendarza imprez technologicznych nie tylko w województwie lubelskim. Z roku na rok w konferencji bierze udział coraz większa liczba pasjonatów z branży IT. Lubelskie Dni Informatyki skierowane są przede wszystkim do studentów, pracowników firm z branży informatycznej, kadry zarządzającej odpowiedzialnej za IT, a także osób zainteresowanych światem nowych technologii. Tegoroczna edycja Lubelskich Dni Informatyki odbędzie się w ramach Dni Lubelskiej Wyżyny IT.</p>
   	Witaj w panelu uczestnika, w tym miejscu możesz wypełnić swój profil, zapisać się na zajęcia praktyczne oraz konkursy. Dodatkowo informacje, które podasz w swoim profilu zostaną użyte do stworzenia identyfikatora uczestnika, a zaraz po konferencji możesz uzyskać certyfikat uczestnictwa.
 </div>
 
@@ -16,6 +12,8 @@
 	    	<br />
 	    	<br />
 	      		Stworzenie profilu to pierwszy krok na drodze do uzskania statusu uczestnika konferencji. Jest on niezbędny do stworzenia identyfikatora oraz certyfikatu uczestnictwa.
+      		<br />
+      		<br />
 	      	<% if current_user.profile %>
 	      		<%= link_to 'Zobacz swój profil', profiles_path, class: "ui green button" %>
 	      	<% else %>
@@ -29,7 +27,9 @@
 	    	<i class="circular browser huge icon"></i>
 	    	<br />
 	    	<br />
-	      		Aby wsiąść udział w niektórych zajęciach musisz się zapisać na nie. Liczba miejsc jest ograniczona dlatego obowiązuje zasada pierwszych osób zapisanych na dane zajęcia.
+	      		Aby wziąć udział w niektórych zajęciach musisz się zapisać na nie. Liczba miejsc jest ograniczona dlatego obowiązuje zasada pierwszych osób zapisanych na dane zajęcia.
+      		<br />
+      		<br />
 	      	<% if current_user.profile %>
 	      		<%= link_to "Zapisz się na wykłady", lectures_path, class: "ui green button" -%>
 	      	<% else %>
@@ -43,7 +43,10 @@
 	    	<i class="circular ticket huge icon"></i>
 	    	<br />
 	    	<br />
-	      		Dla pierwszych 400 uczesników mamy darmowe przejazdy mpk w dniu konferencji. Zapoznaj się z instrukcją darmowego przejazdu z MPK. <br />
+	      		Dla pierwszych 400 uczesników mamy darmowe przejazdy mpk w dniu konferencji. Zapoznaj się z instrukcją darmowego przejazdu z MPK.
+      		<br />
+      		<br />
+	    	<br />
 	    	<% if current_user.profile %>
 	      		<a class="ui green button">Zgarnij bilet MPK</a>
 	      	<% else %>
@@ -57,7 +60,12 @@
 	     	<i class="circular certificate huge icon"></i>
 	    	<br />
 	    	<br />
-	      		Certyfikat uczestnictwa będzie dostępny po konferencji Lubelskie Dni Informayki 2014.<br /><br /><br />
+	      		Certyfikat uczestnictwa będzie dostępny po konferencji Lubelskie Dni Informayki 2014.
+      		<br />
+      		<br />
+	    	<br />
+	    	<br />
+	    	<br />
 	      	<% if current_user.profile %>
 	      		<a class="ui green button">Zgarnij Certyfikat LDI</a>
 	      	<% else %>

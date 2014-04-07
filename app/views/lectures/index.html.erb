@@ -1,12 +1,12 @@
 <%- if can? :manage, Lecture -%>
   <div class="ui buttons">
     <%- if can? :create, Lecture -%>
-      <%= link_to "Dodaj wydażenie", new_lecture_path, class: "ui green button" -%>
+      <%= link_to "Dodaj wydarzenie", new_lecture_path, class: "ui green button" -%>
     <%- end -%>
   </div>
 <%- end -%>
 
 <div class="ui piled segment">
-	<h1 class="ui header">Wykłady</h1>
+	<h1 class="ui center aligned header">Dostępne prelekcje i konkursy</h1>
 	<%= render partial: "list", locals: { lectures: @lectures } -%>
 </div>
