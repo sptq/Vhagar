@@ -2,7 +2,7 @@ class ProfilesController < ApplicationController
 
 	load_and_authorize_resource
 
-	def index 
+	def index
 		@profile = current_user.profile
 	end
 
@@ -16,14 +16,14 @@ class ProfilesController < ApplicationController
 			redirect_to profiles_path
 		else
 			@profile = Profile.new
-		end 
+		end
 	end
 
 	def create
 		@profile.user_id = current_user.id
 
 		if @profile.save
-			redirect_to users_path, notice: 'User was successfully updated.'
+			redirect_to root_path, notice: 'User was successfully updated.'
 		else
 			render action: :edit
 		end

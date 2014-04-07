@@ -11,16 +11,8 @@
 <div class="ui form segment">
 
   <%= form_for @profile do |f| %>
-  <% if @profile.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@profile.errors.count, "error") %></h2>
-    <ul>
-      <% @profile.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
-  <% end %>
+
+    <%= render partial: "layouts/form_errors", locals: { errors: @profile.errors } -%>
 
   <div class="field">
     Imię<br>
@@ -39,12 +31,12 @@
 
   <div class="field">
     Zamieszkiwane miasto<br>
-    <%= f.text_field :place %> 
+    <%= f.text_field :place %>
   </div>
 
   <div class="ui small buttons">
     <%= yield :form_buttons %><br>
-    <%= f.submit class: "ui green positive button" %>
+    <%= f.submit "Zapisz", class: "ui green positive button" %>
   </div>
   <% end %>
 
