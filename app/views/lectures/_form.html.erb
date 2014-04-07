@@ -13,11 +13,18 @@
       <%= f.text_area :description %>
     </div>
 
-    <div class="ui three column grid">
+    <div class="ui four column grid">
       <div class="column">
         <div class="field">
           <%= f.label 'Data rozpoczęcia' %><br/>
           <%= f.datetime_select :start_date %>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="field">
+          <%= f.label 'Rezerwacje' %><br/>
+          <%= f.number_field :reserved %>
         </div>
       </div>
 
