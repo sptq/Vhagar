@@ -6,12 +6,7 @@
     Witaj w panelu uczestnika!
   </h2>
   <div class="event">
-  	Konferencja Lubelskie Dni Informatuki 2014 już niebawem. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-  	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-  	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-  	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-  	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-  	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  	Witaj w panelu uczestnika, w tym miejscu możesz wypełnić swój profil, zapisać się na zajęcia praktyczne oraz konkursy. Dodatkowo informacje, które podasz w swoim profilu zostaną użyte do stworzenia identyfikatora uczestnika, a zaraz po konferencji możesz uzyskać certyfikat uczestnictwa.
   </div>
 </div>
 
@@ -21,9 +16,7 @@
 	      	<i class="circular user huge icon"></i>
 	      	<br />
 	      	<br />
-	      	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	      	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	      	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	      		Stworzenie profilu to pierwszy krok na drodze do uzskania statusu uczestnika konferencji. Jest on niezbędny do stworzenia identyfikatora oraz certyfikatu uczestnictwa.
 	      	<br /><br />
 	      	<% if current_user.profile %>
 	      		<%= link_to 'Zobacz swój profil', profiles_path, class: "ui green button" %>
@@ -38,9 +31,7 @@
 	    	<i class="circular browser huge icon"></i>
 			<br />
 	      	<br />
-	      	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	      	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	      	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	      		Aby wsiąść udział w niektórych zajęciach musisz się zapisać na nie. Liczba miejsc jest ograniczona dlatego obowiązuje zasada pierwszych osób zapisanych na dane zajęcia.
 	      	<br /><br />
 	      	<% if current_user.profile %>
 	      		<%= link_to "Zapisz się na wykłady", lectures_path, class: "ui green button" -%>
@@ -55,9 +46,7 @@
 	    	<i class="circular ticket huge icon"></i>
 	    	<br />
 	      	<br />
-	      	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	      	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	      	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	      		Dla pierwszych 400 uczesników mamy darmowe przejazdy mpk w dniu konferencji. Zapoznaj się z instrukcją darmowego przejazdu z MPK. <br />
 	      	<br /><br />
 	    	<% if current_user.profile %>
 	      		<a class="ui green button">Zgarnij bilet MPK</a>
@@ -72,11 +61,8 @@
 	     	<i class="circular certificate huge icon"></i>
 	     	<br />
 	      	<br />
-	      	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	      	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	      	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	      		Certyfikat uczestnictwa będzie dostępny po konferencji Lubelskie Dni Informayki 2014.<br /><br /><br />
 	      	<br /><br />
-
 	      	<% if current_user.profile %>
 	      		<a class="ui green button">Zgarnij Certyfikat LDI</a>
 	      	<% else %>

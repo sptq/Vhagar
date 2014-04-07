@@ -4,12 +4,7 @@
     Oto pierwszy krok zakładania konta w panelu uczestnika.
   </h2>
   <div class="event">
-  	Konferencja Lubelskie Dni Informatuki 2014 już niebawem. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-  	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-  	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-  	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-  	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-  	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  	Aby zostać uczestnikiem konferencji musisz się zarejestrować przez panel uczestnika. Po podaniu adresu email i hasła na twój email zostanie wysłany link aktywacyjny. Następnie będziesz musiał uzupełnic swój profil. Zapraszamy do rejestracji.
   </div>
 </div>
 
@@ -21,7 +16,7 @@
 
 
 	<div class="field">
-		<%= f.label :email %>
+		Adres email 
 
 		<div class="ui left labeled icon input">
 			<%= f.email_field :email, :autofocus => true, :placeholder => "email@ldi.org.pl" %>
@@ -33,7 +28,7 @@
 	</div>
 
 	<div class="field">
-		<div><%= f.label :password %><br />
+		<div>Hasło<br />
 			<div class="ui left labeled icon input">
 				<%= f.password_field :password %>
 
@@ -46,7 +41,7 @@
 	</div>
 
 	<div class="field">
-		<div><%= f.label :password_confirmation %><br />
+		<div>Powtórz hasło<br />
 			<div class="ui left labeled icon input">
 				<%= f.password_field :password_confirmation %>
 
