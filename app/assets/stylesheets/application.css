@@ -222,7 +222,11 @@ p a {
   color: #FFF;
 }
 
-
+#home > div.ui.inverted.page.grid.segment.crm-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
 
 .flickr_pagination {
   text-align: center;
