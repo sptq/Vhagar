@@ -10,17 +10,19 @@
 
 <body id="home">
 
-	<%= render 'layouts/notifications' %>
-	<%= render 'layouts/toolbar' %>
+	<div id="wapper">
+		<%= render 'layouts/notifications' %>
+		<%= render 'layouts/toolbar' %>
 
-	<div class="ui page grid">
-		<div class="column">
-			<br />
-			<%= yield %>
+		<div class="ui page grid container">
+			<div class="column">
+				<br />
+				<%= yield %>
+			</div>
 		</div>
-	</div>
 
-	<%= render 'layouts/footer' %>
+		<%= render 'layouts/footer' %>
+	</div>
 </body>
 </html>
 
