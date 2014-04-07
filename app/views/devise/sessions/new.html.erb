@@ -4,7 +4,7 @@
             <h1 class="ui header">Logowanie</h1>
             <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
                 <div class="field">
-                    <%= f.label :email %>
+                    Adres email
                     <div class="ui left labeled icon input">
                         <%= f.email_field :email, :autofocus => true, :placeholder => 'email@localhost' %>
                         <i class="user icon"></i>
@@ -15,7 +15,7 @@
                 </div>
 
                 <div class="field">
-                    <%= f.label :password %>
+                    Hasło
                     <div class="ui left labeled icon input">
                         <%= f.password_field :password %>
                         <i class="lock icon"></i>

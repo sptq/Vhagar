@@ -1,10 +1,10 @@
 <br /><br />
 <div class="ui piled feed segment">
   <h2 class="ui header">
-    Oto pierwszy krok zakładania konta w panelu uczestnika.
+    Oto drugi krok zakładania konta w panelu uczestnika.
   </h2>
   <div class="event">
-    Konferencja Lubelskie Dni Informatuki 2014 już niebawem.
+     Profil użytkownika jest niezbędny do uzyskania statusu uczestnika. Na profilu znajduje sie imię, nazwisko, miejsce pracy oraz miasto. Prosimy o poprawne uzupełnienie profilu.
   </div>
 </div>
 
@@ -23,32 +23,27 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :firstName %><br>
+    Imię<br>
     <%= f.text_field :firstName %>
   </div>
 
   <div class="field">
-    <%= f.label :lastName %><br>
+    Nazwisko<br>
     <%= f.text_field :lastName %>
   </div>
 
   <div class="field">
-    <%= f.label :job %><br>
+    Tytuł zawodowy<br>
     <%= f.text_field :job %>
   </div>
 
   <div class="field">
-    <%= f.label :palce %>
+    Zamieszkiwane miasto<br>
     <%= f.text_field :place %>
   </div>
 
-  <div class="field">
-    <%= f.label :phone %>
-    <%= f.text_field :phone %>
-  </div>
-
   <div class="ui small buttons">
-    <%= yield :form_buttons %>
+    <%= yield :form_buttons %><br>
     <%= f.submit class: "ui green positive button" %>
   </div>
   <% end %>
