@@ -71,12 +71,12 @@ class LecturesController < ApplicationController
 
   def attend
     @lecture.participants << current_user
-    redirect_to lectures_path
+    redirect_to lectures_path, notice: "Dołączono do #{@lecture.title}"
   end
 
   def resign
     @lecture.participants.delete current_user
-    redirect_to lectures_path
+    redirect_to lectures_path, notice: "Opuszczono #{@lecture.title}"
   end
 
   private

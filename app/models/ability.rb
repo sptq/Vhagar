@@ -40,7 +40,7 @@ class Ability
     cannot :see_participants, Lecture
 
     can :attend, Lecture do |lecture|
-      lecture.participants.count < lecture.room.capacity and lecture.participants.exclude? @user
+      0 < lecture.available_places and lecture.participants.exclude? @user
     end
 
     can :resign, Lecture do |lecture|
