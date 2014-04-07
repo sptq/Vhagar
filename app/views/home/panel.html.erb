@@ -5,7 +5,7 @@
   	Witaj w panelu uczestnika, w tym miejscu możesz wypełnić swój profil, zapisać się na zajęcia praktyczne oraz konkursy. Dodatkowo informacje, które podasz w swoim profilu zostaną użyte do stworzenia identyfikatora uczestnika, a zaraz po konferencji możesz uzyskać certyfikat uczestnictwa.
 </div>
 
-<div class="ui four column grid">
+<div class="ui three column grid">
 	<div class="column">
 	    <div class="ui segment myprofileSegment">
 	      	<i class="circular user huge icon"></i>
@@ -48,26 +48,10 @@
       		<br />
 	    	<br />
 	    	<% if current_user.profile %>
-	    		<%= link_to "Zdobądź bilet mpk", panel_ztm_path, class: "ui green button" -%>
+	    		<%= link_to "Zdobądź darmowy przejazd ZTM", panel_ztm_path, class: "ui green button" -%>
 	      	<% else %>
 	      		<a class="ui green button disabled withPopup">Zgarnij bilet MPK</a>
 	      	<% end %>
-	    </div>
-	</div>
-
-	<div class="column">
-	    <div class="ui segment myprofileSegment">
-	     	<i class="circular certificate huge icon"></i>
-	    	<br />
-	    	<br />
-	      		Certyfikat uczestnictwa będzie dostępny po konferencji Lubelskie Dni Informayki 2014.
-      		<br />
-      		<br />
-	    	<br />
-	    	<br />
-	    	<br />
-	      	
-	      	<a class="ui green button disabled">Zgarnij Certyfikat LDI</a>
 	    </div>
 	</div>
 </div>

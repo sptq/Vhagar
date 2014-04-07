@@ -14,12 +14,12 @@ class Lecture < ActiveRecord::Base
   has_many :participants, :through => :participations, :source => :user
 
   def available_places
-    room.capacity - participants.count
+    room.capacity - participants.count - reserved
   end
 	private
 
     # Never trust parameters from the scary internet, only allow the white list through.
 	def lecture_params
-		params.require(:lecture).permit(:title, :description, :start_date, :room_id, :duration)
+		params.require(:lecture).permit(:title, :description, :start_date, :room_id, :duration, :reserved)
 	end
 end
