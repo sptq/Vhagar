@@ -22,6 +22,7 @@ class ProfilesController < ApplicationController
 		@profile.user_id = current_user.id
 
 		if @profile.save
+			current_user.user_role = 'user'
 			redirect_to root_path, notice: 'User was successfully updated.'
 		else
 			render action: :edit
@@ -38,7 +39,7 @@ class ProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(:firstName, :lastName, :job, :place, :phone, :id)
+      params.require(:profile).permit(:firstName, :lastName, :job, :place, :album, :phone, :id)
     end
 
 

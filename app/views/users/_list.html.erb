@@ -10,9 +10,9 @@
 		<% if user.profile %>
 			- <b><%= user.profile.firstName %> <%= user.profile.lastName %></b>
 		<% end %>
-		
+
 		<div class="ui right floated small buttons">
-			<% if user.profile %>
+			<% if can? :see_profile, user %>
 				<%= link_to "Zobacz profil", profile_path(user.profile.id), class: "ui blue button" %>
 			<% end %>
 
