@@ -30,6 +30,27 @@ class UsersController < ApplicationController
 	    end
 	end
 
+	def ztmTicket
+		
+		if User.where(ztmTicket: true).count <= 400
+
+			if current_user.ztmTicket 
+				redirect_to panel_ztm_path, alert: 'Posiadasz już bilet ZTM.'
+			else
+				@user = current_user
+				@user.ztmTicket = true;
+				if @user.save
+					redirect_to panel_ztm_path, notice: 'Zobyłeś bilet ZTM.'
+				else
+					redirect_to panel_ztm_path, alert: 'Coś poszło nie tak podczas zapisu, spróbuj jeszcze raz.'
+				end
+			end
+		else 
+			redirect_to panel_ztm_path, alert: 'Brak darmowych biletów ZTM.'
+		end
+	end
+
+
 	private
 
     # Never trust parameters from the scary internet, only allow the white list through.

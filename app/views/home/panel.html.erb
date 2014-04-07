@@ -43,12 +43,12 @@
 	    	<i class="circular ticket huge icon"></i>
 	    	<br />
 	    	<br />
-	      		Dla pierwszych 400 uczesników mamy darmowe przejazdy mpk w dniu konferencji. Zapoznaj się z instrukcją darmowego przejazdu z MPK.
+	      		Dla pierwszych 400 uczesników mamy darmowe przejazdy autobusowe w dniu konferencji. Zapoznaj się z instrukcją darmowego biletu MPK.
       		<br />
       		<br />
 	    	<br />
 	    	<% if current_user.profile %>
-	      		<a class="ui green button">Zgarnij bilet MPK</a>
+	    		<%= link_to "Zdobądź bilet mpk", panel_ztm_path, class: "ui green button" -%>
 	      	<% else %>
 	      		<a class="ui green button disabled withPopup">Zgarnij bilet MPK</a>
 	      	<% end %>
@@ -66,11 +66,8 @@
 	    	<br />
 	    	<br />
 	    	<br />
-	      	<% if current_user.profile %>
-	      		<a class="ui green button">Zgarnij Certyfikat LDI</a>
-	      	<% else %>
-	      		<a class="ui green button disabled withPopup">Zgarnij Certyfikat LDI</a>
-	      	<% end %>
+	      	
+	      	<a class="ui green button disabled">Zgarnij Certyfikat LDI</a>
 	    </div>
 	</div>
 </div>

@@ -16,7 +16,8 @@ Crm::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
   get '/panel' => 'home#panel'
-
+  get '/panel/ztm' => 'home#ztm'
+  get '/panel/ztm/get' => 'users#ztmTicket'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
