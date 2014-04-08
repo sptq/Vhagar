@@ -1,25 +1,33 @@
 <div class="ui four column grid">
 	<div class="column">
 	    <div class="ui segment myprofileSegment">
-	      	<%= @users[:all] %>
+	    	<i class="circular user huge icon"></i>
+	    	<h3>Wszystkich użytkowników</h3>
+	      	<h2><%= @users[:all] %></h2>
 	    </div>
 	</div>
 
 	<div class="column">
 	    <div class="ui segment myprofileSegment">
-	    	<%= @users[:approvedUsers] %>
+	    	<i class="circular user huge icon"></i>
+	    	<h3>Potwierdzili e-maile</h3>
+	    	<h2><%= @users[:approvedUsers] %></h2>
 	    </div>
 	</div>
 
 	<div class="column">
 	    <div class="ui segment myprofileSegment">
-	    	<%= @users[:unapproved] %>
+	    	<i class="circular user huge icon"></i>
+	    	<h3>Nie potwierdzili e-maili</h3>
+    		<h2><%= @users[:unapproved] %></h2>
 	    </div>
 	</div>
 
 	<div class="column">
 	    <div class="ui segment myprofileSegment">
-	    	<%= @users[:withTickets] %>
+	    	<i class="circular ticket huge icon"></i>
+	    	<h3>Wybrali bilet ZTM</h3>
+	    	<h2><%= @users[:withTickets] %>
 	    </div>
 	</div>
 </div>
