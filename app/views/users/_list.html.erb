@@ -11,6 +11,12 @@
 			- <b><%= user.profile.firstName %> <%= user.profile.lastName %></b>
 		<% end %>
 
+		<% if user.confirmed_at %>
+			<a class="ui green label">Potwierdzono</a>
+		<% else %>
+			<a class="ui black label">Nie potwierdzono</a>
+		<% end %>
+
 		<div class="ui right floated small buttons">
 			<%- if user.profile and can? :see_profile, user -%>
 				<%= link_to "Zobacz profil", user.profile, class: "ui blue button" %>
@@ -24,7 +30,6 @@
 				<%= link_to "Usuń", user, class: "ui red button", method: :delete, data: { confirm: "Na pewno?"} %>
 			<%- end -%>
 		</div>
-
 	</div>
 	<% end %>
 </div>
