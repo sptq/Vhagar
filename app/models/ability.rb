@@ -42,7 +42,7 @@ class Ability
     cannot :see_participants, Lecture
 
     can :attend, Lecture do |lecture|
-      0 < lecture.available_places and lecture.participants.exclude? @user
+      @user.profile and 0 < lecture.available_places and lecture.participants.exclude? @user
     end
 
     can :resign, Lecture do |lecture|
@@ -77,7 +77,7 @@ class Ability
 
   def admin
     staff
-    
+
     can :read, :all
     can :manage, :all
     can :promote, User
