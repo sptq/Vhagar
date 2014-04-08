@@ -1,5 +1,6 @@
+<%- title("Zmiana hasła") -%>
+
 <div class="ui form segment">
-	<h1 class="ui header">Zmień hasło</h1>
 	<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
 
 		<%= render partial: "layouts/form_errors", locals: { errors: resource.errors } -%>

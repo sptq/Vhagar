@@ -1,5 +1,6 @@
+<%- title("Wyślij ponownie link aktywacyjny") -%>
+
 <div class="ui form segment">
-	<h1 class="ui header">Wyślij ponownie link aktywacyjny</h1>
 	<%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
 
 		<%= render partial: "layouts/form_errors", locals: { errors: resource.errors } -%>

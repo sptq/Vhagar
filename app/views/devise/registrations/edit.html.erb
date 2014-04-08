@@ -1,6 +1,6 @@
-<div class="ui form segment">
-  <h1 class="ui header">Edycja konta</h1>
+<%- title("Edycja konta") -%>
 
+<div class="ui form segment">
 	<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
 
 	<%= render partial: "layouts/form_errors", locals: { errors: resource.errors } -%>
