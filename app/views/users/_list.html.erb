@@ -1,36 +1,30 @@
 <div class="ui relax divided selection list">
-	<% users.each do |user| %>
+	<%- users.each do |user| -%>
+
 	<div class="item">
-
-		<% if user.confirmed_at %>
-			<a class="ui green label">&nbsp;</a>
-		<% else %>
-			<a class="ui black label">&nbsp;</a>
-		<% end %>
-
-		<%- if can? :see_role, User -%>
-			<div class="ui label"><%= user.user_role %></div>
+		<%- if show_controls and can? :see_role, User -%>
+			<div class="<%= user.confirmed_at ? 'ui green label' : 'ui black label' %>"> <%= user.user_role %></div>
 		<%- end -%>
 
-		<%= user.email %>
+		<%= user.email + ' ' if show_controls -%>
 
-		<% if user.profile %>
-			- <b><%= user.profile.firstName %> <%= user.profile.lastName %></b>
-		<% end %>
+		<b><%= user.profile.firstName + ' ' + user.profile.lastName if user.profile -%></b>
 
 		<div class="ui right floated small buttons">
 			<%- if user.profile and can? :see_profile, user -%>
-				<%= link_to "Zobacz profil", user.profile, class: "ui blue button" %>
+				<%= link_to "Profil", user.profile, class: "ui blue button" %>
 			<%- end -%>
 
-			<%- if can? :edit, user -%>
-				<%= link_to "Edytuj", edit_user_path(user), class: "ui green button" %>
-			<%- end -%>
+			<%- if show_controls -%>
+				<%- if can? :edit, user -%>
+					<%= link_to "Edytuj", edit_user_path(user), class: "ui green button" %>
+				<%- end -%>
 
-			<%- if can? :destroy, user -%>
-				<%= link_to "Usuń", user, class: "ui red button", method: :delete, data: { confirm: "Na pewno?"} %>
+				<%- if can? :destroy, user -%>
+					<%= link_to "Usuń", user, class: "ui red button", method: :delete, data: { confirm: "Na pewno?"} %>
+				<%- end -%>
 			<%- end -%>
 		</div>
 	</div>
-	<% end %>
+	<%- end -%>
 </div>
