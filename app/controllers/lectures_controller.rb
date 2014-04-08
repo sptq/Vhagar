@@ -79,6 +79,34 @@ class LecturesController < ApplicationController
     redirect_to lectures_path, notice: "Opuszczono #{@lecture.title}"
   end
 
+  def add
+    user = User.where(id: params[:user_id]).last
+    if user
+      @lecture.participants.push user
+      redirect_to modify_lecture_users_path, notice: "Dodałeś użytkownika #{user.email} z wydażenia #{@lecture.title}"
+    else
+      redirect_to @lecture, alert: 'Nie znalazłem użytkownika :('
+    end
+  end
+
+  def modify_users
+    if current_user.role? :admin
+      @users = User.all
+    else
+      @users = User.where(user_role: :user)
+    end
+  end
+
+  def remove
+    user = User.where(id: params[:user_id]).last
+    if user
+      @lecture.participants.delete user
+      redirect_to modify_lecture_users_path, notice: "Usunąłeś użytkownika #{user.email} z wydażenia #{@lecture.title}"
+    else
+      redirect_to @lecture, alert: 'Nie znalazłem użytkownika :('
+    end
+  end
+
   private
 
     # Never trust parameters from the scary internet, only allow the white list through.

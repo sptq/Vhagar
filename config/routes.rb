@@ -26,6 +26,9 @@ Crm::Application.routes.draw do
 
   get '/lectures/:id/attend' => 'lectures#attend', as: :attend_lecture
   get '/lectures/:id/resign' => 'lectures#resign', as: :resign_lecture
+  get '/lectures/:id/remove' => 'lectures#remove', as: :remove_user
+  get '/lectures/:id/add'    => 'lectures#add',    as: :add_user
+  get '/lectures/:id/modify_users' => 'lectures#modify_users', as: :modify_lecture_users
 
   resources :profiles
   resources :stats

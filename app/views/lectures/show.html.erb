@@ -11,16 +11,8 @@
 
 <div class="ui small buttons">
 	<%= link_to 'Wróć', :back, class: "ui red button" %>
-
-	<%- if can? :edit, @lecture -%>
-	<%= link_to 'Edytuj', edit_lecture_path(@lecture), class: "ui small positive button" %>
-	<%- end -%>
-
-	<%- if can? :attend, @lecture -%>
-	<%= link_to 'Weź udział', attend_lecture_path, class: "ui small positive button" %>
-	<%- end -%>
-
-	<%- if can? :resign, @lecture -%>
-	<%= link_to 'Zrezygnuj', resign_lecture_path, class: "ui small positive button" %>
-	<%- end -%>
+	<%= link_to 'Edytuj', edit_lecture_path(@lecture), class: "ui small positive button" if can? :edit, @lecture %>
+	<%= link_to 'Weź udział', attend_lecture_path, class: "ui small positive button" if can? :attend, @lecture %>
+	<%= link_to 'Zrezygnuj', resign_lecture_path, class: "ui small positive button" if can? :resign, @lecture %>
+	<%= link_to 'Modifikuj uczestników', modify_lecture_users_path, class: "ui small teal button" if can? :modify, @lecture -%>
 </div>

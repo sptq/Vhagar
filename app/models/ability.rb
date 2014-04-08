@@ -71,6 +71,9 @@ class Ability
     cannot :attend, Lecture
     cannot :resign, Lecture
 
+    can :remove, Lecture
+    can :modify, Lecture
+
     can :manage, Room
     cannot :destroy, Room
   end

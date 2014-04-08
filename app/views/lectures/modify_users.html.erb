@@ -1,0 +1,17 @@
+<div class="ui two column grid">
+	<h1 class="ui center aligned header">Modyfikuj listę użytkowników wydarzenia</h1>
+	<div class="column">
+		<%= render "preview" %>
+	</div>
+	<div class="column">
+		<div class="ui piled segment">
+			<%= render partial: "users/list", locals: { users: @users, show_controls: true } -%>
+		</div>
+	</div>
+</div>
+
+<div class="ui small buttons">
+	<%= link_to 'Wróć', :back, class: "ui red button" %>
+	<%= link_to 'Pokaż', @lecture, class: "ui teal button" if can? :show, @lecture -%>
+	<%= link_to 'Edytuj', edit_lecture_path(@lecture), class: "ui small positive button" if can? :edit, @lecture %>
+</div>
