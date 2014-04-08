@@ -1,6 +1,6 @@
   <div class="ui relax divided selection list">
 
-    <% lectures.each do |lecture| %>
+    <% lectures.sort_by{ |e| e[:start_date] }.each do |lecture| %>
 
     <div class="item">
       <div class="ui horizontal label"><%= l lecture.start_date, format: :short %></div>
