@@ -23,7 +23,11 @@ class UsersController < ApplicationController
 	end
 
 	def destroy
-		@user.profile.destroy
+		
+		if @user.profile
+			@user.profile.destroy
+		end
+
 		@user.destroy
 	    respond_to do |format|
 	      format.html { redirect_to users_url }
