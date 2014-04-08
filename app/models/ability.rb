@@ -37,6 +37,8 @@ class Ability
   def user
     can :read, Lecture
     can :read, Room
+    can :ztmTicket, User
+
     cannot :see_participants, Lecture
 
     can :attend, Lecture do |lecture|
@@ -75,7 +77,7 @@ class Ability
 
   def admin
     staff
-
+    
     can :read, :all
     can :manage, :all
     can :promote, User

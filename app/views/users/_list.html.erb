@@ -1,20 +1,21 @@
 <div class="ui relax divided selection list">
 	<% users.each do |user| %>
 	<div class="item">
+
+		<% if user.confirmed_at %>
+			<a class="ui green label">&nbsp;</a>
+		<% else %>
+			<a class="ui black label">&nbsp;</a>
+		<% end %>
+
 		<%- if can? :see_role, User -%>
-			<div class="ui left floated label"><%= user.user_role %></div>
+			<div class="ui label"><%= user.user_role %></div>
 		<%- end -%>
 
 		<%= user.email %>
 
 		<% if user.profile %>
 			- <b><%= user.profile.firstName %> <%= user.profile.lastName %></b>
-		<% end %>
-
-		<% if user.confirmed_at %>
-			<a class="ui green label">Potwierdzono</a>
-		<% else %>
-			<a class="ui black label">Nie potwierdzono</a>
 		<% end %>
 
 		<div class="ui right floated small buttons">

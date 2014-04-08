@@ -1,0 +1,25 @@
+<div class="ui four column grid">
+	<div class="column">
+	    <div class="ui segment myprofileSegment">
+	      	<%= @users[:all] %>
+	    </div>
+	</div>
+
+	<div class="column">
+	    <div class="ui segment myprofileSegment">
+	    	<%= @users[:approvedUsers] %>
+	    </div>
+	</div>
+
+	<div class="column">
+	    <div class="ui segment myprofileSegment">
+	    	<%= @users[:unapproved] %>
+	    </div>
+	</div>
+
+	<div class="column">
+	    <div class="ui segment myprofileSegment">
+	    	<%= @users[:withTickets] %>
+	    </div>
+	</div>
+</div>
