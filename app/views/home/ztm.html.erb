@@ -1,8 +1,4 @@
-<div>
-  <h2 class="ui header">
-    Zdobądź bilet ZTM
-  </h2>
-</div>
+<%- title("Zdobądź darmowy przejazd ZTM") -%>
 
 <div class="ui two column grid">
 	<div class="column">
@@ -11,12 +7,12 @@
 
 			<i class="circular ticket huge icon"></i>
 
-			<h3> Zostało jeszcze <%= @tickets %> biletów </h3>
+			<h3> Zostało jeszcze <%= @tickets %> darmowych przejazdów </h3>
 			<% if @tickets > 0 %>
 				<% if !current_user.ztmTicket %>
 		    		<%= link_to "Zdobądź darmowy przejazd ZTM", panel_ztm_get_path, class: "ui green button" -%>
 		      	<% else %>
-		      		<a class="ui green button disabled">Posiadasz już bilet ZTM</a>
+		      		<a class="ui green button disabled">Posiadasz już darmowy przejazd ZTM</a>
 		      	<% end %>
 		     <% end %>
 		</div>
@@ -26,7 +22,7 @@
 		<div class="ui piled segment">
 		<h2 class="ui header">Jak to działa?</h2>
 		<p>
-			400 Uczestnikom Konferencji przysługują uprawnienia do nieodpłatnych przejazdów komunikacją miejską w dniu wydarzenia. Aby uzyskać bezpłatny bilet, należy wyrazić chęć jego uzyskania podczas rejestracji. 
+			400 Uczestnikom Konferencji przysługują uprawnienia do nieodpłatnych przejazdów komunikacją miejską w dniu wydarzenia. Aby uzyskać darmowy przejazd, należy wyrazić chęć jego uzyskania podczas rejestracji.
 		</p>
 		<p>
 			Bilety można odebrać na dzień przed Konferencją w sali 709a w budynku Wydziału Matematyki, Informatyki i Architektury Krajobrazu przy ulicy Konstantynów 1 H lub w dzień Konferencji przy puncie Rejestracji.

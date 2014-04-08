@@ -1,4 +1,4 @@
-<h1 class="ui header">Edycja wydarzenia</h1>
+<%- title("Edycja wydarzenia - #{@lecture.title}") -%>
 
 <% content_for :form_buttons do %>
 	<%= link_to 'Anuluj', lectures_path, class: "ui red button" %>
