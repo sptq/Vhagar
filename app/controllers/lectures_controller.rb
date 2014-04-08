@@ -83,17 +83,17 @@ class LecturesController < ApplicationController
     user = User.where(id: params[:user_id]).last
     if user
       @lecture.participants.push user
-      redirect_to modify_lecture_users_path, notice: "Dodałeś użytkownika #{user.email} z wydażenia #{@lecture.title}"
+      redirect_to :back, notice: "Dodałeś użytkownika #{user.email} z wydażenia #{@lecture.title}"
     else
-      redirect_to @lecture, alert: 'Nie znalazłem użytkownika :('
+      redirect_to :back, alert: 'Nie znalazłem użytkownika :('
     end
   end
 
   def modify_users
     if current_user.role? :admin
-      @users = User.all
+      @users = User.all.to_a - @lecture.participants.to_a
     else
-      @users = User.where(user_role: :user)
+      @users = User.where(user_role: :user).to_a - @lecture.participants.to_a
     end
   end
 
@@ -101,9 +101,9 @@ class LecturesController < ApplicationController
     user = User.where(id: params[:user_id]).last
     if user
       @lecture.participants.delete user
-      redirect_to modify_lecture_users_path, notice: "Usunąłeś użytkownika #{user.email} z wydażenia #{@lecture.title}"
+      redirect_to :back, notice: "Usunąłeś użytkownika #{user.email} z wydażenia #{@lecture.title}"
     else
-      redirect_to @lecture, alert: 'Nie znalazłem użytkownika :('
+      redirect_to :back, alert: 'Nie znalazłem użytkownika :('
     end
   end
 
