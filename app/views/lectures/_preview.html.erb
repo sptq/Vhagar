@@ -22,12 +22,6 @@
 
 	<%- if can? :see_participants, @lecture -%>
 		<h2 class="ui header">Uczestnicy</h2>
-		<div class="ui relaxed divided selection list">
-			<% @lecture.participants.each do |participant| %>
-			<div class="item">
-				<div class="header"><%= participant.email -%></div>
-			</div>
-			<% end %>
-		</div>
+		<%= render partial: "users/list", locals: { users: @lecture.participants, show_controls: false } -%>
 	<%- end -%>
 </div>

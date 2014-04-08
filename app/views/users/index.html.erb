@@ -1,5 +1,5 @@
 <% if @users != nil %>
 	<div class="ui piled segment">
-		<%= render partial: "list", locals: { users: @users } -%>
+		<%= render partial: "list", locals: { users: @users.sort_by { |u| u[:user_role] }, show_controls: true } -%>
 	</div>
 <% end %>
