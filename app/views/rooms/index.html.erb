@@ -1,3 +1,5 @@
+<%- title("Miejsca wydarzeń") -%>
+
 <%- if can? :manage, Room -%>
   <div class="ui buttons">
     <%- if can? :create, Room -%>
@@ -7,6 +9,5 @@
 <%- end -%>
 
 <div class="ui piled segment">
-	<h1 class="ui center aligned header">Miejsca w których odbywają się wydarzenia</h1>
 	<%= render partial: "list", locals: { rooms: @rooms } -%>
 </div>

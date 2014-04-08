@@ -1,3 +1,5 @@
+<%- title("Prelekcje, warsztaty i konkursy") -%>
+
 <%- if can? :manage, Lecture -%>
   <div class="ui buttons">
     <%- if can? :create, Lecture -%>
@@ -7,6 +9,5 @@
 <%- end -%>
 
 <div class="ui piled segment">
-	<h1 class="ui center aligned header">Dostępne prelekcje i konkursy</h1>
 	<%= render partial: "list", locals: { lectures: @lectures } -%>
 </div>
