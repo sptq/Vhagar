@@ -79,6 +79,16 @@ class LecturesController < ApplicationController
     redirect_to lectures_path, notice: "Opuszczono #{@lecture.title}"
   end
 
+  def remove
+    user = User.where(id: params[:user_id]).last
+    if user
+      @lecture.participants.delete user
+      redirect_to @lecture, notice: "Usunąłeś użytkownika #{user.email} z wydażenia #{@lecture.title}"
+    else
+      redirect_to lectures_path, alert: 'Nie znalazłem użytkownika :('
+    end
+  end
+
   private
 
     # Never trust parameters from the scary internet, only allow the white list through.

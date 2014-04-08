@@ -10,20 +10,11 @@
 
 		<b><%= user.profile.firstName + ' ' + user.profile.lastName if user.profile -%></b>
 
-		<div class="ui right floated small buttons">
-			<%- if user.profile and can? :see_profile, user -%>
-				<%= link_to "Profil", user.profile, class: "ui blue button" %>
-			<%- end -%>
-
-			<%- if show_controls -%>
-				<%- if can? :edit, user -%>
-					<%= link_to "Edytuj", edit_user_path(user), class: "ui green button" %>
-				<%- end -%>
-
-				<%- if can? :destroy, user -%>
-					<%= link_to "Usuń", user, class: "ui red button", method: :delete, data: { confirm: "Na pewno?"} %>
-				<%- end -%>
-			<%- end -%>
+		<div class="ui right floated tiny buttons">
+			<%= link_to "Profil", user.profile, class: "ui blue button" if user.profile and can? :see_profile, user %>
+			<%= link_to "Edytuj", edit_user_path(user), class: "ui green button" if show_controls and can? :edit, user %>
+			<%= link_to "Usuń", user, class: "ui red button", method: :delete, data: { confirm: "Na pewno?"} if show_controls and can? :destroy, user %>
+			<%= link_to "Wyklucz", remove_user_path(user_id: user.id), class: "ui negative button" if @lecture and @lecture.participants.include? user -%>
 		</div>
 	</div>
 	<%- end -%>
