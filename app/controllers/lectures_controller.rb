@@ -83,7 +83,7 @@ class LecturesController < ApplicationController
     user = User.where(id: params[:user_id]).last
     if user
       @lecture.participants.push user
-      redirect_to :back, notice: "Dodałeś użytkownika #{user.email} z wydażenia #{@lecture.title}"
+      redirect_to :back, notice: "Dodałeś użytkownika #{user.email} do wydarzenia #{@lecture.title}"
     else
       redirect_to :back, alert: 'Nie znalazłem użytkownika :('
     end
@@ -101,7 +101,7 @@ class LecturesController < ApplicationController
     user = User.where(id: params[:user_id]).last
     if user
       @lecture.participants.delete user
-      redirect_to :back, notice: "Usunąłeś użytkownika #{user.email} z wydażenia #{@lecture.title}"
+      redirect_to :back, notice: "Usunąłeś użytkownika #{user.email} z wydarzenia #{@lecture.title}"
     else
       redirect_to :back, alert: 'Nie znalazłem użytkownika :('
     end
