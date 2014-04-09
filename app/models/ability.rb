@@ -38,6 +38,9 @@ class Ability
     can :read, Lecture
     can :read, Room
     can :see_participants, Lecture
+    can :see_profile, User
+    can :read, Profile
+
     cannot :read, User
   end
 
