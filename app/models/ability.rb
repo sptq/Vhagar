@@ -34,6 +34,13 @@ class Ability
     cannot :see_profile, User
   end
 
+  def sponsor
+    can :read, Lecture
+    can :read, Room
+    can :see_participants, Lecture
+    cannot :read, User
+  end
+
   def user
     can :read, Lecture
     can :read, Room
