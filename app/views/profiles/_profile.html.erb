@@ -1,12 +1,16 @@
 <% if profile != nil %>
 	<div class="ui two column grid">
-			<div class="column">
-			<%= render partial: "preview", locals: { profile: profile } -%>
-			</div>
-
 		<div class="column">
 			<div class="ui piled segment">
-			<h2 class="ui header">Twoje wykłady</h2>
+				<%= render partial: "preview", locals: { profile: profile } -%>
+				<br />
+				<%= render partial: "users/user", locals: { user: profile.user } if can? :read, @user -%>
+			</div>
+		</div>
+
+		<div class="column">
+		<div class="ui piled segment">
+			<h2 class="ui header">Uczestnictwo w wykładach</h2>
 			<%= render partial: "lectures/list", locals: { lectures: profile.user.lectures } -%>
 			</div>
 		</div>
@@ -14,6 +18,3 @@
 <% else %>
 	<div class="error">Nie masz zdefiniowanego profilu - zdefinij teraz </div>
 <% end %>
-
-
-</div>

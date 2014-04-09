@@ -16,7 +16,7 @@
 
 		<div class="column">
 			<h4 class="ui header">Wolne miejsca</h4>
-			<%= @lecture.available_places -%>
+			<%= [@lecture.available_places, 0].max -%>
 		</div>
 	</div>
 

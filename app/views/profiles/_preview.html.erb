@@ -1,10 +1,6 @@
-<div class="ui piled segment">
-	<h1 class="ui header"><%= profile.firstName %> <%= profile.lastName %></h1>
-	<div class="ui ribbon label"><%= profile.job %></div>
-	<br />
-	<div class="ui teal ribbon label"><%= profile.place %></div>
-	<br />
-	<%- if profile.album =! "" -%>
-		<div class="ui red ribbon label"><%= profile.album %>
-	<%- end -%>
-</div>
+<h1 class="ui center aligned header"><%= image_tag avatar_url(profile.user), class: "ui avatar image" -%><%= profile.firstName -%> <%= profile.lastName -%></h1>
+<div class="ui ribbon label">Stanowisko / kierunek</div><%= profile.job -%><br />
+<div class="ui teal ribbon label">Firma / uczelnia</div><%= profile.place -%><br />
+<%- if not profile.album.empty? -%>
+	<div class="ui red ribbon label">Nr indeksu / legitymacji</div><%= profile.album %>
+<%- end -%>
