@@ -6,9 +6,10 @@
 			<div class="<%= user.confirmed_at ? 'ui green label' : 'ui black label' %>"> <%= user.user_role %></div>
 		<%- end -%>
 
-		<%= user.email + ' ' if show_controls -%>
-
-		<b><%= user.profile.firstName + ' ' + user.profile.lastName if user.profile -%></b>
+		<div class="content">
+			<div class="header"><%= user.profile.firstName + ' ' + user.profile.lastName if user.profile -%></div>
+			<%= user.email + ' ' if current_user.role? :admin -%>
+		</div>
 
 		<div class="ui right floated tiny buttons">
 			<%= link_to "Profil", user.profile, class: "ui blue button" if user.profile and can? :see_profile, user -%>
