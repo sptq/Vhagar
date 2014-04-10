@@ -74,6 +74,7 @@ class Ability
     cannot :create, User
     cannot :promote, User
     cannot :destroy, User
+    cannot :see_inactive, User
 
     can :manage, Lecture
     can :see_participants, Lecture
@@ -94,6 +95,7 @@ class Ability
     can :read, :all
     can :manage, :all
     can :promote, User
+    can :see_inactive, User
     cannot :attend, Lecture
     cannot :resign, Lecture
   end

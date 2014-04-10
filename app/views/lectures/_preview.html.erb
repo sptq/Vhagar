@@ -21,7 +21,12 @@
 	</div>
 
 	<%- if can? :see_participants, @lecture -%>
+
+		<%- if can? :see_inactive, User -%>
+			<h2 class="ui header">Nieaktywni</h2>
+			<%= render partial: "users/list", locals: { users: @lecture.participants.inactive, show_controls: false } -%>
+		<%- end -%>
 		<h2 class="ui header">Uczestnicy</h2>
-		<%= render partial: "users/list", locals: { users: @lecture.participants, show_controls: false } -%>
+		<%= render partial: "users/list", locals: { users: @lecture.participants.active, show_controls: false } -%>
 	<%- end -%>
 </div>

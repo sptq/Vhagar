@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
 
-	before_filter :authenticate_user!, :except => [:index] 
+	before_filter :authenticate_user!, :except => [:index]
 
 	def index
 		if (user_signed_in?)
@@ -15,6 +15,11 @@ class HomeController < ApplicationController
 
 	def panel
 		@user = current_user
+
+		if @user.profile and not @user.isactive
+			@user.isactive = true
+			@user.save
+		end
 	end
 
 end

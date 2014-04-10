@@ -14,8 +14,9 @@ class Lecture < ActiveRecord::Base
   has_many :participants, :through => :participations, :source => :user
 
   def available_places
-    room.capacity - participants.count - reserved
+    room.capacity - participants.active.count - reserved
   end
+
 	private
 
     # Never trust parameters from the scary internet, only allow the white list through.

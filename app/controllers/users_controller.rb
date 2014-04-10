@@ -23,12 +23,8 @@ class UsersController < ApplicationController
 	end
 
 	def destroy
-		
-		if @user.profile
-			@user.profile.destroy
-		end
-
-		@user.destroy
+		@user.isactive ^= true
+		@user.save
 	    respond_to do |format|
 	      format.html { redirect_to users_url }
 	      format.json { head :no_content }
@@ -60,6 +56,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
 	def user_params
-		params.require(:user).permit(:user_role, :type)
+		params.require(:user).permit(:user_role, :type, :isactive)
 	end
 end
