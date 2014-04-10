@@ -15,6 +15,11 @@ class HomeController < ApplicationController
 
 	def panel
 		@user = current_user
+
+		unless @user.isactive
+			@user.isactive = true
+			@user.save
+		end
 	end
 
 end
