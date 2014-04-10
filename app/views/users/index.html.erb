@@ -1,7 +1,13 @@
 <%- title('Lista użytkowników') -%>
 
 <% if @users != nil %>
+
+	<%- if can? :see_inactive, User -%>
+		<div class="ui piled segment">
+			<%= render partial: "list", locals: { users: @users.inactive.sort_by { |u| u[:user_role] }, show_controls: true } -%>
+		</div>
+	<%- end -%>
 	<div class="ui piled segment">
-		<%= render partial: "list", locals: { users: @users.sort_by { |u| u[:user_role] }, show_controls: true } -%>
+		<%= render partial: "list", locals: { users: @users.active.sort_by { |u| u[:user_role] }, show_controls: true } -%>
 	</div>
 <% end %>
