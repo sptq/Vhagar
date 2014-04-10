@@ -2,6 +2,9 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
+  scope :active, -> { where(isactive: true) }
+  scope :inactive, -> { where(isactive: false) }
+
   has_one :profile
   has_many :participations
   has_many :lectures, :through => :participations
