@@ -32,21 +32,21 @@ class UsersController < ApplicationController
 	end
 
 	def ztmTicket
-		
+
 		if User.where(ztmTicket: true).count <= 400
 
-			if current_user.ztmTicket 
-				redirect_to panel_ztm_path, alert: 'Posiadasz już bilet ZTM.'
+			if current_user.ztmTicket
+				redirect_to panel_ztm_path, alert: 'Posiadasz już darmowy przejazd ZTM.'
 			else
 				@user = current_user
 				@user.ztmTicket = true;
 				if @user.save
-					redirect_to panel_ztm_path, notice: 'Zobyłeś bilet ZTM.'
+					redirect_to panel_ztm_path, notice: 'Zobyłeś darmowy przejazd ZTM.'
 				else
 					redirect_to panel_ztm_path, alert: 'Coś poszło nie tak podczas zapisu, spróbuj jeszcze raz.'
 				end
 			end
-		else 
+		else
 			redirect_to panel_ztm_path, alert: 'Brak darmowych biletów ZTM.'
 		end
 	end
