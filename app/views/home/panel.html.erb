@@ -4,7 +4,7 @@
   <h2 class="ui header">
     Witaj w panelu uczestnika!
   </h2>
-  	Witaj w panelu uczestnika, w tym miejscu możesz wypełnić swój profil, zapisać się na zajęcia praktyczne oraz konkursy. Dodatkowo informacje, które podasz w swoim profilu zostaną użyte do stworzenia identyfikatora uczestnika, a zaraz po konferencji możesz uzyskać certyfikat uczestnictwa.
+  	Witaj w panelu uczestnika, w tym miejscu możesz wypełnić swój profil, zapisać się na zajęcia praktyczne oraz konkursy. Dodatkowo informacje, które podasz w swoim profilu zostaną użyte do stworzenia identyfikatora uczestnika.
 </div>
 
 <div class="ui three column stackable grid">
@@ -13,7 +13,7 @@
 	      	<i class="circular user huge icon"></i>
 	    	<br />
 	    	<br />
-	      		Stworzenie profilu to pierwszy krok na drodze do uzskania statusu uczestnika konferencji. Jest on niezbędny do stworzenia identyfikatora oraz certyfikatu uczestnictwa.
+	      		Stworzenie profilu to pierwszy krok na drodze do uzskania statusu uczestnika konferencji. Jest on niezbędny do stworzenia identyfikatora
       		<br />
       		<br />
 	      	<% if current_user.profile %>
@@ -52,7 +52,7 @@
 	    	<% if current_user.profile %>
 	    		<%= link_to "Zdobądź darmowy przejazd ZTM", panel_ztm_path, class: "ui green button" -%>
 	      	<% else %>
-	      		<a class="ui green button disabled withPopup">Zgarnij bilet MPK</a>
+	      		<a class="ui green button disabled withPopup">Zgarnij darmowy przejazd MPK</a>
 	      	<% end %>
 	    </div>
 	</div>
