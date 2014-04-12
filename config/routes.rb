@@ -1,5 +1,7 @@
 Crm::Application.routes.draw do
 
+  resources :contents
+
   resources :rooms
 
   devise_for :user, :path => '', path_names: {

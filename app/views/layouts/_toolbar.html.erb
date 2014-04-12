@@ -20,6 +20,10 @@
                     <%= link_to 'Statystyki', stats_path, class: "header item" %>
                 <%- end -%>
 
+                <%- if can? :read, Content -%>
+                    <%= link_to 'Treść', contents_path, class: "header item" %>
+                <%- end -%>
+
                 <div class="right menu">
                     <% if user_signed_in? %>
                         <div></div>
@@ -34,5 +38,5 @@
             </div>
 
             <%= yield :mainbar %>
-        </div>
     </div>
+</div>

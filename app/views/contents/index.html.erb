@@ -1,0 +1,5 @@
+<%- title("Treść") -%>
+
+<%= render partial: "list", locals: { contents: @contents } -%>
+
+<%= link_to 'Nowa teść', new_content_path, class: "ui positive button" %>

@@ -1,0 +1,13 @@
+<div class="ui relax divided selection list">
+	<%- contents.each do |content| -%>
+		<div class="item">
+			<div class="ui black label"> <%= content.place %></div>
+			<%= content.title -%>
+
+			<div class="ui right floated tiny buttons">
+				<%= link_to "Pokaż", content, class: "ui teal button" -%>
+				<%= link_to "Edytuj", edit_content_path(content), class: "ui positive button" if can? :manage, content -%>
+			</div>
+		</div>
+	<%- end -%>
+</div>

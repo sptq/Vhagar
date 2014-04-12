@@ -1,0 +1,7 @@
+<%- title("Nowy content") -%>
+
+<%= render 'form' %>
+
+<% content_for :form_buttons do %>
+	<%= link_to 'Anuluj', contents_path, class: "ui red button" %>
+<% end %>

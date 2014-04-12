@@ -85,6 +85,8 @@ class Ability
     can :remove, Lecture
     can :modify, Lecture
 
+    can :manage, Content
+
     can :manage, Room
     cannot :destroy, Room
   end

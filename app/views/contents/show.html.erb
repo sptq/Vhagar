@@ -1,0 +1,27 @@
+<%- title("Treść #{@content.title}") -%>
+
+<div class="ui segment">
+
+	<h1 class="ui header">
+		Tytuł:
+	</h1>
+	<%= @content.title -%>
+
+	<h1 class="ui header">
+		Zdjęcie
+	</h1>
+	<div class="ui image">
+		<%= image_tag @content.image_url unless @content.image_url.blank? -%>
+	</div> <br />
+	źródło: <%= @content.image_url -%>
+
+	<h1 class="ui header">
+	   Miejsce wyświetlenia:
+	</h1>
+	<%= @content.place -%>
+</div>
+
+<div class="ui small buttons">
+	<%= link_to 'Wróć', :back, class: "ui red button" %>
+	<%= link_to 'Edytuj', edit_content_path(@content), class: "ui small positive button" if can? :edit, @content %>
+</div>
