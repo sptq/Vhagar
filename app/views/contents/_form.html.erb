@@ -1,0 +1,31 @@
+<%= debug available_places(@content) -%>
+
+<div class="ui form segment">
+
+  <%= form_for(@content) do |f| %>
+
+    <%= render partial: "layouts/form_errors", locals: { errors: @content.errors } %>
+
+      <div class="field">
+        <%= f.label :title %><br>
+        <%= f.text_field :title %>
+      </div>
+
+      <div class="field">
+        <%= f.label :image_url %><br>
+        <%= f.text_field :image_url %>
+      </div>
+
+      <div class="field">
+        <%= f.label :place %><br>
+        <%= f.select :place, available_places(@content) %>
+      </div>
+
+      <div class="ui small buttons">
+        <%= yield :form_buttons %>
+        <%= f.submit "Zapisz", class: "ui green positive button" %>
+      </div>
+
+  <% end %>
+
+</div>

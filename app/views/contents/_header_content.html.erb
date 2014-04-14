@@ -1,0 +1,24 @@
+<div class="ui stackable relaxed center aligned grid">
+	<div class="equal height row">
+		<%- if  @header_display_contet[:left_header].present? -%>
+			<div class="column">
+				<h1 class="ui center aligned header"><%= @header_display_contet[:left_header].title unless @header_display_contet[:left_header].title.blank? -%></h1>
+				<%= image_tag @header_display_contet[:left_header].image_url, class: "ui image" unless @header_display_contet[:left_header].image_url.blank? -%>
+			</div>
+		<%- end -%>
+
+		<%- if @header_display_contet[:center_header].present? -%>
+				<div class="column">
+					<h1 class="ui center aligned header"><%= @header_display_contet[:center_header].title unless @header_display_contet[:center_header].title.blank? -%></h1>
+					<%= image_tag @header_display_contet[:center_header].image_url, class: "ui image" unless @header_display_contet[:center_header].image_url.blank? -%>
+				</div>
+		<%- end -%>
+
+		<%- if @header_display_contet[:right_header].present? -%>
+				<div class="column">
+					<h1 class="ui center aligned header"><%= @header_display_contet[:right_header].title unless @header_display_contet[:right_header].title.blank? -%></h1>
+					<%= image_tag @header_display_contet[:right_header].image_url, class: "ui image" unless @header_display_contet[:right_header].image_url.blank? -%>
+				</div>
+		<%- end -%>
+	</div>
+</div>
