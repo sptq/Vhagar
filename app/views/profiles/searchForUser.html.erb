@@ -1,0 +1,10 @@
+<% if @profiles != nil %>
+	<div class="ui piled segment">
+		<%#= render partial: "list", locals: { users: @users.sort_by { |u| u[:user_role] }, show_controls: true } -%>
+
+		<% @profiles.each do |profile| %>
+			<%= profile.firstName %>
+		<% end %>
+
+	</div>
+<% end %>

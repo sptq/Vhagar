@@ -35,6 +35,20 @@ class User < ActiveRecord::Base
     self.role?('admin')
   end
 
+  def self.searchByFirstLastName(firstName, lastName)
+    params = { :firstName => "%#{firstName.downcase}%", :lastName => "%#{lastName.downcase}%"}
+    self.joins(:profile).where('lower("profiles"."firstName") LIKE :firstName AND lower("profiles"."lastName") LIKE :lastName', params)
+  end
+
+  def self.searchByPhrase(phrase)
+    if (phrase != '')
+      param = { :phrase => "%#{phrase.downcase}%" }
+      self.joins(:profile).where('lower("profiles"."firstName") LIKE :phrase OR lower("profiles"."lastName") LIKE :phrase OR lower("users"."email") LIKE :phrase OR lower("profiles"."place") LIKE :phrase OR lower("profiles"."job") LIKE :phrase OR lower("profiles"."phone") LIKE :phrase', param)
+    else
+      self.all
+    end
+  end
+
   def profile?
     self.profile == nil
   end

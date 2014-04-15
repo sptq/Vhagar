@@ -24,6 +24,9 @@ Crm::Application.routes.draw do
   #   get 'products/:id' => 'catalog#view'
 
   resources :users
+  get 'users/search/:firstName/:lastName' => 'users#searchForUser'
+  get 'users/search/:phrase' => 'users#search'
+
   resources :lectures
 
   get '/lectures/:id/attend' => 'lectures#attend', as: :attend_lecture

@@ -5,6 +5,32 @@ class UsersController < ApplicationController
 	before_filter :authenticate_user!
 
 	def index
+		pharse = params[:phrase] || nil
+
+		if pharse != ''
+			@results = []
+			@users = []
+
+			@param = params[:phrase].split(' ');
+			@param.each do |param|
+				@result = User.searchByPhrase(param)
+
+				@result.each do |user|
+					@results.push ["#{user.id}", user]
+				end
+			end	
+			
+			#filter for only uniq results
+			@results = @results.uniq { |s| s.first }
+
+			@results.each do |resultTable|
+				@users.push resultTable[1]
+			end
+
+			return @users
+		else
+			@users = User.all
+		end
 	end
 
 	def edit
@@ -25,6 +51,7 @@ class UsersController < ApplicationController
 	def destroy
 		@user.isactive ^= true
 		@user.save
+
 	    respond_to do |format|
 	      format.html { redirect_to users_url }
 	      format.json { head :no_content }
@@ -32,7 +59,6 @@ class UsersController < ApplicationController
 	end
 
 	def ztmTicket
-
 		if User.where(ztmTicket: true).count <= 400
 
 			if current_user.ztmTicket
@@ -51,11 +77,10 @@ class UsersController < ApplicationController
 		end
 	end
 
-
 	private
 
     # Never trust parameters from the scary internet, only allow the white list through.
 	def user_params
-		params.require(:user).permit(:user_role, :type, :isactive, :confirmed_at)
+		params.require(:user).permit(:user_role, :type, :isactive, :confirmed_at, :firstName, :lastName, :phrase)
 	end
 end

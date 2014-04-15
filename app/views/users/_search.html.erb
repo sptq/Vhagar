@@ -1,0 +1,6 @@
+<% form_tag users_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :phrase, params[:phrase] %>
+    <%= submit_tag "Szukaj", :name => nil %>
+  </p>
+<% end %>

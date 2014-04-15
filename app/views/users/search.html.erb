@@ -1,0 +1,15 @@
+<% if @users != nil %>
+	<div class="ui piled segment">
+		<h3>Wyniki dla: "<%= params[:phrase] %>" </h3>
+	</div>
+
+	<br />
+	
+	<div class="ui piled segment">
+		<%= render partial: "list", locals: { users: @users.sort_by { |u| u[:user_role] }, show_controls: true } -%>
+	</div>
+<% else %>
+	<div class="ui piled segment">
+		<h3> Brak wyników </h3>
+	</div>
+<% end %>
