@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20140411184202) do
 
   create_table "contents", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "title"
-    t.text     "body"
     t.string   "image_url"
     t.string   "place"
     t.datetime "created_at"

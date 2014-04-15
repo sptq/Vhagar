@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 	def index
 		pharse = params[:phrase] || nil
 
-		if pharse != ''
+		if pharse != '' && pharse != nil
 			@results = []
 			@users = []
 
