@@ -1,3 +1,6 @@
+[![Code Climate](https://codeclimate.com/github/sptq/Vhagar.png)](https://codeclimate.com/github/sptq/Vhagar)
+
+
 Vhagar
 ======
 
