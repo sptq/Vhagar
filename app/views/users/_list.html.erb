@@ -1,13 +1,21 @@
 <div class="ui relax divided selection list">
 	<%- users.each do |user| -%>
 
-	<div class="item">
+	<div class="item" <% if current_user.role? :admin%>
+				title="Informacje o logowaniu"
+				data-content="Ostatnie logowanie: <%= user.current_sign_in_at%><br /> Ilość logowań: <%= user.sign_in_count%><br />Obecne IP: <%= user.current_sign_in_ip%><br/>Ostatnie IP:<%= user.last_sign_in_ip%><br/>"
+			<% end %>>
 		<%- if show_controls and can? :see_role, User -%>
 			<div class="<%= user.confirmed_at ? 'ui green label' : 'ui black label' %>"> <%= user.user_role %></div>
 		<%- end -%>
 
 		<div class="content">
-			<div class="header"><%= user.profile.firstName + ' ' + user.profile.lastName if user.profile -%></div>
+			<div class="header"
+			<% if current_user.role? :admin%>
+				title="Informacje o logowaniu"
+				data-content="Ostatnie logowanie: <%= user.current_sign_in_at%><br /> Ilość logowań: <%= user.sign_in_count%><br />Obecne IP: <%= user.current_sign_in_ip%><br/>Ostatnie IP:<%= user.last_sign_in_ip%><br/>"
+			<% end %>>
+			<%= user.profile.firstName + ' ' + user.profile.lastName if user.profile -%></div>
 			<%= user.email + ' ' if current_user.role? :admin -%>
 		</div>
 

@@ -60,7 +60,6 @@ class UsersController < ApplicationController
 
 	def ztmTicket
 		if User.where(ztmTicket: true).count <= 400
-
 			if current_user.ztmTicket
 				redirect_to panel_ztm_path, alert: 'Posiadasz już darmowy przejazd ZTM.'
 			else

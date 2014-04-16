@@ -2,15 +2,8 @@
 
 <% if @users != nil %>
 
-	<%- if can? :see_inactive, User -%>
-		<div class="ui piled segment">
-			<%= render partial: "list", locals: { users: @users.inactive.sort_by { |u| u[:user_role] }, show_controls: true } -%>
-		</div>
-	<%- end -%>
+
 	<div class="ui piled segment">
-
-		
-
 		<%= form_tag users_path, :method => 'get' do %>
 		  <p>
 		    <%= text_field_tag :phrase, params[:phrase] %>
@@ -18,6 +11,13 @@
 		  </p>
 		<% end %>
 	</div>
+	
+	<%- if can? :see_inactive, User -%>
+		<div class="ui piled segment">
+			<%= render partial: "list", locals: { users: @users.inactive.sort_by { |u| u[:user_role] }, show_controls: true } -%>
+		</div>
+	<%- end -%>
+
 	<div class="ui piled segment">
 		<%= render partial: "list", locals: { users: @users.active.sort_by { |u| u[:user_role] }, show_controls: true } -%>
 	</div>

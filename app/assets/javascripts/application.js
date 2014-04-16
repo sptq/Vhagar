@@ -71,4 +71,8 @@ $(document)
             variation: 'inverted'
         });
 
+        $('.item')
+            .popup({
+                on: 'focus'
+            });
     });
