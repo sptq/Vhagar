@@ -35,6 +35,10 @@ body {
           UI Overrides
 *******************************/
 
+h1.ui.center.aligned.inverted.lwit.block.header {
+  background: #6DAC22;
+}
+
 .ui.header {
     font-family: 'Source Sans Pro', "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
@@ -89,7 +93,6 @@ p a {
 }
 
 .masthead.segment {
-    background-image: url("/assets/bg.jpg");
     -webkit-background-size: cover;
     background-size: cover;
     margin: 0em;
@@ -215,11 +218,13 @@ p a {
 }
 
 .register_link a {
-  color: #FFF;
+  color: #FFF !important;
+  background: transparent !important;
 }
 
 .register_link a:hover, a:visited {
-  color: #FFF;
+  color: #FFF !important;
+  background: transparent !important;
 }
 
 .crm-footer {
