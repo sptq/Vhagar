@@ -5,4 +5,12 @@ class Profile < ActiveRecord::Base
   validates :job, presence: true
   validates :firstName, presence: true
   validates :lastName, presence: true
+
+  def isFromShool?
+  	if (self.job == 'uczen' || self.job == 'nauczyciel')
+  		return true
+  	else 
+  		return false
+  	end
+  end
 end

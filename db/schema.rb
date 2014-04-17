@@ -13,6 +13,7 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20140426205955) do
 =======
 ActiveRecord::Schema.define(version: 20140417143546) do
@@ -20,6 +21,9 @@ ActiveRecord::Schema.define(version: 20140417143546) do
 =======
 ActiveRecord::Schema.define(version: 20140417203911) do
 >>>>>>> Add SIW
+=======
+ActiveRecord::Schema.define(version: 20140417143546) do
+>>>>>>> Add group controller
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -110,6 +114,7 @@ ActiveRecord::Schema.define(version: 20140417203911) do
     t.boolean  "ztmTicket",              default: false
     t.boolean  "isactive",               default: false
 <<<<<<< HEAD
+<<<<<<< HEAD
     t.string   "barcode",                default: ""
 =======
     t.boolean  "haveGroup",              default: false
@@ -120,6 +125,10 @@ ActiveRecord::Schema.define(version: 20140417203911) do
     t.boolean  "acceptTerms",            default: false
     t.boolean  "acceptMarketingTerms",   default: false
 >>>>>>> Add SIW
+=======
+    t.boolean  "haveGroup",              default: false
+    t.string   "groupCode",              default: ""
+>>>>>>> Add group controller
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
