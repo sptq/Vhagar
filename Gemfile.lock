@@ -308,6 +308,7 @@ DEPENDENCIES
   jquery-rails
   less-rails
   meta_request
+  minitest
   pg
   rails (= 4.1.0)
   rails-i18n (~> 4.0.2)

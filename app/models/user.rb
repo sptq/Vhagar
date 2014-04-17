@@ -49,6 +49,18 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.haveGroup?
+    self.haveGroup
+  end
+
+  def self.generateCode
+    if self.profile != nil && (self.groupCode == nil || self.groupCode == '')
+      return (0...50).map { ('a'..'z').to_a[rand(26)] }.join
+    else
+      return self.groupCode
+    end
+  end
+
   def profile?
     self.profile == nil
   end

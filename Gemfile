@@ -61,6 +61,8 @@ group :development do
 
 	# Use Capistrano for deployment
 	gem 'capistrano'
+
+	gem 'minitest'
 	gem 'rspec-rails', "~> 2.12"
 	gem 'shoulda-matchers'
 	gem "capybara", "~> 2.0"
