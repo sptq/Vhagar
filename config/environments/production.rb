@@ -78,16 +78,16 @@ Crm::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-  config.action_mailer.default_url_options = { :host => 'panel.ldi.org.pl' }
+  config.action_mailer.default_url_options = { :host => '193.93.68.186' }
 
   config.action_mailer.delivery_method = :smtp
   
   config.action_mailer.smtp_settings = {
-    address:              'mail.ldi.org.pl',
+    address:              'mx.lublin.eu',
     port:                 587,
-    domain:               'ldi.org.pl',
-    user_name:            'noreply@ldi.org.pl',
-    password:             'UwheComy',
+    domain:               'lublin.eu',
+    user_name:            'noreply.lwit',
+    password:             '',
     authentication:       'plain',
     openssl_verify_mode:  'none',
     enable_starttls_auto: true  

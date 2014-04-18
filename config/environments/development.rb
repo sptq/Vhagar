@@ -27,20 +27,5 @@ Crm::Application.configure do
   # number of complex assets.
   config.assets.debug = true
 
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-
-  config.action_mailer.delivery_method = :smtp
-  
-  config.action_mailer.smtp_settings = {
-    address:              'mail.ldi.org.pl',
-    port:                 587,
-    domain:               'ldi.org.pl',
-    user_name:            'noreply@ldi.org.pl',
-    password:             'zHiZjcOm-sUvaAwHMxHzTgob0p0yYJub',
-    authentication:       'plain',
-    openssl_verify_mode:  'none',
-    enable_starttls_auto: true  
-  }
-
 
 end

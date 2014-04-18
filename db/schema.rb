@@ -12,10 +12,14 @@
 # It's strongly recommended that you check this file into your version control system.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20140426205955) do
 =======
 ActiveRecord::Schema.define(version: 20140417143546) do
 >>>>>>> Add group controller
+=======
+ActiveRecord::Schema.define(version: 20140417203911) do
+>>>>>>> Add SIW
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -110,7 +114,12 @@ ActiveRecord::Schema.define(version: 20140417143546) do
 =======
     t.boolean  "haveGroup",              default: false
     t.string   "groupCode",              default: ""
+<<<<<<< HEAD
 >>>>>>> Add group controller
+=======
+    t.boolean  "acceptTerms",            default: false
+    t.boolean  "acceptMarketingTerms",   default: false
+>>>>>>> Add SIW
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

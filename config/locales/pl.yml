@@ -201,7 +201,7 @@ pl:
       exclusion: "jest zarezerwowane"
       invalid: "jest nieprawidłowe"
       confirmation: "nie zgadza się"
-      accepted: "musi zostać zaakceptowane"
+      accepted: "musi zostać zaakceptowany"
       empty: "nie może być puste"
       blank: "nie może być puste"
       too_long: "jest za długie (maksymalnie %{count} znaków)"
@@ -227,6 +227,7 @@ pl:
         password_confirmation: "Powtórzone hasło"
         current_password: "Aktualne hasło"
         remember_me: "Zapamniętaj mnie"
+        acceptTerms: "Regulamin konferencji"
       profile:
         firstName: "Imię"
         lastName: "Nazwisko"

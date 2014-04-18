@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 
 	before_filter :get_header_content
 
+	before_action :configure_permitted_parameters, if: :devise_controller?
+
 	rescue_from CanCan::Unauthorized do |exception|
 		redirect_to root_url, alert: exception.message
 	end unless :devise_controller?
@@ -27,5 +29,9 @@ class ApplicationController < ActionController::Base
 			center_header: center,
 			right_header: right
 		}
+	end
+
+	def configure_permitted_parameters
+  		devise_parameter_sanitizer.for(:sign_up) { |u| u.permit({ roles: [] }, :acceptMarketingTerms, :acceptTerms, :email, :password, :password_confirmation) }
 	end
 end

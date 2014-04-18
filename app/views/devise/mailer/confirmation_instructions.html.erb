@@ -1,14 +1,23 @@
 <div class="ui justified segment">
 	<h1 class="ui header">Witaj <%= @email %>!</h1>
 	<div class="ui segment">
-		<p>Gratulujemy pomyślnej rejestracji na bezpłatną konferencję Lubelskie Dni Informatyki, największego tegorocznego wydarzenia IT we wschodniej Polsce!</p>
+		<p>Gratulujemy pomyślnej rejestracji na bezpłatną konferencję CHECK IT poświęconą informatyce i nowym technologiom!</p> 
 		<p>Ta wiadomość zawiera ważne informacje na temat Twojego konta i sposobu jego aktywacji.</p>
-		<p>Dziękujemy za zainteresowanie się naszą konferencją. Mamy nadzieję, że tegoroczna edycja Lubelskich Dni Informatyki szczególnie zapadnie Wam w pamięć. Tylko dzięki Waszemu wsparciu i zaufaniu możemy stawać się coraz lepsi z każdym kolejnym wydarzeniem.</p>
+		
+		<p>Dziękujemy za zainteresowanie naszą konferencją, na której wspólnie odkryjemy emocjonujące oblicze IT i pokażemy, że kodowanie może być nie tylko świetną zabawą, ale też i sposobem na zawodową przyszłość. Czekają na Was gry, roboty, drukarki 3D i wiele innych atrakcji!</p>
 	</div>
 	<div class="ui segment">
-		<p>Prosimy pamiętać, iż w razie jakichkolwiek zmian, odzyskiwania konta oraz potwierdzenia swojej tożsamości niezbędny jest adres e-mail podany podczas rejestracji.</p>
-		<p>W celu ukończenia rejestracji prosimy aktywować konto.</p>
-		<p>Przypominamy, że aktywne konto w dniu wydarzenia jest równoznaczne z akceptacją wszystkich regulaminów dostępnych na stronie <%= link_to "LDI", "http://ldi.org.pl/" %></p>
+		<b>Zapamiętaj – CHECK IT 12 maja 2014 w Lubelskim Parku Naukowo-Technologicznym!</b>
+	</div>
+	<div class="ui segment">
+		<p>Krok 1 - W celu ukończenia rejestracji aktywuj swoje konto!</p>
+		<p>Krok 2 - uzupełnić swoje dane w formularzu rejestracyjnym!</p>
+		<p>Krok 3 - wybierz prelekcje i warsztaty, w których chcesz uczestniczyć!</p>	
+
+		<p>W razie jakichkolwiek zmian, odzyskiwania konta oraz potwierdzenia swojej tożsamości niezbędny jest adres e-mail podany podczas rejestracji.</p>
+		<p>Przypominamy, że aktywne konto w dniu wydarzenia jest równoznaczne z akceptacją regulaminu dostępnego na stronie www.checkit.lublin.eu</p>
+		<p>Masz pytania? Napisz do nas: lwit@lublin.eu!</p>
+
 		<p><%= link_to 'AKTYWUJ KONTO', confirmation_url(@resource, :confirmation_token => @token), class: "ui positive button" %></p>
 	</div>
 </div>

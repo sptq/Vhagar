@@ -52,6 +52,9 @@ $(document)
                 on: 'hover'
             });
 
+        $('.ui.checkbox')
+            .checkbox();
+
         $('.ui.form')
             .form(validationRules, {
                 on: 'blur'

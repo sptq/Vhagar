@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
+  
   scope :active, -> { where(isactive: true) }
   scope :inactive, -> { where(isactive: false) }
 
@@ -11,9 +12,12 @@ class User < ActiveRecord::Base
 
   primary_key = :uuid
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :confirmable
+  
 
   validates :id, presence: true
   validates :user_role, presence: true
+  validates_acceptance_of  :acceptTerms, :accept => true, :message => " musi zostać zaakceptowany"
+
   before_validation :ensure_uuid, :ensure_admin_presence
 
   # named_scope :with_role, lambda { |role| {:conditions => "roles_mask & #{2**ROLES.index(role.to_s)} > 0 "} }
@@ -58,6 +62,13 @@ class User < ActiveRecord::Base
       return (0...50).map { ('a'..'z').to_a[rand(26)] }.join
     else
       return self.groupCode
+    end
+  end
+
+  def self.searchByGroupCode
+    if self.groupCode != nil || self.groupCode != ''
+      params = { :groupCode => self.groupCode }
+      self.where('"users"."groupCode" == :groupCode AND "users"."job" <> nauczyciel', params)
     end
   end
 
