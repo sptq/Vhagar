@@ -28,6 +28,15 @@ function ready() {
         on: 'blur'
     });
 
+    $('.ui.checkbox')
+        .checkbox();
+
+    $('.ui.form')
+        .form(validationRules, {
+            on: 'blur'
+        });
+
+
     $('.masthead .information').transition('scale in');
 
     $('.message .close').on('click', function() {
