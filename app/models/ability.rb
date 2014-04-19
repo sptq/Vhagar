@@ -52,7 +52,15 @@ class Ability
     cannot :see_participants, Lecture
 
     can :attend, Lecture do |lecture|
-      @user.profile and 0 < lecture.available_places and lecture.participants.exclude? @user
+        if @user.profile and 0 < lecture.available_places and lecture.participants.exclude? @user
+            @user.lectures.each do |l|
+                lstart = l.start_date.to_i
+                lend = (l.start_date + l.duration.minutes).to_i
+                llstart = lecture.start_date.to_i
+                llend = (lecture.start_date + lecture.duration.minutes).to_i
+                break if (lstart..lend).include? llstart or (lstart..lend).include? llend
+            end
+        end
     end
 
     can :resign, Lecture do |lecture|
