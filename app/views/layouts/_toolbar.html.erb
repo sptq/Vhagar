@@ -28,7 +28,19 @@
                     <% if user_signed_in? %>
                         <div></div>
                         <div class="item"><%= current_user.email %></div>
-                        <%= link_to 'Ustawienia logowania', edit_user_registration_path, :class => 'item' %>
+                        
+
+                        <div class="ui dropdown link item">
+                        Ustawienia
+                            <i class="dropdown icon"></i>
+                            <div class="menu ui transition hidden">
+                                <%= link_to 'Ustawienia logowania', edit_user_registration_path, :class => 'item' %>
+                                <%= link_to 'Ustawienia profilu', edit_user_registration_path, :class => 'item' %>
+                                <%= link_to 'Ustawienia regulminów', edit_user_registration_path, :class => 'item' %>
+                                
+                            </div>
+                        </div>
+
                         <%= link_to "Wyloguj", destroy_user_session_path, method: :delete, :class => 'item'  %>
                     <% else %>
                         <%= link_to "Rejestracja", new_user_registration_path, :class => 'item'  %> |

@@ -75,6 +75,10 @@ a:hover {
     color: #00BAFF;
 }
 
+.item {
+  z-index: 2000;
+}
+
 p a {
     font-weight: bold;
 }

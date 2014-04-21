@@ -5,6 +5,9 @@
 				<%= render partial: "preview", locals: { profile: profile } -%>
 				<%= render partial: "users/user", locals: { user: profile.user } if can? :read, @user -%>
 			</div>
+			<div class="ui piled segment">
+				
+			</div>
 		</div>
 
 		<div class="column">
@@ -14,6 +17,7 @@
 			</div>
 		</div>
 	</div>
+
 <% else %>
 	<div class="error">Nie masz zdefiniowanego profilu - zdefinij teraz </div>
 <% end %>

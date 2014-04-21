@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require_tree .
 
+
 function ready() {
     $('.ui.dropdown').dropdown({
         on: 'hover'
@@ -44,6 +45,14 @@ function ready() {
         .popup({
             on: 'focus'
         });
+}
+
+/**
+ * [createModules description]
+ * @return {[type]} [description]
+ */
+function createModules() {
+
 }
 
 $(document).ready(ready)
