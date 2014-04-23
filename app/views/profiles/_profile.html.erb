@@ -5,9 +5,6 @@
 				<%= render partial: "preview", locals: { profile: profile } -%>
 				<%= render partial: "users/user", locals: { user: profile.user } if can? :read, @user -%>
 			</div>
-			<div class="ui piled segment">
-				
-			</div>
 		</div>
 
 		<div class="column">
