@@ -20,6 +20,7 @@ Crm::Application.routes.draw do
   get '/panel' => 'home#panel'
   get '/panel/ztm' => 'home#ztm'
   get '/panel/ztm/get' => 'users#ztmTicket'
+  get '/panel/ztm/leaft' => 'users#ztmTicketLeaft'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

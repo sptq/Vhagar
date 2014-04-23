@@ -35,7 +35,7 @@ pl:
       signed_up: "Witaj! Zarejestrowałeś się pomyślnie."
       signed_up_but_inactive: "Zarejestrowałeś się pomyślnie. Niemniej jednak nie zostałeś zalogowany, ponieważ Twoje konto nie zostało jeszcze aktywowane."
       signed_up_but_locked: "Zarejestrowałeś się pomyślnie. Niemniej jednak nie zostałeś zalogowany, ponieważ Twoje konto zostało zablokowane."
-      signed_up_but_unconfirmed: "Wiadomość email z instrukcją aktywacji konta została przesłana na Twój adres email. Użj linku z emaila aby aktywować konto."
+      signed_up_but_unconfirmed: "Wiadomość email z instrukcją aktywacji konta została przesłana na Twój adres email. Użyj linku z emaila aby aktywować konto."
       update_needs_confirmation: "Konto zostało zaktualizowane. Niemniej jednak przed wprowadzeniem zmian musimy potwierdzić Twój nowy adres email. Za chwilę wyślemy instrukcję na nowy adres."
       updated: "Konto zostało pomyślnie zaktualizowane."
     sessions:

@@ -48,6 +48,7 @@ class Ability
     can :read, Lecture
     can :read, Room
     can :ztmTicket, User
+    can :ztmTicketLeaft, User
 
     cannot :see_participants, Lecture
 

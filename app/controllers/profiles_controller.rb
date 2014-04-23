@@ -25,11 +25,12 @@ class ProfilesController < ApplicationController
 			current_user.user_role = 'user'
 			redirect_to root_path, notice: 'Stworzyłeś porfil dla swojego konta.'
 		else
-			render action: :create
+			render action: :new
 		end
 	end
 
 	def edit
+		params[:id] = current_user.profile.id 
 		@profile = current_user.profile
 	end
 

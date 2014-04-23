@@ -34,10 +34,11 @@
                         Ustawienia
                             <i class="dropdown icon"></i>
                             <div class="menu ui transition hidden">
-                                <%= link_to 'Ustawienia logowania', edit_user_registration_path, :class => 'item' %>
-                                <%= link_to 'Ustawienia profilu', edit_user_registration_path, :class => 'item' %>
-                                <%= link_to 'Ustawienia regulminów', edit_user_registration_path, :class => 'item' %>
+                                <%= link_to 'Ustawienia logowania i regulminów', edit_user_registration_path, :class => 'item' %>
                                 
+                                <%- if current_user.profile != nil -%>
+                                    <%= link_to 'Ustawienia profilu', edit_profile_path(current_user.profile), :class => 'item' %>
+                                <%- end -%> 
                             </div>
                         </div>
 

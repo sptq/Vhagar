@@ -76,6 +76,21 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def ztmTicketLeaft
+		if current_user.ztmTicket
+			@user = current_user
+			@user.ztmTicket = false
+
+			if @user.save 
+				redirect_to panel_ztm_path, notice: 'Zrezygnowałeś z darmowego przejazdu ZTM.'
+			else
+				redirect_to panel_ztm_path, alert: 'Coś poszło nie tak podczas zapisu, spróbuj jeszcze raz.'
+			end
+		else
+			redirect_to panel_ztm_path, alert: 'Nie posiadasz darmowego przejazdu ZTM.'
+		end
+	end
+
 	private
 
     # Never trust parameters from the scary internet, only allow the white list through.
