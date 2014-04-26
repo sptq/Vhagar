@@ -2,7 +2,7 @@
 
 <% if @users != nil %>
 
-	<div class="ui piled segment">
+	<div class="ui teal stacked segment">
 		<%= form_tag users_path, :method => 'get' do %>
 		  <p>
 		    <%= text_field_tag :phrase, params[:phrase] %>
@@ -12,12 +12,12 @@
 	</div>
 	
 	<%- if can? :see_inactive, User -%>
-		<div class="ui piled segment">
+		<div class="ui red stacked segment">
 			<%= render partial: "list", locals: { users: @users.select { |u| not u.isactive }.sort_by { |u| u[:user_role] }, show_controls: true } -%>
 		</div>
 	<%- end -%>
 
-	<div class="ui piled segment">
+	<div class="ui green stacked segment">
 		<%= render partial: "list", locals: { users: @users.select { |u| u.isactive }.sort_by { |u| u[:user_role] }, show_controls: true } -%>
 	</div>
 <% else %>
