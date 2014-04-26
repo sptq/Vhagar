@@ -8,6 +8,11 @@
 			<%= f.text_field :email, readonly: :true %>
 		</div>
 
+		<div class="field">
+			<%= f.label :barcode %>
+			<%= f.text_field :barcode %>
+		</div>
+
 		<% if can? :promote, User %>
 		<div class="field">
 			<%= f.label :user_role %>

@@ -11,11 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140411184202) do
+ActiveRecord::Schema.define(version: 20140426205955) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
+
+  create_table "conferences", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "contents", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "title"
@@ -41,6 +48,7 @@ ActiveRecord::Schema.define(version: 20140411184202) do
     t.uuid     "lecture_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "confirmed_at"
   end
 
   create_table "profiles", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
@@ -93,6 +101,7 @@ ActiveRecord::Schema.define(version: 20140411184202) do
     t.string   "user_role",              default: "user", null: false
     t.boolean  "ztmTicket",              default: false
     t.boolean  "isactive",               default: false
+    t.string   "barcode",                default: ""
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
