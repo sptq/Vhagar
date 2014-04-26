@@ -1,17 +1,16 @@
 <% if profile != nil %>
 	<div class="ui two column grid">
 		<div class="column">
-			<div class="ui piled segment">
+			<div class="ui stacked green segment">
 				<%= render partial: "preview", locals: { profile: profile } -%>
-				<br />
 				<%= render partial: "users/user", locals: { user: profile.user } if can? :read, @user -%>
 			</div>
 		</div>
 
 		<div class="column">
-		<div class="ui piled segment">
-			<h2 class="ui header">Uczestnictwo w wykładach</h2>
-			<%= render partial: "lectures/list", locals: { lectures: profile.user.lectures } -%>
+			<div class="ui stacked red segment">
+				<h2 class="ui header">Uczestnictwo w wykładach</h2>
+				<%= render partial: "lectures/list", locals: { lectures: profile.user.lectures } -%>
 			</div>
 		</div>
 	</div>
