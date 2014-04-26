@@ -3,7 +3,6 @@
 		<div class="column">
 			<div class="ui piled segment">
 				<%= render partial: "preview", locals: { profile: profile } -%>
-				<br />
 				<%= render partial: "users/user", locals: { user: profile.user } if can? :read, @user -%>
 			</div>
 		</div>

@@ -1,25 +1,37 @@
 <div class="ui relax divided selection list">
 	<%- users.each do |user| -%>
 
-	<div class="item" <% if current_user.role? :admin%>
-				title="Informacje o logowaniu"
-				data-content="Ostatnie logowanie: <%= user.current_sign_in_at%><br /> Ilość logowań: <%= user.sign_in_count%><br />Obecne IP: <%= user.current_sign_in_ip%><br/>Ostatnie IP:<%= user.last_sign_in_ip%><br/>"
-			<% end %>>
+	<div class="item">
 		<%- if show_controls and can? :see_role, User -%>
 			<div class="<%= user.confirmed_at ? 'ui green label' : 'ui black label' %>"> <%= user.user_role %></div>
 		<%- end -%>
 
 		<div class="content">
-			<div class="header"
-			<% if current_user.role? :admin%>
-				title="Informacje o logowaniu"
-				data-content="Ostatnie logowanie: <%= user.current_sign_in_at%><br /> Ilość logowań: <%= user.sign_in_count%><br />Obecne IP: <%= user.current_sign_in_ip%><br/>Ostatnie IP:<%= user.last_sign_in_ip%><br/>"
-			<% end %>>
-			<%= user.profile.firstName + ' ' + user.profile.lastName if user.profile -%></div>
+			<div class="header">
+				<%= user.profile.firstName + ' ' + user.profile.lastName if user.profile -%>
+			</div>
 			<%= user.email + ' ' if current_user.role? :admin -%>
 		</div>
 
 		<div class="ui right floated tiny buttons">
+			<%- if can? :manage, user and user.barcode.blank? %>
+				<div class="ui orange button" onclick=<%="$('\##{user.id}').modal('show');"%> >Barcode</div>
+
+				<div class="ui modal" id="<%= "#{user.id}" -%>">
+					<div class="ui center aligned segment">
+						<div class="ui header">
+								<%= "#{user.profile.firstName} #{user.profile.lastName}" %>
+						</div>
+						<%= form_for user do |f| %>
+							<div class="field">
+								<%= f.label :barcode %>
+								<%= f.text_field :barcode, :autofocus => true %>
+							</div>
+						<% end %>
+					</div>
+				</div>
+			<%- end %>
+
 			<%= link_to "Profil", user.profile, class: "ui blue button" if user.profile and can? :see_profile, user -%>
 			<%= link_to "Edytuj", edit_user_path(user), class: "ui green button" if show_controls and can? :edit, user -%>
 			<%= link_to user.isactive ? "Deaktywuj" : "Aktywuj", user, class: user.isactive ? "ui red button" : "ui black button", method: :delete, data: { confirm: "Na pewno?"} if can? :destroy, user%>
