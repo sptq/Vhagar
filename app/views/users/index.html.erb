@@ -10,16 +10,21 @@
 		  </p>
 		<% end %>
 	</div>
-	
-	<%- if can? :see_inactive, User -%>
-		<div class="ui red stacked segment">
-			<%= render partial: "list", locals: { users: @users.select { |u| not u.isactive }.sort_by { |u| u[:user_role] }, show_controls: true } -%>
+	<%- if params[:phrase] != '' && params[:phrase] != nil -%>
+		<div class="ui green stacked segment">
+		  	<%= render partial: "list", locals: { users: @users.sort_by { |u| u[:user_role] }, show_controls: true } -%>
+		</div>
+	<%- else -%>
+		<%- if can? :see_inactive, User -%>
+			<div class="ui red stacked segment">
+				<%= render partial: "list", locals: { users: @users.select { |u| not u.isactive }.sort_by { |u| u[:user_role] }, show_controls: true } -%>
+			</div>
+		<%- end -%>
+
+		<div class="ui green stacked segment">
+			<%= render partial: "list", locals: { users: @users.select { |u| u.isactive }.sort_by { |u| u[:user_role] }, show_controls: true } -%>
 		</div>
 	<%- end -%>
-
-	<div class="ui green stacked segment">
-		<%= render partial: "list", locals: { users: @users.select { |u| u.isactive }.sort_by { |u| u[:user_role] }, show_controls: true } -%>
-	</div>
 <% else %>
 	<h4>Brak wyników wyszukiwania</h4>
 <% end %>
