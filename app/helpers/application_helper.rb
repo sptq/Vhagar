@@ -15,4 +15,9 @@ module ApplicationHelper
 		gravatar_id = Digest::MD5.hexdigest(user.email.downcase)
 		"http://gravatar.com/avatar/#{gravatar_id}"
 	end
+	
+	def extract_participation(lecture, user)
+      common = user.participations & lecture.participations
+      common.first
+	end
 end

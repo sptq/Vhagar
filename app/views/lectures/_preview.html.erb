@@ -1,4 +1,4 @@
-<div class="ui piled segment">
+<div class="ui stacked green segment">
 	<h1 class="ui header"><%= @lecture.title -%></h1>
 
 	<p class="text"><%= @lecture.description -%></p>
@@ -21,6 +21,16 @@
 	</div>
 
 	<%- if can? :see_participants, @lecture -%>
+
+		<%# if can? :manage, Users -%>
+			<div class="ui segment">
+				<%= form_tag confirm_user_participation_path do -%>
+					<%= label_tag :barcode -%>
+					<%= text_field_tag :barcode, params[:barcode], autofocus: true, placeholder: 'Podaj kod użytkownika' -%>
+					<%= submit_tag "Szukaj" -%>
+				<%- end -%>
+			</div>
+		<%# end -%>
 
 		<%- if can? :see_inactive, User -%>
 			<h2 class="ui header">Nieaktywni</h2>

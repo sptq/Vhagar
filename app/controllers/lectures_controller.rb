@@ -2,6 +2,8 @@ class LecturesController < ApplicationController
 
   load_and_authorize_resource
 
+  include ApplicationHelper
+
   # GET /lectures
   # GET /lectures.json
   def index
@@ -69,6 +71,24 @@ class LecturesController < ApplicationController
     end
   end
 
+  def confirm    
+    barcode = params[:barcode]
+    user   = @lecture.participants.select { |u| u.barcode == barcode }.first
+
+    if user
+      participation = extract_participation(@lecture, user)
+      unless participation.confirmed_at
+        participation.confirmed_at = Time.now
+        participation.save
+        redirect_to user.profile, notice: "Znalazłem ser :D #{participation.inspect}"
+      end
+    end
+
+    redirect_to @lecture, alert: user.nil? \
+      ? "Użytkownik z kodem #{barcode} nie bierze udziału w wydarzeniu" \
+      : "Nie można potwierdzić obecności użytkownika o podanym kodzie: #{barcode}"
+  end
+
   def attend
     @lecture.participants << current_user
     redirect_to lectures_path, notice: "Dołączono do #{@lecture.title}"
@@ -111,6 +131,6 @@ class LecturesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lecture_params
-      params.require(:lecture).permit(:title, :description, :start_date, :room_id, :duration, :reserved)
+      params.require(:lecture).permit(:title, :description, :start_date, :room_id, :duration, :reserved, :barcode)
     end
 end

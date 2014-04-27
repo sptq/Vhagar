@@ -34,6 +34,7 @@ Crm::Application.routes.draw do
   get '/lectures/:id/remove' => 'lectures#remove', as: :remove_user
   get '/lectures/:id/add'    => 'lectures#add',    as: :add_user
   get '/lectures/:id/modify_users' => 'lectures#modify_users', as: :modify_lecture_users
+  post '/lectures/:id/confirm'     => 'lectures#confirm',      as: :confirm_user_participation
 
   resources :profiles
   resources :stats

@@ -8,19 +8,19 @@
 	<%= render 'layouts/shim' %>
 </head>
 
-<body id="home">
+<body>
 
-	<div id="wapper">
-		<%= render 'layouts/notifications' %>
-		<%= render 'layouts/toolbar' %>
+	<%= render 'layouts/notifications' %>
+	<%= render 'layouts/toolbar' %>
 
-		<div class="ui page grid container">
-			<div class="column">
-				<h1 class="ui center aligned inverted teal block header"><%= yield(:title) -%></h1>
-				<%= yield %>
-			</div>
+	<div class="ui page grid container">
+		<div class="column">
+			<h1 class="ui center aligned inverted teal block header"><%= yield(:title) -%></h1>
+			<%= yield %>
 		</div>
 	</div>
+
+	<%= render 'layouts/footer' %>
 
 <!-- Piwik -->
 <script type="text/javascript">
