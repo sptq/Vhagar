@@ -12,33 +12,18 @@
     </div>
 
     <div class="field">
-      Profil
-      <div class="ui fluid selection dropdown">
-        <div class="text">Wybierz opcje</div>
-        <i class="dropdown icon"></i>
-        <%= f.hidden_field :job %>
-        <div class="menu">
-          <div class="item" data-value="uczen">Uczeń</div>
-          <div class="item" data-value="student">Student</div>
-          <div class="item" data-value="pracownik">Pracownik</div>
-          <div class="item" data-value="nauczyciel">Nauczyciel</div>
-        </div>
-      </div>
+      Stanowisko / kierunek / profil<br>
+      <%= f.text_field :job %>
     </div>
 
     <div class="field">
-      Szkoła, Uczelnia, Firma<br>
+      Firma / Uczelnia / Szkoła <br>
       <%= f.text_field :place %>
     </div>
 
     <div class="field">
       nr albumu / legitymacji (dotyczy tylko studentów/uczniów) <br>
       <%= f.text_field :album %>
-    </div>
-
-    <div class="field">
-      nr telefonu (dotyczy tylko nauczycieli/opiekunów) <br>
-      <%= f.text_field :phone %>
     </div>
 
     <div class="ui small buttons">

@@ -231,6 +231,6 @@ pl:
       profile:
         firstName: "Imię"
         lastName: "Nazwisko"
-        job: "Profil"
-        place: "Szkoła, Uczelnia, Firma"
+        job: "Stanowisko / kierunek / profil"
+        place: "Firma / Uczelnia / Szkoła"
         album: "nr albumu / legitymacji"
