@@ -13,18 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140426205955) do
 
-
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
-
-  create_table "conferences", force: true do |t|
-    t.string   "title"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "contents", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "title"
@@ -102,12 +93,12 @@ ActiveRecord::Schema.define(version: 20140426205955) do
     t.datetime "updated_at"
     t.string   "user_role",              default: "user", null: false
     t.boolean  "ztmTicket",              default: false
-    t.boolean  "isactive",               default: false
-    t.string   "barcode",                default: ""
+    t.boolean  "isactive",               default: true
     t.boolean  "haveGroup",              default: false
     t.string   "groupCode",              default: ""
     t.boolean  "acceptTerms",            default: false
     t.boolean  "acceptMarketingTerms",   default: false
+    t.string   "barcode",                default: ""
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

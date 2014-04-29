@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
 
   validates :id, presence: true
   validates :user_role, presence: true
-  validates_acceptance_of  :acceptTerms, :accept => true, :message => " musi zostać zaakceptowany"
+  validates_acceptance_of  :acceptTerms, :accept => true, :message => " musi zostać zaakceptowany", :on => :create
 
   before_validation :ensure_uuid, :ensure_admin_presence
 

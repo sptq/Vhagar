@@ -20,7 +20,9 @@
 				<div class="ui modal" id="<%= "#{user.id}" -%>">
 					<div class="ui center aligned segment">
 						<div class="ui header">
+							<% if user.profile %>
 								<%= "#{user.profile.firstName} #{user.profile.lastName}" %>
+							<% end %>
 						</div>
 						<%= form_for user do |f| %>
 							<div class="field">
