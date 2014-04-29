@@ -26,6 +26,8 @@ Crm::Application.routes.draw do
   resources :users
   get 'users/search/:firstName/:lastName' => 'users#searchForUser'
   get 'users/search/:phrase' => 'users#search'
+  resources :pous
+
 
   resources :lectures
 
@@ -37,6 +39,8 @@ Crm::Application.routes.draw do
   post '/lectures/:id/confirm'     => 'lectures#confirm',      as: :confirm_user_participation
 
   resources :profiles
+  get '/profiles/:id/adminEdit' => 'profiles#adminEdit'
+  
   resources :stats
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

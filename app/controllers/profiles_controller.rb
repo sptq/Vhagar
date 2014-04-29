@@ -30,15 +30,43 @@ class ProfilesController < ApplicationController
 	end
 
 	def edit
-		@profile = current_user.profile
+		if current_user.profile.id == params[:id]
+			@profile = current_user.profile
+		else
+			redirect_to root_path, error: 'To nie jest id twojego profilu!'
+		end
 	end
 
 	def update
-		if @profile.update(profile_params)
-			redirect_to root_path, notice: 'Zaktualizowałeś z powodzeniem porfil dla swojego konta.'
+		if @profile.id == current_user.profile.id
+			if @profile.update(profile_params)
+				redirect_to root_path, notice: 'Zaktualizowałeś z powodzeniem porfil dla swojego konta.'
+			else
+				render action: :edit
+			end
 		else
-			render action: :edit
-		end	
+			redirect_to root_path, error: 'To nie jest id twojego profilu!'
+		end
+	end
+
+	def adminEdit
+		if current_user.admin? 
+			@profile = Profile.where(id: params[:id])
+		else 
+			redirect_to root_path, error: 'A ty hakierze jeden!'
+		end
+	end
+
+	def adminUpdate
+		if current_user.admin? 
+			if @profile.update(profile_params)
+				redirect_to users_path, notice: 'Zaktualizowałeś porfil z powodzeniem.'
+			else
+				render action: :edit
+			end
+		else 
+			redirect_to root_path, error: 'A ty hakierze jeden!'
+		end
 	end
 
 	private

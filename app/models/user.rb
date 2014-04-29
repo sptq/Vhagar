@@ -49,6 +49,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.getOnlyUsers
+    self.where(user_role: 'user')
+  end
+
   def profile?
     self.profile == nil
   end

@@ -15,64 +15,54 @@
 //= require turbolinks
 //= require_tree .
 
-$(document)
-    .ready(function() {
 
-        var
-        changeSides = function() {
-            $('.ui.shape')
-                .eq(0)
-                .shape('flip over')
-                .end()
-                .eq(1)
-                .shape('flip over')
-                .end()
-                .eq(2)
-                .shape('flip back')
-                .end()
-                .eq(3)
-                .shape('flip back')
-                .end();
-        },
-            validationRules = {
-                firstName: {
-                    identifier: 'email',
-                    rules: [{
-                        type: 'empty',
-                        prompt: 'Please enter an e-mail'
-                    }, {
-                        type: 'email',
-                        prompt: 'Please enter a valid e-mail'
-                    }]
-                }
-            };
-
-        $('.ui.dropdown')
-            .dropdown({
-                on: 'hover'
-            });
-
-        $('.ui.form')
-            .form(validationRules, {
-                on: 'blur'
-            });
-
-        $('.masthead .information')
-            .transition('scale in');
-
-        $('.message .close').on('click', function() {
-            $(this).closest('.message').fadeOut();
-        });
-
-        $('.withPopup').popup({
-            on: 'click',
-            title: 'Uzupełnij profil',
-            content: 'Aby wykonać tą akcję musisz najpierw uzupełnić swój profil.',
-            variation: 'inverted'
-        });
-
-        $('.item')
-            .popup({
-                on: 'focus'
-            });
+function ready() {
+    $('.ui.dropdown').dropdown({
+        on: 'hover'
     });
+
+    $('.ui.checkbox')
+        .checkbox();
+
+    $('.ui.form').form(validationRules, {
+        on: 'blur'
+    });
+
+    $('.ui.checkbox')
+        .checkbox();
+
+    $('.ui.form')
+        .form(validationRules, {
+            on: 'blur'
+        });
+
+
+    $('.masthead .information').transition('scale in');
+
+    $('.message .close').on('click', function() {
+        $(this).closest('.message').fadeOut();
+    });
+
+    $('.withPopup').popup({
+        on: 'click',
+        title: 'Uzupełnij profil',
+        content: 'Aby wykonać tą akcję musisz najpierw uzupełnić swój profil.',
+        variation: 'inverted'
+    });
+
+    $('.item')
+        .popup({
+            on: 'focus'
+        });
+}
+
+/**
+ * [createModules description]
+ * @return {[type]} [description]
+ */
+function createModules() {
+
+}
+
+$(document).ready(ready)
+$(document).on('page:load', ready)

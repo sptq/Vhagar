@@ -1,0 +1,27 @@
+<%- title('Punkt obsługi użytkowników') -%>
+
+<% if @users != nil %>
+	<div class="ui teal stacked segment">
+		<%= form_tag users_path, :method => 'get' do %>
+		  <p>
+		    <%= text_field_tag :phrase, params[:phrase] %>
+		    <%= submit_tag "Szukaj", :name => nil %>
+		  </p>
+		<% end %>
+	</div>
+	<%- if params[:phrase] != '' && params[:phrase] != nil -%>
+		<div class="ui green stacked segment">
+		  	<%= render partial: "list", locals: { users: @users.sort_by { |u| u[:user_role] }, show_controls: true } -%>
+		</div>
+	<%- else -%>
+		<%- if can? :see_inactive, User -%>
+			<div class="ui red stacked segment">
+				<%= render partial: "list", locals: { users: @users.select { |u| not u.isactive }.sort_by { |u| u[:user_role] }, show_controls: true } -%>
+			</div>
+		<%- end -%>
+
+		<div class="ui green stacked segment">
+			<%= render partial: "list", locals: { users: @users.select { |u| u.isactive }.sort_by { |u| u[:user_role] }, show_controls: true } -%>
+		</div>
+	<%- end -%>
+<% end %>
