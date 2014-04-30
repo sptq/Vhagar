@@ -58,44 +58,6 @@
 	      	<% end %>
 	    </div>
 	</div>
-
-	<%- if current_user.profile != nil && current_user.profile.job == 'uczen' -%>
-		<div class="column">
-		    <div class="ui segment myprofileSegment">
-		    	<i class="circular ticket huge icon"></i>
-		    	<br />
-		    	<br />
-		      		Dla pierwszych 400 uczesników mamy darmowe przejazdy autobusowe w dniu konferencji. Zapoznaj się z instrukcją darmowego biletu MPK.
-	      		<br />
-	      		<br />
-		    	<br />
-		    	<% if current_user.profile %>
-		    		<%= link_to "Zdobądź darmowy przejazd ZTM", panel_ztm_path, class: "ui green button" -%>
-		      	<% else %>
-		      		<a class="ui green button disabled withPopup">Zgarnij darmowy przejazd MPK</a>
-		      	<% end %>
-		    </div>
-		</div>
-	<%- end -%>
-
-	<%- if current_user.profile != nil && current_user.profile.job == 'nauczyciel' -%>
-		<div class="column">
-		    <div class="ui segment myprofileSegment">
-		    	<i class="circular users huge icon"></i>
-		    	<br />
-		    	<br />
-		      		Zarządzaj swoją grupą
-	      		<br />
-	      		<br />
-		    	<br />
-		    	<% if current_user.profile %>
-		    		<%= link_to "Zarządzaj swoją grupą", panel_ztm_path, class: "ui green button" -%>
-		      	<% else %>
-		      		<a class="ui green button disabled withPopup">Zgarnij darmowy przejazd MPK</a>
-		      	<% end %>
-		    </div>
-		</div>
-	<%- end -%>
 </div>
 <br />
 <br />
