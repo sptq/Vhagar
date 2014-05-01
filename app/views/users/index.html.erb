@@ -11,17 +11,17 @@
 		<% end %>
 	</div>
 	<%- if params[:phrase] != '' && params[:phrase] != nil -%>
-		<div class="ui piled segment">
+		<div class="ui stacked segment">
 			<%= render partial: "list", locals: { users: @users.sort_by { |u| u[:user_role] }, show_controls: true } -%>
 		</div>
 	<%- else -%>
 		<%- if can? :see_inactive, User -%>
-			<div class="ui piled segment">
+			<div class="ui stacked segment">
 				<%= render partial: "list", locals: { users: @users.inactive.sort_by { |u| u[:user_role] }, show_controls: true } -%>
 			</div>
 		<%- end -%>
 
-		<div class="ui piled segment">
+		<div class="ui stacked segment">
 			<%= render partial: "list", locals: { users: @users.active.sort_by { |u| u[:user_role] }, show_controls: true } -%>
 		</div>
 	<%- end -%>
