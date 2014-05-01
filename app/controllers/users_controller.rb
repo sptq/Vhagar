@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
 			return @users
 		else
-			@users = User.all
+			@users = User.all.includes(:profile)
 		end
 	end
 
