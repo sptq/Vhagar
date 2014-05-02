@@ -5,29 +5,14 @@ class UsersController < ApplicationController
 	before_filter :authenticate_user!
 
 	def index
-		pharse = params[:phrase] || nil
+		pharse ||= params[:phrase]
 
-		if pharse != '' && pharse != nil
-			@results = []
-			@users = []
+		if pharse.present?
+			@users = Set.new
 
-			@param = params[:phrase].split(' ');
-			@param.each do |param|
-				@result = User.searchByPhrase(param)
-
-				@result.each do |user|
-					@results.push ["#{user.id}", user]
-				end
-			end	
-			
-			#filter for only uniq results
-			@results = @results.uniq { |s| s.first }
-
-			@results.each do |resultTable|
-				@users.push resultTable[1]
+			pharse.split(' ').each do |param|
+				@users += User.searchByPhrase(param)
 			end
-
-			return @users
 		else
 			@users = User.all.includes(:profile)
 		end
@@ -81,7 +66,7 @@ class UsersController < ApplicationController
 			@user = current_user
 			@user.ztmTicket = false
 
-			if @user.save 
+			if @user.save
 				redirect_to panel_ztm_path, notice: 'Zrezygnowałeś z darmowego przejazdu ZTM.'
 			else
 				redirect_to panel_ztm_path, alert: 'Coś poszło nie tak podczas zapisu, spróbuj jeszcze raz.'
