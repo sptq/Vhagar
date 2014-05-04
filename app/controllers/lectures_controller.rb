@@ -71,22 +71,30 @@ class LecturesController < ApplicationController
     end
   end
 
-  def confirm    
+  def confirm
     barcode = params[:barcode]
-    user   = @lecture.participants.select { |u| u.barcode == barcode }.first
 
-    if user
+    if user = @lecture.participants.select { |u| u.barcode == barcode }.first
       participation = extract_participation(@lecture, user)
-      unless participation.confirmed_at
+      if participation.confirmed_at
+        redirect_to @lecture, notice: "Użytkownik z kodem #{barcode} już uczestniczy w wydarzeniu"
+      else
         participation.confirmed_at = Time.now
         participation.save
-        redirect_to user.profile, notice: "Znalazłem ser :D #{participation.inspect}"
+        redirect_to @lecture, notice: "Użytkownik z kodem #{barcode} został dołączony do wydarzenia"
+      end
+    else
+      # jeżeli wykład jest otwarty
+      if user = User.where(barcode: barcode).first
+        @lecture.participants.push user
+        participation = extract_participation(@lecture, user)
+        participation.confirmed_at = Time.now
+        participation.save
+        redirect_to @lecture, notice: "Użytkownik z kodem #{barcode} został dołączony do wydarzenia"
+      else
+        redirect_to @lecture, alert: "Użytkownik z kodem #{barcode} nie został znaleziony"
       end
     end
-
-    redirect_to @lecture, alert: user.nil? \
-      ? "Użytkownik z kodem #{barcode} nie bierze udziału w wydarzeniu" \
-      : "Nie można potwierdzić obecności użytkownika o podanym kodzie: #{barcode}"
   end
 
   def attend
