@@ -7,6 +7,6 @@ class CreateLectureGroups < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_reference :lectures, :lecture_group, index: true
+    add_column :lectures, :lecture_group_id, :uuid
   end
 end

@@ -6,9 +6,9 @@
 			<%= render "preview" %>
 		</div>
 
-		<%- if @lecture.lecture_group_id.blank? -%>
+		<%- if @lecture.lecture_group.present? -%>
 			<div class="ui stacked teal segment">
-				<h1 class="header">Powiązane wydarzenia</h1>
+				<h1 class="header">Powiązane wydarzenia w grupie</h1>
 				<%= render partial: "lectures/list", locals: { lectures: @lecture.lecture_group.lectures } -%>
 			</div>
 		<%- end -%>

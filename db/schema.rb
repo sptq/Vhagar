@@ -41,10 +41,8 @@ ActiveRecord::Schema.define(version: 20140504102719) do
     t.uuid     "room_id"
     t.integer  "duration",         default: 30, null: false
     t.integer  "reserved",         default: 0,  null: false
-    t.integer  "lecture_group_id"
+    t.uuid     "lecture_group_id"
   end
-
-  add_index "lectures", ["lecture_group_id"], name: "index_lectures_on_lecture_group_id", using: :btree
 
   create_table "participations", force: true do |t|
     t.uuid     "user_id"
