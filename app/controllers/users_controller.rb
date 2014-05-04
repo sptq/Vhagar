@@ -88,9 +88,9 @@ class UsersController < ApplicationController
 			user.barcode = params[:barcode]
 
 			if user.save
-				render :json => {:sucess => true}
+				render :json => {:success => true}
 			else
-				render :json => {:sucess => false }
+				render :json => {:success => false }
 			end
 		end
 	end

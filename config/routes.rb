@@ -30,7 +30,7 @@ Crm::Application.routes.draw do
 
   get 'users/registrationPanel' => 'users#registrationPanel'
   get 'users/filters' => 'users#filters'
-  
+  get 'users/addbarcode' => 'users#addBarcode'
   resources :users
   
   resources :lectures

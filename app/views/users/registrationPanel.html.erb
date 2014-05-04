@@ -6,21 +6,21 @@
 			<div class="two fields">
 				<div class="field">
 					<label>Imię</label>
-					<input placeholder="Imię" type="text" ng-model="filter.firstName">
+					<input placeholder="Imię" type="text" ng-model="filter.firstName" ng-enter="findWithParams()">
 				</div>
 				<div class="field">
 					<label>Nazwisko</label>
-					<input placeholder="Nazwisko" type="text" ng-model="filter.lastName">
+					<input placeholder="Nazwisko" type="text" ng-model="filter.lastName" ng-enter="findWithParams()">
 				</div>
 			</div>
 			<div class="two fields">
 				<div class="field">
 					<label>Stanowisko / kierunek / profil</label>
-					<input placeholder="Stanowisko / kierunek / profil" ng-model="filter.job" type="text">
+					<input placeholder="Stanowisko / kierunek / profil" ng-model="filter.job" type="text" ng-enter="findWithParams()">
 				</div>
 				<div class="field">
 					<label>Firma / Uczelnia / Szkoła</label>
-					<input placeholder="Firma / Uczelnia / Szkoła" ng-model="filter.place" type="text">
+					<input placeholder="Firma / Uczelnia / Szkoła" ng-model="filter.place" type="text" ng-enter="findWithParams()">
 				</div>
 			</div>
 			<div class="ui blue submit button" ng-click="findWithParams()">Szukaj</div>
@@ -37,7 +37,7 @@
 					{{user.email}}
 				</div>
 				<div class="ui right floated tiny buttons">
-					<div ng-if="user.barcode == ''" class="ui orange button" onclick="$(this).parent().find('.modal').modal('show');">Barcode</div>
+					<div ng-if="user.barcode == ''" id="barcode-open-{{user.id}}" class="ui orange button" onclick="openModal($(this))">Barcode</div>
 					<div class="ui modal" id="{{user.id}}">
 						<div class="ui center aligned segment">
 							<div class="ui header">
@@ -45,13 +45,13 @@
 							</div>
 							<div class="field">
 								<label>Barcode</label>
-								<input type="hidden" ng-model="barcode.user_id" value="{{user.id}}">
-								<input class="barcode" placeholder="12908..." ng-model="barcode.code" type="text">
+								<input class="barcode-input" placeholder="12908..." ng-model="barcode.code" ng-enter="sendBarcode(user.id)" type="text">
 							</div>
 						</div>
 					</div>
 					
-					<div class="ui green button">Information</div>
+					<a class="ui blue button" href="/profiles/{{ user.profile.id }}">Profil</a>
+					<a class="ui green button" href="/users/{{ user.id }}/edit">Edytuj</a>
 				</div>
 			</div>			
 		</div>

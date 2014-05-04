@@ -95,7 +95,6 @@ class User < ActiveRecord::Base
     end
   end
 
-
   def self.searchByGroupCode
     if self.groupCode != nil || self.groupCode != ''
       params = { :groupCode => self.groupCode }
@@ -110,7 +109,7 @@ class User < ActiveRecord::Base
   def as_json(options={})
     super(:only => [:email, :id, :barcode],
       :include => {
-        :profile => {:only => [:firstName, :lastName, :job, :place]},
+        :profile => {:only => [:id, :firstName, :lastName, :job, :place]},
         :lectures => {:only => [:id, :title, :start_date]}
       } 
     )
