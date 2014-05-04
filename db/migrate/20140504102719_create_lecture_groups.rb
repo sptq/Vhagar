@@ -1,6 +1,6 @@
 class CreateLectureGroups < ActiveRecord::Migration
   def change
-    create_table :lecture_groups do |t|
+    create_table :lecture_groups, id: :uuid do |t|
       t.string :title
       t.text :description
 

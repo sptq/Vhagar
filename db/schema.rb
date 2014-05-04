@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20140504102719) do
     t.datetime "updated_at"
   end
 
-  create_table "lecture_groups", force: true do |t|
+  create_table "lecture_groups", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "title"
     t.text     "description"
     t.datetime "created_at"
@@ -103,7 +103,7 @@ ActiveRecord::Schema.define(version: 20140504102719) do
     t.datetime "updated_at"
     t.string   "user_role",              default: "user", null: false
     t.boolean  "ztmTicket",              default: false
-    t.boolean  "isactive",               default: false
+    t.boolean  "isactive",               default: true
     t.boolean  "haveGroup",              default: false
     t.string   "groupCode",              default: ""
     t.boolean  "acceptTerms",            default: false
