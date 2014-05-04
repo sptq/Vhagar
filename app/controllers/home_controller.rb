@@ -9,8 +9,7 @@ class HomeController < ApplicationController
   	end
 
   	def ztm
-  		@tickets = User.where(ztmTicket: true).count
-  		@tickets = 400 - @tickets
+  		@tickets = 0
   	end
 
 	def panel
