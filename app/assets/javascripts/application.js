@@ -17,6 +17,8 @@
 
 
 function ready() {
+    $('.content').popup();
+
     $('.ui.dropdown').dropdown({
         on: 'hover'
     });
@@ -24,17 +26,11 @@ function ready() {
     $('.ui.checkbox')
         .checkbox();
 
-    $('.ui.form').form(validationRules, {
-        on: 'blur'
-    });
 
     $('.ui.checkbox')
         .checkbox();
 
-    $('.ui.form')
-        .form(validationRules, {
-            on: 'blur'
-        });
+
 
 
     $('.masthead .information').transition('scale in');
@@ -50,10 +46,9 @@ function ready() {
         variation: 'inverted'
     });
 
-    $('.item')
-        .popup({
-            on: 'focus'
-        });
+    $(".sendBarcode").submit(function(e) {
+        return false;
+    });
 }
 
 /**

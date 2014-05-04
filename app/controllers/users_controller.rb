@@ -76,6 +76,30 @@ class UsersController < ApplicationController
 		end
 	end
 
+    ##
+    #
+	def registrationPanel
+		
+	end
+
+	def addBarcode
+		if params
+			user = User.find(params[:user_id])
+			user.barcode = params[:barcode]
+
+			if user.save
+				render :json => {:sucess => true}
+			else
+				render :json => {:sucess => false }
+			end
+		end
+	end
+
+	def filters
+		@users = User.filter(params).includes(:profile)
+		render :json => @users   
+	end
+
 	private
 
     # Never trust parameters from the scary internet, only allow the white list through.

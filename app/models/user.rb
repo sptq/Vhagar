@@ -53,17 +53,48 @@ class User < ActiveRecord::Base
     end
   end
 
-  def self.haveGroup?
-    self.haveGroup
+  def self.filter(params)
+    users = self.joins(:profile)
+
+    #firstName
+    if params[:firstName]
+      users = users.where('lower("profiles"."firstName") LIKE ?', createLikeStatment(params[:firstName]))
+
+    end
+
+    #lastName
+    if params[:lastName]
+      users = users.where('lower("profiles"."lastName") LIKE ?', createLikeStatment(params[:lastName]))
+    end
+
+    #user role
+    if params[:role]
+      users = users.where('lower("users"."user_role") LIKE ?', createLikeStatment(params[:role]))
+    end
+
+    #user email
+    if params[:email]
+      users = users.where('lower("users"."email") LIKE ?', createLikeStatment(params[:email]))
+    end
+
+    #place
+    if params[:place]
+      users = users.where('lower("profiles"."place") LIKE ?', createLikeStatment(params[:place]))
+    end
+
+    if params[:job]
+      users = users.where('lower("profiles"."job") LIKE ?', createLikeStatment(params[:job]))
+    end
+
+    return users
   end
 
-  def self.generateCode
-    if self.profile != nil && (self.groupCode == nil || self.groupCode == '')
-      return (0...50).map { ('a'..'z').to_a[rand(26)] }.join
-    else
-      return self.groupCode
+  def self.createLikeStatment(statment)
+    if statment
+      return "%#{statment.downcase}%"
     end
   end
+
 
   def self.searchByGroupCode
     if self.groupCode != nil || self.groupCode != ''
@@ -74,5 +105,14 @@ class User < ActiveRecord::Base
 
   def profile?
     self.profile == nil
+  end
+
+  def as_json(options={})
+    super(:only => [:email, :id, :barcode],
+      :include => {
+        :profile => {:only => [:firstName, :lastName, :job, :place]},
+        :lectures => {:only => [:id, :title, :start_date]}
+      } 
+    )
   end
 end

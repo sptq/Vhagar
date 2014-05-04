@@ -28,10 +28,11 @@ Crm::Application.routes.draw do
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
+  get 'users/registrationPanel' => 'users#registrationPanel'
+  get 'users/filters' => 'users#filters'
+  
   resources :users
-  get 'users/search/:firstName/:lastName' => 'users#searchForUser'
-  get 'users/search/:phrase' => 'users#search'
-
+  
   resources :lectures
 
   get '/lectures/:id/attend' => 'lectures#attend', as: :attend_lecture
