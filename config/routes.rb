@@ -1,5 +1,9 @@
 Crm::Application.routes.draw do
 
+  resources :lecture_groups
+  match 'lecture_groups/:id/remove_lecture' => 'lecture_groups#remove_lecture', via: [:post, :get], as: :remove_lecture
+  match 'lecture_groups/:id/add_lecture'    => 'lecture_groups#add_lecture',    via: [:post, :get], as: :add_lecture
+
   resources :contents
 
   resources :rooms

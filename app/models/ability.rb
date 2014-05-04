@@ -32,6 +32,7 @@ class Ability
     cannot :read, Lecture
     cannot :read, Room
     cannot :see_profile, User
+    cannot :read, LectureGroup
   end
 
   def sponsor
@@ -42,6 +43,7 @@ class Ability
     can :read, Profile
 
     cannot :read, User
+    cannot :read, LectureGroup
   end
 
   def user
@@ -59,7 +61,7 @@ class Ability
                 lend = (l.start_date + l.duration.minutes).to_i
                 llstart = lecture.start_date.to_i
                 llend = (lecture.start_date + lecture.duration.minutes).to_i
-                break if (lstart..lend).include? llstart or (lstart..lend).include? llend
+                break if (lstart..lend).include? llstart or (lstart..lend).include? llend or lecture.lecture_group.lectures.include? l
             end
         end
     end
@@ -67,6 +69,8 @@ class Ability
     can :resign, Lecture do |lecture|
       lecture.participants.include? @user
     end
+
+    cannot :read, LectureGroup
 
     can :manage, Profile
   end
@@ -93,6 +97,8 @@ class Ability
 
     can :remove, Lecture
     can :modify, Lecture
+
+    cannot :manage, LectureGroup
 
     can :manage, Content
 

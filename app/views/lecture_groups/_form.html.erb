@@ -1,0 +1,21 @@
+<div class="ui form segment">
+
+<%= form_for @lecture_group do |f| %>
+    <%= render partial: "layouts/form_errors", locals: { errors: @lecture_group.errors } -%>
+
+      <div class="field">
+        <%= f.label :title %><br>
+        <%= f.text_field :title %>
+      </div>
+      <div class="field">
+        <%= f.label :description %><br>
+        <%= f.text_area :description %>
+      </div>
+
+    <div class="ui small buttons">
+      <%= yield :form_buttons %>
+      <%= f.submit "Zapisz", class: "ui green positive button" %>
+    </div>
+  <% end %>
+
+</div>

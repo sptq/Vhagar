@@ -1,42 +1,40 @@
-<div class="ui stacked green segment">
-	<h1 class="ui header"><%= @lecture.title -%></h1>
+<h1 class="ui header"><%= @lecture.title -%></h1>
 
-	<p class="text"><%= @lecture.description -%></p>
+<p class="text"><%= @lecture.description -%></p>
 
-	<div class="ui three column grid">
-		<div class="column">
-			<h4 class="ui header">Data rozpoczęcia</h4>
-			<%= l @lecture.start_date, format: :short -%>
-		</div>
-
-		<div class="column">
-			<h4 class="ui header">Czas trwania</h4>
-			<%= @lecture.duration -%> min
-		</div>
-
-		<div class="column">
-			<h4 class="ui header">Wolne miejsca</h4>
-			<%= [@lecture.available_places, 0].max -%>
-		</div>
+<div class="ui three column grid">
+	<div class="column">
+		<h4 class="ui header">Data rozpoczęcia</h4>
+		<%= l @lecture.start_date, format: :short -%>
 	</div>
 
-	<%- if can? :see_participants, @lecture -%>
+	<div class="column">
+		<h4 class="ui header">Czas trwania</h4>
+		<%= @lecture.duration -%> min
+	</div>
 
-		<%# if can? :manage, Users -%>
-			<div class="ui segment">
-				<%= form_tag confirm_user_participation_path do -%>
-					<%= label_tag :barcode -%>
-					<%= text_field_tag :barcode, params[:barcode], autofocus: true, placeholder: 'Podaj kod użytkownika' -%>
-					<%= submit_tag "Szukaj" -%>
-				<%- end -%>
-			</div>
-		<%# end -%>
-
-		<%- if can? :see_inactive, User -%>
-			<h2 class="ui header">Nieaktywni</h2>
-			<%= render partial: "users/list", locals: { users: @lecture.participants.inactive, show_controls: false } -%>
-		<%- end -%>
-		<h2 class="ui header">Uczestnicy</h2>
-		<%= render partial: "users/list", locals: { users: @lecture.participants.active, show_controls: false } -%>
-	<%- end -%>
+	<div class="column">
+		<h4 class="ui header">Wolne miejsca</h4>
+		<%= [@lecture.available_places, 0].max -%>
+	</div>
 </div>
+
+<%- if can? :see_participants, @lecture -%>
+
+	<%# if can? :manage, Users -%>
+		<div class="ui segment">
+			<%= form_tag confirm_user_participation_path do -%>
+				<%= label_tag :barcode -%>
+				<%= text_field_tag :barcode, params[:barcode], autofocus: true, placeholder: 'Podaj kod użytkownika' -%>
+				<%= submit_tag "Szukaj" -%>
+			<%- end -%>
+		</div>
+	<%# end -%>
+
+	<%- if can? :see_inactive, User -%>
+		<h2 class="ui header">Nieaktywni</h2>
+		<%= render partial: "users/list", locals: { users: @lecture.participants.inactive, show_controls: false } -%>
+	<%- end -%>
+	<h2 class="ui header">Uczestnicy</h2>
+	<%= render partial: "users/list", locals: { users: @lecture.participants.active, show_controls: false } -%>
+<%- end -%>

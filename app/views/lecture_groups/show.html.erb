@@ -1,0 +1,26 @@
+<%- title("Szczegóły grupy wydarzeń - #{@lecture_group.title}") -%>
+
+<div class="ui two column stackable grid">
+	<div class="column">
+		<div class="ui stacked segment">
+			<%= render "preview" -%>
+		</div>
+
+		<div class="ui stacked segment">
+			<h1 class="header">Wydarzenia w grupie</h1>
+			<%= render partial: "lectures/list", locals: { lectures: @lecture_group.lectures } -%>
+		</div>
+
+		<div class="ui small buttons">
+			<%= link_to 'Wróć', :back, class: "ui red button" if can? :read, @lecture_group %>
+			<%= link_to 'Edytuj', edit_lecture_group_path(@lecture_group), class: "ui small positive button" if can? :edit, @lecture_group %>
+		</div>
+	</div>
+
+	<div class="column">
+		<div class="ui stacked segment">
+			<h1 class="header">Dostępne wydarzenia</h1>
+			<div><%= render partial: "lectures/list", locals: { lectures: availableLectures(@lecture_group) } -%></div>
+		</div>
+	</div>
+</div>

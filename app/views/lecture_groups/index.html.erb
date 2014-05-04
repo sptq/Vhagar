@@ -1,0 +1,14 @@
+<%- title("Prelekcje, warsztaty i konkursy") -%>
+
+<%- if can? :manage, LectureGroup -%>
+  <div class="ui buttons">
+    <%- if can? :create, LectureGroup -%>
+      <%= link_to "Dodaj wydarzenie", new_lecture_group_path, class: "ui green button" -%>
+    <%- end -%>
+  </div>
+<%- end -%>
+
+<div class="ui stacked red segment">
+  <%= render partial: "list", locals: { groups: @lecture_groups } -%>
+</div>
+
