@@ -79,25 +79,25 @@ class UsersController < ApplicationController
     ##
     #
 	def registrationPanel
-		
+
 	end
 
 	def addBarcode
-		if params
+		barcode = params[:barcode]
+		if user = User.where(barcode: barcode).first
+			logger.debug user
+			redirect_to :back, alert: "#{barcode} jest już w użyciu, proszę wybrać inny"
+		else
 			user = User.find(params[:user_id])
 			user.barcode = params[:barcode]
-
-			if user.save
-				render :json => {:success => true}
-			else
-				render :json => {:success => false }
-			end
+			user.save
+			redirect_to users_path, notice: "Poprawnie przypisano kod #{barcode}"
 		end
 	end
 
 	def filters
 		@users = User.filter(params).includes(:profile)
-		render :json => @users   
+		render :json => @users
 	end
 
 	private

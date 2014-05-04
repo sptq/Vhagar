@@ -15,21 +15,17 @@
 
 		<div class="ui right floated tiny buttons">
 			<%- if can? :manage, user and user.barcode.blank? %>
-				<div class="ui orange button" onclick=<%="$('\##{user.id}').modal('show');"%> >Barcode</div>
-
-				<div class="ui modal" id="<%= "#{user.id}" -%>">
-					<div class="ui center aligned segment">
-						<div class="ui header">
-							<% if user.profile %>
-								<%= "#{user.profile.firstName} #{user.profile.lastName}" %>
-							<% end %>
-						</div>
-						<%= form_for user do |f| %>
-							<div class="field">
-								<%= f.label :barcode %>
-								<%= f.text_field :barcode, :autofocus => true %>
-							</div>
-						<% end %>
+				<div class="ui animated orange button">
+					<div class="visible content">
+						Barcode
+					</div>
+					<div class="hidden content">
+							<%= form_tag add_barcode_path do -%>
+								<div class="field">
+									<%= hidden_field_tag :user_id, user.id -%>
+									<%= text_field_tag :barcode -%>
+								</div>
+							<%- end -%>
 					</div>
 				</div>
 			<%- end %>

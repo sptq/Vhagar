@@ -29,10 +29,10 @@ Crm::Application.routes.draw do
   #   get 'products/:id' => 'catalog#view'
 
   get 'users/registrationPanel' => 'users#registrationPanel'
-  get 'users/filters' => 'users#filters'
-  get 'users/addbarcode' => 'users#addBarcode'
+  get 'users/filters'           => 'users#filters'
+  post 'users/addbarcode'       => 'users#addBarcode', as: :add_barcode
   resources :users
-  
+
   resources :lectures
 
   get '/lectures/:id/attend' => 'lectures#attend', as: :attend_lecture
