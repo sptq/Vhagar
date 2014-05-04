@@ -1,27 +1,14 @@
-<h1>Listing lecture_groups</h1>
+<%- title("Prelekcje, warsztaty i konkursy") -%>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<%- if can? :manage, LectureGroup -%>
+  <div class="ui buttons">
+    <%- if can? :create, LectureGroup -%>
+      <%= link_to "Dodaj wydarzenie", new_lecture_group_path, class: "ui green button" -%>
+    <%- end -%>
+  </div>
+<%- end -%>
 
-  <tbody>
-    <% @lecture_groups.each do |lecture_group| %>
-      <tr>
-        <td><%= lecture_group.title %></td>
-        <td><%= lecture_group.description %></td>
-        <td><%= link_to 'Show', lecture_group %></td>
-        <td><%= link_to 'Edit', edit_lecture_group_path(lecture_group) %></td>
-        <td><%= link_to 'Destroy', lecture_group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="ui stacked red segment">
+  <%= render partial: "list", locals: { groups: @lecture_groups } -%>
+</div>
 
-<br>
-
-<%= link_to 'New Lecture group', new_lecture_group_path %>

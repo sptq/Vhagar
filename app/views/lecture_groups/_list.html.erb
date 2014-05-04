@@ -1,0 +1,22 @@
+  <div class="ui relax divided selection list">
+
+    <% groups.each do |group| %>
+
+    <div class="item">
+      <%= group.title -%>
+
+      <div class="ui right floated tiny buttons">
+        <%- if can? :read, group -%>
+          <%= link_to 'Zobacz', group, class: "ui teal button" %>
+        <%- end -%>
+
+        <%- if can? :edit, group -%>
+          <%= link_to 'Edytuj', edit_lecture_group_path(group), class: "ui positive button" %>
+        <%- end -%>
+      </div>
+
+    </div>
+
+    <% end %>
+
+  </div>

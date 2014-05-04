@@ -10,6 +10,7 @@ class Lecture < ActiveRecord::Base
   def ensure_uuid; self.id ||= SecureRandom.uuid end
 
   belongs_to :room
+  belongs_to :lecture_group
   has_many :participations
   has_many :participants, :through => :participations, :source => :user
 

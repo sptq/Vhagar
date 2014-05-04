@@ -1,6 +1,8 @@
-<h1>Editing lecture_group</h1>
+<%- title("Edycja grupy wydarzeń - #{@lecture_group.title}") -%>
+
+<% content_for :form_buttons do %>
+	<%= link_to 'Anuluj', lecture_groups_path, class: "ui red button" %>
+	<%= link_to 'Zobacz', @lecture_group, class: "ui teal button" %>
+<% end %>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @lecture_group %> |
-<%= link_to 'Back', lecture_groups_path %>
