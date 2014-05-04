@@ -23,23 +23,23 @@ class ProfilesController < ApplicationController
 
 		if @profile.save
 			current_user.user_role = 'user'
-			redirect_to root_path, notice: 'Stworzyłeś porfil dla swojego konta.'
+			redirect_to root_path, notice: 'Stworzyłeś profil dla swojego konta.'
 		else
 			render action: :new
 		end
 	end
 
 	def edit
-		params[:id] = current_user.profile.id 
+		params[:id] = current_user.profile.id
 		@profile = current_user.profile
 	end
 
 	def update
 		if @profile.update(profile_params)
-			redirect_to root_path, notice: 'Zaktualizowałeś z powodzeniem porfil dla swojego konta.'
+			redirect_to root_path, notice: 'Zaktualizowałeś z powodzeniem profil dla swojego konta.'
 		else
 			render action: :edit
-		end	
+		end
 	end
 
 	private
