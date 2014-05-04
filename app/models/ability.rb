@@ -32,6 +32,7 @@ class Ability
     cannot :read, Lecture
     cannot :read, Room
     cannot :see_profile, User
+    cannot :read, LectureGroup
   end
 
   def sponsor
@@ -42,6 +43,7 @@ class Ability
     can :read, Profile
 
     cannot :read, User
+    cannot :read, LectureGroup
   end
 
   def user
@@ -68,6 +70,8 @@ class Ability
       lecture.participants.include? @user
     end
 
+    cannot :read, LectureGroup
+
     can :manage, Profile
   end
 
@@ -93,6 +97,8 @@ class Ability
 
     can :remove, Lecture
     can :modify, Lecture
+
+    cannot :manage, LectureGroup
 
     can :manage, Content
 

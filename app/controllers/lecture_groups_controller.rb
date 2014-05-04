@@ -1,10 +1,10 @@
 class LectureGroupsController < ApplicationController
-  before_action :set_lecture_group, only: [:show, :edit, :update, :destroy]
+
+  load_and_authorize_resource
 
   # GET /lecture_groups
   # GET /lecture_groups.json
   def index
-    @lecture_groups = LectureGroup.all
   end
 
   # GET /lecture_groups/1
@@ -14,7 +14,6 @@ class LectureGroupsController < ApplicationController
 
   # GET /lecture_groups/new
   def new
-    @lecture_group = LectureGroup.new
   end
 
   # GET /lecture_groups/1/edit
@@ -62,10 +61,6 @@ class LectureGroupsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_lecture_group
-      @lecture_group = LectureGroup.find(params[:id])
-    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lecture_group_params
