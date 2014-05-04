@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @lecture_group.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @lecture_group.description %>
+</p>
+
+<%= link_to 'Edit', edit_lecture_group_path(@lecture_group) %> |
+<%= link_to 'Back', lecture_groups_path %>

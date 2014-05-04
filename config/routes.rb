@@ -1,5 +1,7 @@
 Crm::Application.routes.draw do
 
+  resources :lecture_groups
+
   resources :contents
 
   resources :rooms

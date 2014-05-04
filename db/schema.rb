@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140426205955) do
+ActiveRecord::Schema.define(version: 20140504102719) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,13 @@ ActiveRecord::Schema.define(version: 20140426205955) do
     t.datetime "updated_at"
   end
 
+  create_table "lecture_groups", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "lectures", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "title"
     t.text     "description"
@@ -32,9 +39,12 @@ ActiveRecord::Schema.define(version: 20140426205955) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.uuid     "room_id"
-    t.integer  "duration",    default: 30, null: false
-    t.integer  "reserved",    default: 0,  null: false
+    t.integer  "duration",         default: 30, null: false
+    t.integer  "reserved",         default: 0,  null: false
+    t.integer  "lecture_group_id"
   end
+
+  add_index "lectures", ["lecture_group_id"], name: "index_lectures_on_lecture_group_id", using: :btree
 
   create_table "participations", force: true do |t|
     t.uuid     "user_id"
@@ -93,7 +103,7 @@ ActiveRecord::Schema.define(version: 20140426205955) do
     t.datetime "updated_at"
     t.string   "user_role",              default: "user", null: false
     t.boolean  "ztmTicket",              default: false
-    t.boolean  "isactive",               default: true
+    t.boolean  "isactive",               default: false
     t.boolean  "haveGroup",              default: false
     t.string   "groupCode",              default: ""
     t.boolean  "acceptTerms",            default: false
