@@ -1,4 +1,4 @@
-<%- title("Szczegóły grupy wudarzeń - #{@lecture_group.title}") -%>
+<%- title("Szczegóły grupy wydarzeń - #{@lecture_group.title}") -%>
 
 <div class="ui two column stackable grid">
 	<div class="column">
@@ -20,7 +20,7 @@
 	<div class="column">
 		<div class="ui stacked segment">
 			<h1 class="header">Dostępne wydarzenia</h1>
-			<div><%= render partial: "lectures/list", locals: { lectures: Lecture.all } -%></div>
+			<div><%= render partial: "lectures/list", locals: { lectures: availableLectures(@lecture_group) } -%></div>
 		</div>
 	</div>
 </div>

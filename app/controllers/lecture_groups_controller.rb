@@ -20,6 +20,25 @@ class LectureGroupsController < ApplicationController
   def edit
   end
 
+
+  def add_lecture
+    lecture_id = params[:lecture_id]
+    lecture = Lecture.where(id: lecture_id).first
+    @lecture_group.lectures.push lecture
+    lecture.lecture_group_id = @lecture_group.id
+
+    redirect_to @lecture_group, notice: "Dodano wykład '#{lecture.title}' do grupy '#{@lecture_group.title}'"
+  end
+
+  def remove_lecture
+    lecture_id = params[:lecture_id]
+    lecture = Lecture.where(id: lecture_id).first
+    @lecture_group.lectures.delete lecture
+    lecture.lecture_group_id = @lecture_group.id
+
+    redirect_to @lecture_group, notice: "Usunięto wykład '#{lecture.title}' z grupy '#{@lecture_group.title}'"
+  end
+
   # POST /lecture_groups
   # POST /lecture_groups.json
   def create

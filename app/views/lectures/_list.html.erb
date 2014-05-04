@@ -18,6 +18,26 @@
         <%- if can? :destroy, lecture -%>
           <%= link_to 'Usuń', lecture, class: "ui negative button", method: :delete, data: {confirm: "You sure?"} %>
         <%- end -%>
+
+        <%- if @lecture_group and can? :edit, LectureGroup-%>
+
+          <%- if @lecture_group.lectures.exclude? lecture -%>
+
+            <%= form_tag add_lecture_path do -%>
+              <%= hidden_field_tag :lecture_id, lecture.id -%>
+              <%= submit_tag "Dodaj do grupy", class: "ui orange button" -%>
+            <%- end -%>
+
+          <%- else -%>
+
+            <%= form_tag remove_lecture_path do -%>
+              <%= hidden_field_tag :lecture_id, lecture.id -%>
+              <%= submit_tag "Usuń grupy", class: "ui orange button" -%>
+            <%- end -%>
+
+          <%- end -%>
+
+        <%- end -%>
       </div>
 
     </div>
