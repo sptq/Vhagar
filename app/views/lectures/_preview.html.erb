@@ -13,17 +13,11 @@
 		<%= @lecture.duration -%> min
 	</div>
 
-	<div class="column">
-		<h4 class="ui header">Wolne miejsca</h4>
-		<%= [@lecture.available_places, 0].max -%>
-	</div>
-</div>
-
-	<div class="ui segment">
-		<%= form_tag confirm_user_participation_path do -%>
+	<%- if can? :manage, User -%>
+		<%= form_tag confirm_user_participation_path, class: "ui segment" do -%>
 			<%= label_tag :barcode -%>
 			<%= text_field_tag :barcode, params[:barcode], autofocus: true, placeholder: 'Podaj kod użytkownika' -%>
-			<%= submit_tag "Szukaj" -%>
+			<%= submit_tag "Potwierdź", class: "ui positive tiny button" -%>
 		<%- end -%>
 	</div>
 

@@ -119,9 +119,9 @@ class LecturesController < ApplicationController
 
   def modify_users
     if current_user.role? :admin
-      @users = User.all.to_a - @lecture.participants.to_a
+      @users = User.all.includes(:profile) - @lecture.participants
     else
-      @users = User.where(user_role: :user).to_a - @lecture.participants.to_a
+      @users = User.where(user_role: :user).includes(:profile) - @lecture.participants
     end
   end
 
