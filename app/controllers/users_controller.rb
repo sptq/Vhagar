@@ -43,6 +43,37 @@ class UsersController < ApplicationController
 	    end
 	end
 
+	def adminCreate
+		user = User.new()
+		user.email = params[:email]
+		user.password = params[:password]
+		user.password_confirmation = params[:password_confirmation]
+		user.barcode = params[:barcode]
+		user.confirmed_at = DateTime.now.to_date
+		user.isactive = true
+		user.user_role = 'user'
+
+		if user.save
+			profile = Profile.new()
+			profile.user_id = user.id
+			profile.firstName = params[:firstName]
+			profile.lastName = params[:lastName]
+			
+			if profile.save
+				@user = user
+			end
+		end
+	end
+
+	def adminDelete
+		user = User.find(params[:user_id])
+
+		if user.profile
+			user.profile.destroy
+		end
+		user.destroy
+	end
+
 	def ztmTicket
 		if User.where(ztmTicket: true).count <= 400
 			if current_user.ztmTicket
