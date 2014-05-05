@@ -47,7 +47,7 @@ class User < ActiveRecord::Base
   def self.searchByPhrase(phrase)
     if (phrase != '')
       param = { :phrase => "%#{phrase.downcase}%" }
-      self.joins(:profile).where('lower("profiles"."firstName") LIKE :phrase OR lower("profiles"."lastName") LIKE :phrase OR lower("users"."email") LIKE :phrase OR lower("profiles"."place") LIKE :phrase OR lower("profiles"."job") LIKE :phrase OR lower("profiles"."phone") LIKE :phrase', param)
+      self.joins(:profile).where('lower("profiles"."firstName") LIKE :phrase OR lower("profiles"."lastName") LIKE :phrase OR lower("users"."email") LIKE :phrase OR lower("profiles"."place") LIKE :phrase OR lower("profiles"."job") LIKE :phrase OR lower("profiles"."phone") LIKE :phrase OR lower("users"."barcode") LIKE :phrase', param)
     else
       self.all
     end

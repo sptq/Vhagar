@@ -1,35 +1,36 @@
 <%- title('Lista użytkowników') -%>
-
 <% if @users != nil %>
-
-	<div class="ui teal stacked segment">
+<div class="ui teal stacked segment">
+	<div class="ui error form segment">
 		<%= form_tag users_path, :method => 'get' do %>
-		<div class="two fields">
-		  <div class="field">
-		    <%= text_field_tag :phrase, params[:phrase] %>
-		    <%= submit_tag "Szukaj", :name => nil %>
-		  </div>
-		 <div class="field">
-		  <a class="ui green button" href="users/adminAddUser">Dodaj użytkownika</a>
-		 </div>
+		<div class="three fields">
+			<div class="field">
+				<%= text_field_tag :phrase, params[:phrase] %>
+			</div>
+			<div class="field">
+				<%= submit_tag "Szukaj", :name => nil, :class => "ui blue submit button" %>
+			</div>
+			<div class="field">
+				<a class="ui green button" href="users/adminAddUser">Dodaj użytkownika</a>
+			</div>
 		</div>
 		<% end %>
 	</div>
-	<%- if params[:phrase] != '' && params[:phrase] != nil -%>
-		<div class="ui stacked segment">
-			<%= render partial: "list", locals: { users: @users.sort_by { |u| u[:user_role] }, show_controls: true } -%>
-		</div>
-	<%- else -%>
-		<%- if can? :see_inactive, User -%>
-			<div class="ui stacked segment">
-				<%= render partial: "list", locals: { users: @users.inactive.sort_by { |u| u[:user_role] }, show_controls: true } -%>
-			</div>
-		<%- end -%>
-
-		<div class="ui stacked segment">
-			<%= render partial: "list", locals: { users: @users.active.sort_by { |u| u[:user_role] }, show_controls: true } -%>
-		</div>
-	<%- end -%>
+</div>
+<%- if params[:phrase] != '' && params[:phrase] != nil -%>
+<div class="ui stacked segment">
+	<%= render partial: "list", locals: { users: @users.sort_by { |u| u[:user_role] }, show_controls: true } -%>
+</div>
+<%- else -%>
+<%- if can? :see_inactive, User -%>
+<div class="ui stacked segment">
+	<%= render partial: "list", locals: { users: @users.inactive.sort_by { |u| u[:user_role] }, show_controls: true } -%>
+</div>
+<%- end -%>
+<div class="ui stacked segment">
+	<%= render partial: "list", locals: { users: @users.active.sort_by { |u| u[:user_role] }, show_controls: true } -%>
+</div>
+<%- end -%>
 <% else %>
-	<h4>Brak wyników wyszukiwania</h4>
+<h4>Brak wyników wyszukiwania</h4>
 <% end %>
