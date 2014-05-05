@@ -31,6 +31,12 @@
 		<h2 class="ui header">Nieaktywni</h2>
 		<%= render partial: "users/list", locals: { users: @lecture.participants.inactive, show_controls: false } -%>
 	<%- end -%>
-	<h2 class="ui header">Uczestnicy</h2>
-	<%= render partial: "users/list", locals: { users: @lecture.participants.active, show_controls: false } -%>
+
+</div>
+
+<%- if current_user.role? :sponsor -%>
+	<div class="ui stacked teal segment">
+		<h1 class="ui header">Uczestnicy</h1>
+		<%= render partial: 'users/list', locals: { users: @lecture.participants.includes(:participations, :profile), show_controls: false } -%>
+	</div>
 <%- end -%>
