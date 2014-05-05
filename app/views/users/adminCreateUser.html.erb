@@ -1,0 +1,7 @@
+<%= render partial: "layouts/form_errors", locals: { errors: @user.errors } -%>
+
+<% if @user %>
+	<%= @user.email %>
+	<%= @user.profile.firstName %>
+	<%= @user.profile.lastName %>
+<% end %>

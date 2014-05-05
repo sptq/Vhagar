@@ -32,6 +32,14 @@ function ready() {
     $(".sendBarcode").submit(function(e) {
         return false;
     });
+
+    $('#adminAddNewUserForm').find('input').keypress(function(e) {
+        if (e.which == 13) // Enter key = keycode 13
+        {
+            $(this).next().focus(); //Use whatever selector necessary to focus the 'next' input
+            return false;
+        }
+    });
 }
 
 /**

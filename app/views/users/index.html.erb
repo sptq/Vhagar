@@ -4,10 +4,15 @@
 
 	<div class="ui teal stacked segment">
 		<%= form_tag users_path, :method => 'get' do %>
-		  <p>
+		<div class="two fields">
+		  <div class="field">
 		    <%= text_field_tag :phrase, params[:phrase] %>
 		    <%= submit_tag "Szukaj", :name => nil %>
-		  </p>
+		  </div>
+		 <div class="field">
+		  <a class="ui green button" href="users/adminAddUser">Dodaj użytkownika</a>
+		 </div>
+		</div>
 		<% end %>
 	</div>
 	<%- if params[:phrase] != '' && params[:phrase] != nil -%>

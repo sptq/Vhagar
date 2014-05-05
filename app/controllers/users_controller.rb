@@ -43,25 +43,42 @@ class UsersController < ApplicationController
 	    end
 	end
 
-	def adminCreate
-		user = User.new()
-		user.email = params[:email]
-		user.password = params[:password]
-		user.password_confirmation = params[:password_confirmation]
-		user.barcode = params[:barcode]
-		user.confirmed_at = DateTime.now.to_date
-		user.isactive = true
-		user.user_role = 'user'
+	def adminAddUser
+	end
 
-		if user.save
-			profile = Profile.new()
-			profile.user_id = user.id
-			profile.firstName = params[:firstName]
-			profile.lastName = params[:lastName]
-			
-			if profile.save
-				@user = user
+	def adminCreateUser
+		@user = User.new()
+
+		@user.email = "#{SecureRandom.uuid}@ldi.org.pl"
+		
+		#set random password for user
+		password = SecureRandom.uuid
+		@user.password = password
+		@user.password_confirmation = password
+		@user.confirmed_at = DateTime.now.to_date
+		@user.isactive = true
+		@user.acceptTerms = true
+		@user.user_role = 'user'
+
+		#add barcode 
+		@user.barcode = params[:barcode]
+
+		if @user.save
+			@profile = Profile.new()
+			@profile.user = @user
+			@profile.firstName = params[:firstName]
+			@profile.lastName = params[:lastName]
+			@profile.place = "#{SecureRandom.uuid}"
+			@profile.job = "#{SecureRandom.uuid}"
+		
+
+			if @profile.save
+				redirect_to users_path, notice: 'Użytkownik został poprawnie dodany'
+			else
+				redirect_to :back, alert: "#{@profile.errors.inspect}"
 			end
+		else
+			redirect_to :back, alert: "#{@user.errors.inspect}"
 		end
 	end
 

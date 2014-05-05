@@ -1,0 +1,24 @@
+<%- title('Dodaj użytkownika') -%>
+<%= form_tag('adminCreateUser', method: "post", :id => "adminAddNewUserForm") do %>
+<div class="ui teal stacked segment">
+	<div class="ui error form segment">
+		<div class="two fields">
+			<div class="field">
+				<label>Imię</label>
+				<input placeholder="Imię" type="text" name="firstName">
+			</div>
+			<div class="field">
+				<label>Nazwisko</label>
+				<input placeholder="Nazwisko" type="text" name="lastName">
+			</div>
+		</div>
+		
+		<div class="field">
+			<label>Barcode</label>
+			<input placeholder="9132038..." type="text" name="barcode">
+		</div>
+		
+		<%= submit_tag "Załóż konto!", class: "ui blue submit button" %>
+	</div>
+	<% end %>
+</div>

@@ -30,7 +30,11 @@ Crm::Application.routes.draw do
 
   get 'users/registrationPanel' => 'users#registrationPanel'
   get 'users/filters'           => 'users#filters'
+  get 'users/adminAddUser'      => 'users#adminAddUser'
+  post 'users/adminCreateUser'  => 'users#adminCreateUser'
   post 'users/addbarcode'       => 'users#addBarcode', as: :add_barcode
+  
+
   resources :users
 
   resources :lectures
