@@ -20,12 +20,7 @@
 			<%= submit_tag "Potwierdź", class: "ui positive tiny button" -%>
 		<%- end -%>
 	</div>
-
-	<%- if false -%>
-
-		<%# if can? :manage, Users -%>
-		<%# end -%>
-
+	<%- end -%>
 
 	<%- if can? :see_inactive, User -%>
 		<h2 class="ui header">Nieaktywni</h2>
@@ -39,4 +34,4 @@
 		<h1 class="ui header">Uczestnicy</h1>
 		<%= render partial: 'users/list', locals: { users: @lecture.participants.includes(:participations, :profile), show_controls: false } -%>
 	</div>
-<%- end -%>
+<%- end -%> 
