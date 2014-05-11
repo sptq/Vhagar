@@ -60,6 +60,20 @@
 		</div>
 	</div>
 
+	<div class="field">
+		<div class="ui checkbox">
+			<%= f.check_box :acceptMarketingTerms %>
+			<%= label_tag :acceptMarketingTerms, "Chcę być informowany o innych wydarzeniach tego typu" -%>
+		</div>
+	</div>	
+
+	<div class="field">
+		<div class="ui checkbox">
+			<%= f.check_box :acceptTerms %>
+			<%= label_tag :acceptTerms, "Akceptuje regulamin konferencji Check IT 2014" -%>
+		</div>
+	</div>
+
 	<div class="ui small buttons">
 		<%= link_to "Wróć", :back, class: "ui teal button"%>
 		<%= f.submit "Aktualizuj", class: "ui green submit button" %>

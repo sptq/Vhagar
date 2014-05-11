@@ -1,36 +1,64 @@
-<%- title("Zdobądź darmowy przejazd ZTM") -%>
+<%- title("Panel uczestnika Check IT 2014") -%>
 
-<div class="ui two column grid">
+<%= render 'contents/header_content' %>
+
+<div class="ui piled feed segment">
+  <h2 class="ui header">
+    Witaj w panelu uczestnika!
+  </h2>
+  	Witaj w panelu uczestnika. W tym miejscu możesz wypełnić swój profil, zapisać się na zajęcia praktyczne oraz konkursy. Dodatkowo informacje, które podasz w swoim profilu zostaną użyte do stworzenia identyfikatora uczestnika.
+</div>
+
+<div class="ui three column stackable grid">
 	<div class="column">
-		<div class="ui piled segment myprofileSegment">
-		<h2 class="ui header"></h2>
-
-			<i class="circular ticket huge icon"></i>
-
-			<h3> Zostało jeszcze <%= @tickets %> darmowych przejazdów </h3>
-			<% if @tickets > 0 %>
-				<% if !current_user.ztmTicket %>
-		    		<%= link_to "Zdobądź darmowy przejazd ZTM", panel_ztm_get_path, class: "ui green button" -%>
-		      	<% else %>
-		      		<a class="ui green button disabled">Posiadasz już darmowy przejazd ZTM</a>
-		      		<%= link_to "Zrezygnuj z darmowego przejazdu ZTM", panel_ztm_leaft_path, class: "ui red button" -%>
-		      	<% end %>
-		     <% end %>
-		</div>
+	    <div class="ui segment myprofileSegment">
+	      	<i class="circular user huge icon"></i>
+	    	<br />
+	    	<br />
+	      		Stworzenie profilu to pierwszy krok na drodze do uzyskania statusu uczestnika konferencji. Jest on niezbędny do stworzenia identyfikatora
+      		<br />
+      		<br /><br />
+	      	<% if current_user.profile %>
+	      		<%= link_to 'Zobacz swój profil', profiles_path, class: "ui green button" %>
+	      	<% else %>
+	      		<%= link_to 'Stwórz profil', new_profile_path, class: "ui green button" %>
+	      	<% end %>
+	    </div>
 	</div>
 
 	<div class="column">
-		<div class="ui piled segment">
-		<h2 class="ui header">Jak to działa?</h2>
-		<p>
-			400 Uczestnikom Konferencji przysługują uprawnienia do nieodpłatnych przejazdów komunikacją miejską w dniu wydarzenia. Aby uzyskać darmowy przejazd, należy wyrazić chęć jego uzyskania podczas rejestracji.
-		</p>
-		<p>
-			Uprawnienia do darmowego przejazdu można odebrać na dzień przed Konferencją w sali 709a w budynku Wydziału Matematyki, Informatyki i Architektury Krajobrazu przy ulicy Konstantynów 1 H w godzinach 9:00 - 16:00 lub w dzień Konferencji przy puncie Rejestracji.
-		</p>
-		<p>
-			W razie jakichkolwiek pytań prosimy pisać na adres e-mail help@ldi.org.pl
-		</p>
-		</div>
+	    <div class="ui segment myprofileSegment">
+	    	<i class="circular browser huge icon"></i>
+	    	<br />
+	    	<br />
+	      		Aby wziąć udział w warsztatach musisz się na nie zapisać. Liczba miejsc jest ograniczona dlatego obowiązuje zasada pierwszeństwa.
+      		<br />
+      		<br />
+	      	<% if current_user.profile %>
+	      		<%= link_to "Zapisz się na wykłady", lectures_path, class: "ui green button" -%>
+	      	<% else %>
+	      		<a class="ui green button disabled withPopup">Zapisz się na wykłady</a>
+	      	<% end %>
+	    </div>
+	</div>
+
+	<div class="column">
+	    <div class="ui segment myprofileSegment">
+	    	<i class="circular ticket huge icon"></i>
+	    	<br />
+	    	<br />
+	      		Dla pierwszych 400 uczesników mamy bezpłatne przejazdy pojazdami komunikacji miejskiej w dniu konferencji. Zapoznaj się z instrukcją darmowego biletu MPK.
+      		<br />
+      		<br />
+	    	<br />
+	    	<% if current_user.profile %>
+	    		<%= link_to "Zdobądź darmowy przejazd ZTM", panel_ztm_path, class: "ui green button" -%>
+	      	<% else %>
+	      		<a class="ui green button disabled withPopup">Zgarnij darmowy przejazd MPK</a>
+	      	<% end %>
+	    </div>
 	</div>
 </div>
+<br />
+<br />
+<br />

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>LDI - <%= yield(:title) || "Panel uczestników" %></title>
+	<title>Check IT - <%= yield(:title) || "Panel uczestników" %></title>
 	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
 	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 	<%= csrf_meta_tags %>
@@ -10,38 +10,16 @@
 
 <body>
 
+	<%= render 'layouts/notifications' %>
 	<%= render 'layouts/toolbar' %>
+
 
 	<div class="ui page grid container">
 		<div class="column">
-			<h1 class="ui center aligned inverted teal block header"><%= yield(:title) -%></h1>
-			<%= render 'layouts/notifications' %>
+			<h1 class="ui center aligned inverted lwit block header"><%= yield(:title) -%></h1>
 			<%= yield %>
 		</div>
 	</div>
 	<%= render 'layouts/footer' %>
-
-<!-- Piwik -->
-<script type="text/javascript">
-  var _paq = _paq || [];
-  _paq.push(["setCookieDomain", "*.panel.ldi.org.pl"]);
-  _paq.push(["setDomains", ["*.panel.ldi.org.pl"]]);
-  _paq.push(["trackPageView"]);
-  _paq.push(["enableLinkTracking"]);
-
-  (function() {
-    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://piwik.ldi.org.pl/";
-    _paq.push(["setTrackerUrl", u+"piwik.php"]);
-    _paq.push(["setSiteId", "2"]);
-    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
-    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-<!-- End Piwik Code -->
-
-<!-- Piwik Image Tracker -->
-<img src="http://piwik.hslbn.pl/piwik.php?idsite=2&amp;rec=1" style="border:0" alt="" />
-<!-- End Piwik -->
 </body>
 </html>
-

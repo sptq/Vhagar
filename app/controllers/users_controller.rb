@@ -49,7 +49,7 @@ class UsersController < ApplicationController
 	def adminCreateUser
 		@user = User.new()
 
-		@user.email = "#{SecureRandom.uuid}@ldi.org.pl"
+		@user.email = "#{SecureRandom.uuid}@checkit.org.pl"
 		
 		#set random password for user
 		password = SecureRandom.uuid
