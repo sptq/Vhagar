@@ -13,25 +13,28 @@
 		<%= @lecture.duration -%> min
 	</div>
 
-	<%- if can? :manage, User -%>
-		<%= form_tag confirm_user_participation_path, class: "ui segment" do -%>
-			<%= label_tag :barcode -%>
-			<%= text_field_tag :barcode, params[:barcode], autofocus: true, placeholder: 'Podaj kod użytkownika' -%>
-			<%= submit_tag "Potwierdź", class: "ui positive tiny button" -%>
-		<%- end -%>
+	<div class="column">
+		<h4 class="ui header">Wolne miejsca</h4>
+		<%= [@lecture.available_places, 0].max -%>
 	</div>
-	<%- end -%>
+</div>
+
+<%- if can? :see_participants, @lecture -%>
+
+	<%# if can? :manage, Users -%>
+		<div class="ui segment">
+			<%= form_tag confirm_user_participation_path do -%>
+				<%= label_tag :barcode -%>
+				<%= text_field_tag :barcode, params[:barcode], autofocus: true, placeholder: 'Podaj kod użytkownika' -%>
+				<%= submit_tag "Szukaj" -%>
+			<%- end -%>
+		</div>
+	<%# end -%>
 
 	<%- if can? :see_inactive, User -%>
 		<h2 class="ui header">Nieaktywni</h2>
 		<%= render partial: "users/list", locals: { users: @lecture.participants.inactive, show_controls: false } -%>
 	<%- end -%>
-
-</div>
-
-<%- if current_user.role? :sponsor -%>
-	<div class="ui stacked teal segment">
-		<h1 class="ui header">Uczestnicy</h1>
-		<%= render partial: 'users/list', locals: { users: @lecture.participants.includes(:participations, :profile), show_controls: false } -%>
-	</div>
-<%- end -%> 
+	<h2 class="ui header">Uczestnicy</h2>
+	<%= render partial: "users/list", locals: { users: @lecture.participants.active, show_controls: false } -%>
+<%- end -%>

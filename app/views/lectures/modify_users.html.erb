@@ -3,12 +3,6 @@
 <div class="ui two column stackable grid">
 	<div class="column">
 		<%= render "preview" %>
-
-		<div class="ui stacked orange segment">
-			<%- if can? :see_participants, @lecture -%>
-				<%= render partial: 'users/list', locals: { users: @lecture.participants.includes(:participations, :profile), show_controls: true } -%>
-			<%- end -%>
-		</div>
 	</div>
 	<div class="column">
 		<div class="ui stacked red segment">
